@@ -515,9 +515,50 @@
 }
 
 @media (max-width: 767px) {
-    .modules-grid, .persona-grid-top, .persona-grid-bottom { grid-template-columns: 1fr; }
+    /* --- YOUR EXISTING UNTOUCHED DESIGN --- */
+    .modules-grid, .persona-grid-top, .persona-grid-bottom { 
+        grid-template-columns: 1fr; 
+        gap: 25px; 
+    }
     .modules-title-area h2, .persona-header h2 { font-size: 2.2rem; }
     .module-card, .persona-card { padding: 25px; }
+
+  
+
+    .data-ai-card .card-content {
+        position: relative !important; 
+        z-index: 2 !important;
+    }
+
+    .data-ai-card {
+        padding: 40px 25px !important; /* 40px guarantees a healthy top/bottom gap */
+        width: 100% !important;
+        height: auto !important;           
+        min-height: min-content !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+    }
+
+    /* 2. Fix the Icon Spacing specifically */
+    .data-ai-card .card-icon {
+        position: relative !important; 
+        display: inline-block !important; /* Ensures margins work properly */
+        margin-top: 20px !important;      /* THE FIX: Explicitly pushes the icon down */
+        margin-bottom: 5px !important;   /* Space between icon and the 'Heads of Data' title */
+    }
+
+    /* THE BALANCE FIX: Stop the bottom text from pushing the floor down */
+    .data-ai-card .card-desc {
+        margin-bottom: 0 !important; 
+    }
+
+    /* Shrinks the background watermark so it fits on a phone */
+    .data-ai-card .watermark-image-bg {
+        width: 140px !important;
+        height: 140px !important;
+        bottom: -10px !important;
+        right: -10px !important;
+    }
 }
 /* ================= THE EXACT CARD DESIGN ================= */
 .data-ai-card {
@@ -559,6 +600,7 @@
     z-index: 0;
     pointer-events: none;
 }
+
 
 /* --- Content Layering --- */
 .card-content {
@@ -603,6 +645,7 @@
     line-height: 1.6;
     margin: 0;
 }
+
 
 /* ================= ARCHITECT SECTION ================= */
 .architect-section {

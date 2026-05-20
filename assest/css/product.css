@@ -716,6 +716,77 @@
     line-height: 1.5;
 }
 
+@media screen and (max-width: 768px) {
+    /* 1. Prevent any horizontal scrolling from absolute elements */
+    .data-control-section {
+        padding: 1rem 1rem !important;
+        overflow: hidden !important; 
+    }
+
+    /* 2. Stack the layout vertically */
+    .data-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3rem !important;
+        text-align: center !important; /* Centers the left-side content */
+    }
+
+    /* 3. Typography scaling for mobile */
+    .data-content h2 {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .data-description {
+        font-size: 0.95rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* 4. Align features properly within the centered container */
+    .feature-list {
+        text-align: left !important; /* Keeps the actual list readable */
+        margin: 0 auto 2.5rem auto !important;
+        width: 100% !important;
+        max-width: 400px !important;
+    }
+
+    .data-visuals {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        position: relative !important;
+        width: 100% !important;
+        /* CRITICAL: This creates an unbreakable gap before "Core Capabilities" */
+        padding-bottom: 4rem !important; 
+    }
+
+    /* 2. The Image: Keep it centered and contained */
+    .security-img {
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    /* 3. The Floating Card: Standard relative positioning with a negative top margin */
+    .privacy-float-card {
+        position: relative !important; /* Prevents it from flying off-screen */
+        bottom: auto !important;
+        right: auto !important;
+        
+        /* Pulls it up exactly 50px over the image, centers horizontally */
+        margin: 15px auto 0 auto !important; 
+        
+        width: 85% !important; 
+        max-width: 320px !important;
+        z-index: 10 !important;
+        
+        /* Ensures the text inside stays neat */
+        box-sizing: border-box !important;
+        text-align: left !important;
+    }
+   
+}
 /* ================= RESPONSIVE DESIGN ================= */
 @media screen and (max-width: 1024px) {
     .cta-container { padding: 2.5rem; flex-direction: column; text-align: center; }

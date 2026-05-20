@@ -1,0 +1,1934 @@
+/* ================= HERO SECTION STYLES ================= */
+
+.hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.clariti-hero-section {
+    position: relative;
+    padding: 0px 0 0 0; /* No bottom padding so the images sit flush if needed */
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* --- Left Column (Text) --- */
+.hero-text-col {
+    flex: 1;
+    max-width: 620px;
+    position: relative;
+    padding-bottom: 60px;
+    z-index: 5;
+}
+
+.text-bg-sparkle {
+    position: absolute;
+    top: 40%;
+    left: -5%;
+    font-size: 60px;
+    color: #E0F2FE;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.vision-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #5A92F9, #3B82F6);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.badge-icon {
+    font-size: 14px;
+}
+
+.main-heading {
+    font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+    color: #0F172A;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    letter-spacing: -1.5px;
+}
+
+.text-blue {
+    color: #0066FF; /* Match the exact blue from the design */
+}
+
+.hero-subtext {
+    font-size: 1.15rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 95%;
+}
+
+/* Gradient CTA Button */
+.btn-explore {
+    display: inline-block;
+    background: linear-gradient(90deg, #06B6D4 0%, #3B82F6 100%);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-explore:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
+}
+
+/* --- Right Column (Visuals & Proper Layering) --- */
+.hero-visual-col {
+    flex: 1.1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 600px; /* Gives the woman image vertical room */
+}
+
+.visual-composition {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Anchors images to the bottom */
+}
+
+/* The Intense Glow Behind the Images */
+.visual-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, transparent 70%);
+    filter: blur(50px);
+    z-index: 0;
+    opacity: 0;
+    animation: fadeInGlow 1.5s ease-out forwards 0.5s;
+}
+
+/* LAYER 1: The Blue Bars */
+.layer-bars {
+    position: absolute;
+    right: -5%; /* Shifts it slightly right like the design */
+    bottom: 0;
+    width: auto;
+    height: 90%; /* Leaves a little space at top */
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 1; /* Stays behind the woman */
+    opacity: 0;
+    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+}
+
+/* LAYER 2: The Woman */
+.layer-woman {
+    position: relative;
+     bottom: 13px;
+    height: 100%;
+    max-height: 550px;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom center;
+    z-index: 2; /* Sits in front of the bars */
+    opacity: 0;
+    animation: fadeInImage 1s ease-out forwards 0.6s;
+}
+
+/* --- Animation Keyframes --- */
+.reveal-fade {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.reveal-fade.active {
+    animation: slideUpFade 0.8s ease-out forwards;
+}
+.delay-1 { animation-delay: 0.8s; }
+.delay-2 { animation-delay: 1s; }
+
+/* Word-by-Word Wave Animation */
+.wave-heading { display: block; }
+.w-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px) rotate(2deg);
+    margin-right: 0.18em;
+}
+.wave-heading.active .w-word {
+    animation: waveReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes waveReveal {
+    to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+@keyframes slideUpFade {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInImage {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInGlow {
+    to { opacity: 1; }
+}
+
+/* --- Mobile Responsive Rules --- */
+@media (max-width: 1024px) {
+    .hero-wrapper { flex-direction: column; text-align: center; gap: 40px; }
+    .hero-text-col { max-width: 800px; padding-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
+    .hero-subtext { margin: 0 auto 40px auto; }
+    .text-bg-sparkle { left: 10%; }
+    
+    .hero-visual-col { width: 100%; min-height: 450px; }
+    .layer-bars { right: 50%; transform: translateX(50%); height: 95%; }
+}
+
+@media (max-width: 768px) {
+    .clariti-hero-section { padding-top: 60px; }
+    .main-heading { font-size: 2.5rem; letter-spacing: -1px; }
+    .hero-subtext { font-size: 1rem; }
+    .hero-visual-col { min-height: 380px; }
+}
+
+/* ================= ABOUT OUR COMPANY STYLES ================= */
+
+.about-company-section {
+    padding: 80px 0; /* Increased vertical padding for better breathing room */
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    display: flex; /* Added flex to help center content vertically if needed */
+    justify-content: center;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 1250px; /* Standardized width */
+    margin: 0 auto; /* This handles the horizontal centering */
+    padding: 0 30px; /* Balanced side padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the header area items */
+}
+/* --- Header Area --- */
+
+.about-header h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.header-line {
+    width: 60px;
+    height: 4px;
+    background-color: #1D4ED8;
+    margin: 0 auto 15px auto;
+    border-radius: 2px;
+}
+
+.about-header .subtitle {
+    font-size: 1.3rem;
+    color: #64748B;
+    font-weight: 600;
+}
+
+/* --- 3-Column Layout --- */
+.about-header {
+    text-align: center;
+    margin-bottom: 60px; /* More space before the grid starts */
+    max-width: 800px; /* Keeps header text from getting too wide */
+}
+
+
+
+
+
+
+.card-bg-circle {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.blue-stat-card p {
+    position: relative;
+    z-index: 2;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* SVG Circular Progress */
+.progress-wrapper {
+    width: 110px;
+    margin: 0 auto 20px auto;
+    position: relative;
+    z-index: 2;
+}
+
+.circular-chart {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 2.5;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke: #ffffff;
+    stroke-dasharray: 0, 100; /* Starts at 0 */
+    transition: stroke-dasharray 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blue-stat-card.animate-circle .circle {
+    stroke-dasharray: 95, 100; /* Fills to 95% when animated */
+}
+
+.percentage {
+    fill: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    text-anchor: middle;
+}
+
+/* Dark Image Card */
+.img-fluid {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.rounded-img {
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.about-grid {
+    display: grid;
+    /* Ratio: Left visuals (1fr), Center text (2fr), Right image (1.3fr) */
+    grid-template-columns: 1fr 2fr 1.3fr; 
+    gap: 60px;
+    align-items: flex-start; /* Keeps everything starting at the same top line */
+    width: 100%;
+}
+
+/* --- Left Column Placement Fix --- */
+.about-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Tighter gap between the two left cards */
+    width: 100%;
+    /* This ensures the cards start exactly where the heading text begins */
+    padding-top: 10px; 
+}
+
+/* --- Center Column (Text Content) --- */
+
+
+
+.text-blue { color: #1D4ED8; }
+
+.about-col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.story-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1; /* Tighter line height for the heading */
+    margin-bottom: 25px;
+    margin-top: 0; /* Ensures it hits the top baseline */
+}
+
+.story-text {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.highlight-quote {
+    border-left: 4px solid #1D4ED8;
+    padding: 5px 0 5px 20px;
+    margin: 25px 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0F172A;
+    line-height: 1.5;
+}
+
+.about-col-right {
+    position: relative;
+    width: 100%;
+    /* Flex ensure the image doesn't stretch weirdly with the new grid ratio */
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.image-with-badge {
+    position: relative;
+    width: 100%;
+}
+
+.blue-stat-card {
+    background: #0047D4;
+    border-radius: 24px;
+    padding: 35px 20px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 71, 212, 0.2);
+    width: 100%;
+    max-width: 260px; /* Prevents the card from stretching too wide */
+}
+
+/* Dark Chart Image - Placement Fix */
+.dark-chart-card {
+    width: 100%;
+    max-width: 260px;
+}
+
+.dark-chart-card img {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-top: 10%;
+}
+.main-photo {
+    width: 100%;
+    height: auto;
+    /* Fixed min-height ensures it still ends in a line with the expanded text */
+    min-height: 520px; 
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.floating-badge {
+    position: absolute;
+    bottom: 10px; 
+    right: -15px; /* Pulls it slightly back in for symmetry */
+    background: #ffffff;
+    border-radius: 50px;
+    padding: 12px 25px 12px 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    z-index: 5;
+    white-space: nowrap;
+}
+
+/* --- Responsive Balance Fixes --- */
+@media (max-width: 1100px) {
+    .about-grid { 
+        grid-template-columns: 1fr 1.2fr; /* Drops to 2 even columns */
+        gap: 40px;
+    }
+    .about-col-center { 
+        grid-column: 1 / -1; 
+        text-align: center; 
+        max-width: 900px;
+        margin-bottom: 20px;
+    }
+    .highlight-quote { 
+        text-align: center; 
+        border-left: none; 
+        border-top: 3px solid #1D4ED8; 
+        padding-top: 20px;
+        padding-left: 0;
+    }
+}
+
+.badge-icon-circle {
+    width: 45px;
+    height: 45px;
+    background: #1D4ED8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.badge-icon-circle svg { width: 22px; height: 22px; }
+
+.badge-text-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.badge-lbl {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #64748B;
+}
+
+/* --- Animations --- */
+.reveal-fade {
+    opacity: 0;
+    transform: translateY(30px);
+}
+.reveal-fade.active {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Rules --- */
+@media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr 1fr; }
+    .about-col-left { grid-column: 1 / 2; grid-row: 2; flex-direction: row; }
+    .about-col-center { grid-column: 1 / -1; grid-row: 1; text-align: center; padding: 0;}
+    .highlight-quote { text-align: left; }
+    .about-col-right { grid-column: 2 / 3; grid-row: 2; }
+    .floating-badge { right: 0; }
+}
+
+@media (max-width: 768px) {
+    .about-company-section { padding: 60px 0; }
+    .about-header h2 { font-size: 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-col-left { flex-direction: column; grid-column: 1; grid-row: 3; }
+    .about-col-center { grid-column: 1; grid-row: 1; text-align: left; }
+    .about-col-right { grid-column: 1; grid-row: 2; padding-right: 0;}
+    .floating-badge { right: 10px; bottom: -10px; }
+}
+
+
+/* ================= DRIVING FORCE STYLES ================= */
+
+.driving-force-section {
+    position: relative;
+    padding: 30px 0 100px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.df-container {
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    z-index: 2; /* Sits above the background wave */
+}
+
+/* --- Background Wave --- */
+.bg-wave-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-wave-wrapper svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Header --- */
+.df-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.df-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.df-line {
+    width: 70px;
+    height: 4px;
+    background-color: #0052CC; /* Primary Blue */
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* --- Overlapping Circles Layout --- */
+.circles-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Base Circle Styles */
+.df-circle {
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.df-circle:hover {
+    transform: translateY(-10px);
+}
+
+
+/* Side Circles (Mission / Values) */
+.side-circle {
+    width: 380px;
+    height: 380px;
+    background-color: #F8FAFC; /* Very light gray/blue tint */
+    color: #475569;
+    z-index: 1;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+}
+
+.side-circle h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+
+
+/* Center Circle (Vision) */
+.center-circle {
+    width: 500px;
+    height: 500px;
+    background-color: #0047D4; /* Deep vibrant blue */
+    color: #ffffff;
+    z-index: 2; /* Sits on top of the side circles */
+    /* Negative horizontal margins to create the overlap effect */
+    margin: 0 -60px; 
+    box-shadow: 0 30px 60px rgba(0, 71, 212, 0.35);
+}
+
+.center-circle h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* --- Text Wrapper --- */
+.circle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Reduced from 75% to 65% to pull text away from the curved edges */
+    width: 65%; 
+    margin: 0 auto;
+}
+
+/* --- Side Circles (Mission / Values) --- */
+.side-circle p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 10px; /* Added horizontal padding for extra safety */
+    text-align: center;
+}
+
+/* --- Center Circle (Vision) --- */
+.center-circle p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #E0F2FE; 
+    margin: 0;
+    padding: 0 15px; /* Slightly more padding since this circle is larger */
+    text-align: center;
+}
+
+/* --- Optional: Mobile Adjustment --- */
+/* On very small screens, you might need to let it be a bit wider again so words don't break awkwardly */
+@media (max-width: 480px) {
+    .circle-content { 
+        width: 80%; 
+    }
+}
+
+/* --- Icons --- */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.icon-box svg {
+    width: 26px;
+    height: 26px;
+}
+
+.icon-box.blue-bg {
+    background-color: #2563EB;
+    color: #ffffff;
+}
+
+.icon-box.white-bg {
+    background-color: #ffffff;
+    color: #0047D4;
+}
+
+/* --- Animations --- */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+}
+.reveal-scale.active {
+    animation: scaleUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+
+@keyframes scaleUpFade {
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Small Desktop / Large Tablets */
+@media (max-width: 1200px) {
+    .side-circle { width: 320px; height: 320px; }
+    .center-circle { width: 420px; height: 420px; margin: 0 -40px; }
+    .side-circle h3 { font-size: 1.4rem; }
+    .center-circle h3 { font-size: 1.8rem; }
+    .circle-content { width: 85%; }
+}
+
+/* Tablets and Mobile (Stack vertically) */
+@media (max-width: 900px) {
+    .driving-force-section { padding: 80px 0; }
+    
+    .circles-wrapper {
+        flex-direction: column;
+        gap: 30px; /* Space between vertically stacked circles */
+    }
+    
+    /* Reset margins and adjust sizes so they don't break the viewport */
+    .center-circle { margin: 0; width: 380px; height: 380px; }
+    .side-circle { width: 350px; height: 350px; }
+    
+    .bg-wave-wrapper { display: none; /* Hide wave on mobile for cleaner look */ }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+    .center-circle { width: 300px; height: 300px; }
+    .side-circle { width: 300px; height: 300px; }
+    
+    .circle-content { width: 90%; }
+    .side-circle h3, .center-circle h3 { font-size: 1.4rem; margin-bottom: 10px; }
+    .side-circle p, .center-circle p { font-size: 0.85rem; }
+    .icon-box { width: 50px; height: 50px; margin-bottom: 15px; }
+    .icon-box svg { width: 20px; height: 20px; }
+}
+
+
+/* ================= WORK PROCESS STYLES ================= */
+
+.work-process-section {
+    position: relative;
+    padding: 120px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.wp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Backgrounds */
+.wp-bg-rings {
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.wp-center-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Header */
+.wp-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.wp-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.wp-header .text-blue { color: #1D4ED8; }
+
+.wp-header p {
+    font-size: 1.15rem;
+    color: #4B5563;
+    font-weight: 600;
+}
+
+/* --- Timeline Layout --- */
+.timeline-wrapper {
+    position: relative;
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* The Vertical Lines */
+.timeline-line-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: #E2E8F0;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-line-progress {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(180deg, #3B82F6, #1D4ED8);
+    transform: translateX(-50%);
+    z-index: 2;
+    height: 0%;
+    transition: height 0.1s linear;
+    border-radius: 4px;
+}
+
+/* --- Timeline Items --- */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    margin-bottom: 120px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 80px;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 80px;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* --- Centered Markers --- */
+.timeline-marker {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Shift markers to align center of dot with the line */
+.timeline-item.left .timeline-marker { right: -20px; }
+.timeline-item.right .timeline-marker { left: -20px; }
+
+.timeline-dot {
+    width: 40px; /* Increased size to fit text */
+    height: 40px; /* Increased size to fit text */
+    background: #1D4ED8;
+    border: 4px solid #ffffff; /* Slightly thinner border for text room */
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(29, 78, 216, 0.3);
+    position: relative;
+    z-index: 2;
+    
+    /* Flexbox to center the number perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 800;
+    
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+/* --- Text Content --- */
+.timeline-content {
+    opacity: 0;
+    max-width: 400px;
+}
+
+.timeline-item.left .timeline-content {
+    transform: translateX(-30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.right .timeline-content {
+    transform: translateX(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-content h3 {
+    font-size: 1.6rem;
+    color: #111827;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* --- THE FLOATING IMAGES --- */
+.timeline-img {
+    position: absolute;
+    width: 320px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    /* box-shadow: 0 25px 50px rgba(0,0,0,0.1); */
+    opacity: 0;
+    filter: blur(10px);
+    top: 50%;
+    z-index: 1;
+}
+
+.timeline-item.left .timeline-img {
+    left: calc(100% + 80px);
+    transform: translateY(-50%) scale(0.9) translateX(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.timeline-item.right .timeline-img {
+    right: calc(100% + 80px);
+    transform: translateY(-50%) scale(0.9) translateX(-30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+/* --- Active State (Triggered on Scroll) --- */
+.timeline-item.active .timeline-content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item.active .timeline-img {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-50%) scale(1) translateX(0);
+}
+
+.timeline-item.active .timeline-dot {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+    background: #0ea5e9; /* Shifts to a slightly lighter cyan when active */
+}
+
+/* --- General Reveal --- */
+.reveal-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Mobile Responsive Rules --- */
+@media (max-width: 900px) {
+    .timeline-img { width: 250px; height: 180px; }
+    .timeline-item.left .timeline-img { left: calc(100% + 40px); }
+    .timeline-item.right .timeline-img { right: calc(100% + 40px); }
+    .timeline-item.left { padding-right: 40px; }
+    .timeline-item.right { padding-left: 40px; }
+}
+
+@media (max-width: 768px) {
+    .work-process-section { padding: 80px 0; }
+    .wp-header h2 { font-size: 2rem; }
+    
+    .timeline-line-bg, .timeline-line-progress {
+        left: 20px;
+        transform: none;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        margin-bottom: 80px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-item.left, .timeline-item.right {
+        padding-left: 60px;
+        padding-right: 0;
+        text-align: left;
+    }
+    
+    /* Center the dot exactly over the 20px line */
+    .timeline-item.left .timeline-marker, .timeline-item.right .timeline-marker {
+        left: 0px; 
+        right: auto;
+        top: 20px; 
+        transform: none;
+    }
+    
+    .timeline-item.left .timeline-content { transform: translateX(30px); }
+    
+    .timeline-img {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        top: auto;
+        margin-top: 25px;
+    }
+    
+    .timeline-item.left .timeline-img, .timeline-item.right .timeline-img {
+        left: 0;
+        right: auto;
+        transform: translateY(20px) scale(0.95);
+    }
+    
+    .timeline-item.active .timeline-img {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ================= CLARITI PRINCIPLES & DNA STYLES ================= */
+
+.cp-section {
+    position: relative;
+    padding: 40px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.cp-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Faint Background Grid --- */
+
+.cp-bg-grid {
+    position: absolute;
+    
+    top: 15%; 
+    right: 0;
+    
+    width: 35%; 
+    height: 50%; 
+    
+    background-image: url('/assest/images/colorgrid.png'); 
+    
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    
+    opacity: 0.3; 
+    z-index: 0; 
+    pointer-events: none; 
+}
+
+/* --- Header Area --- */
+.cp-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.cp-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.text-blue { color: #1D4ED8; }
+
+.cp-header p {
+    font-size: 1.1rem;
+    color: #475569;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Dynamic Slider --- */
+.cp-slider-container {
+    position: relative;
+    margin-bottom: 120px;
+    width: 100%;
+}
+
+.cp-slider-track {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Adjust based on image height */
+}
+
+/* Slide Layout (Image + Overlapping Card) */
+.cp-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    display: flex;
+    align-items: center;
+}
+
+.cp-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.cp-slide-img {
+    width: 60%;
+    height: 100%;
+}
+
+.cp-slide-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* The Overlapping Dashed Card */
+.cp-slide-card {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    background: #ffffff;
+    padding: 50px 40px;
+    border: 2px dashed #93C5FD;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1D4ED8;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.cp-slide-card p {
+    font-size: 1.25rem;
+    color: #1E293B;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Slider Controls (Dots) */
+.cp-slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.cp-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #93C5FD;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cp-dot.active {
+    width: 30px;
+    background-color: #2563EB;
+    border-radius: 10px;
+}
+
+/* --- Our DNA Section --- */
+.dna-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 10; /* Ensures this whole header stays above background grid */
+}
+
+.dna-title-wrapper {
+    max-width: 500px;
+    border-left: 4px solid #2563EB;
+    padding-left: 20px;
+}
+
+.dna-title-wrapper h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 10px;
+}
+
+.dna-title-wrapper p {
+    font-size: 1.05rem;
+    color: #64748B;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.dna-arrow-img-wrapper {
+    width: 100px;
+    height: auto;
+    position: relative;
+    z-index: 5; /* Arrow is positioned but shouldn't cover title text column above */
+}
+
+.dna-arrow-img {
+    width: 100%;
+    height: auto;
+    opacity: 0.5; /* Optional: fade slightly for look */
+}
+
+/* DNA Grid */
+.dna-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.dna-title-wrapper h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 10px;
+}
+
+/* DNA Grid */
+.dna-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.dna-card {
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 40px 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.dna-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    border-color: #93C5FD;
+}
+
+.dna-icon {
+    width: 40px;
+    height: 40px;
+    color: #2563EB;
+    margin-bottom: 20px;
+}
+
+.dna-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 15px;
+}
+
+.dna-card p {
+    font-size: 0.95rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- Animations --- */
+.reveal-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+/* --- Mobile Responsive Rules --- */
+@media (max-width: 1024px) {
+    .cp-slide-img { width: 100%; }
+    .cp-slide-card {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
+        width: 90%;
+        margin: -60px auto 0 auto; /* Pulls card up to overlap image slightly from bottom */
+        padding: 30px;
+    }
+    .cp-slider-track { height: auto; display: flex; align-items: flex-start; }
+    .cp-slide { position: relative; flex-direction: column; opacity: 1; display: none; }
+    .cp-slide.active { display: flex; } /* On mobile, just hide inactive slides to save height */
+    
+    .dna-grid { grid-template-columns: repeat(2, 1fr); }
+    .dna-arrow { display: none; }
+}
+
+@media (max-width: 768px) {
+    .cp-section { padding: 60px 0; }
+    .cp-header h2 { font-size: 2rem; }
+    .cp-slide-card p { font-size: 1.1rem; }
+    .dna-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ================= SHARED STYLES ================= */
+.container-1250 {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.text-blue {
+    color: #1D4ED8;
+}
+
+/* ================= PARTNERS SECTION ================= */
+.partners-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; /* Crucial for marquee */
+}
+
+.partners-header {
+    margin-bottom: 50px;
+}
+
+.partners-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.5px;
+}
+
+/* Marquee Logic */
+.marquee-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    /* Creates the fade effect on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 20px;
+    width: max-content; /* Allows track to be as wide as its content */
+}
+
+/* Left moving animation */
+.track-left {
+    animation: scrollLeft 35s linear infinite;
+}
+
+/* Right moving animation */
+.track-right {
+    /* Starts shifted left so it has room to move right without showing a gap */
+    transform: translateX(-50%); 
+    animation: scrollRight 35s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* Logo Styling */
+.logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 70px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    background: #ffffff;
+    font-weight: 700;
+    color: #64748B;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.logo-box:hover {
+    border-color: #93C5FD;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Marquee Keyframes */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); } /* 10px accounts for half the gap */
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(calc(-50% - 10px)); }
+    100% { transform: translateX(0); }
+}
+
+/* ================= SHARED & LAYOUT ================= */
+.container-1300 {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.text-blue {
+    color: #1D4ED8; /* Vibrant brand blue */
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-header.center {
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #64748B;
+    margin: 0;
+}
+
+/* ================= TRUSTED PARTNERS ================= */
+.trusted-partners-section {
+    padding: 80px 0 40px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; 
+}
+
+/* Marquee Container with Fade Edges */
+.marquee-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    /* Creates the smooth white fade on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+/* Scroll Animations */
+.track-left {
+    animation: scrollLeft 40s linear infinite;
+}
+
+.track-right {
+    transform: translateX(-50%); 
+    animation: scrollRight 40s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused; /* Pauses smoothly on hover */
+}
+
+/* Individual Partner Pills */
+.partner-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 35px;
+    height: 65px;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    background: #ffffff;
+    font-weight: 700;
+    color: #94A3B8;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.partner-pill img {
+    height: 24px;
+    width: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.partner-pill:hover {
+    border-color: #93C5FD;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    color: #0F172A;
+}
+
+.partner-pill:hover img {
+    opacity: 1;
+}
+
+/* Specific Pill Styles from Image */
+.dark-pill { background: #475569; color: #ffffff; border: none; }
+.dark-pill:hover { background: #334155; color: #ffffff; }
+.outline-pill { border: 2px solid #E2E8F0; letter-spacing: 1px; }
+
+/* Keyframes */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); } 
+}
+@keyframes scrollRight {
+    0% { transform: translateX(calc(-50% - 10px)); }
+    100% { transform: translateX(0); }
+}
+
+/* ================= TEAM MINDS SECTION ================= */
+.team-minds-section {
+    padding: 60px 0 120px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.team-card {
+    background: #ffffff;
+    border: 1px solid #F1F5F9;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.08); /* Premium blue-tinted shadow */
+    border-color: #DBEAFE;
+}
+
+.team-photo-wrap {
+    width: 100%;
+    height: 320px; 
+    background: #F8FAFC;
+    overflow: hidden;
+    /* Recreates the subtle curved smile at the bottom of the images */
+    border-radius: 0 0 50% 50% / 0 0 15px 15px; 
+    position: relative;
+}
+
+.team-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-photo-wrap img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.team-content {
+    padding: 25px 25px 35px 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-content h4 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 5px;
+}
+
+.team-role {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2563EB;
+    margin-bottom: 15px;
+}
+
+.team-content p {
+    font-size: 0.9rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ================= REVEAL ANIMATIONS ================= */
+.reveal-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.25s; }
+.delay-3 { transition-delay: 0.4s; }
+.delay-4 { transition-delay: 0.55s; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+    .container-1300 { padding: 0 30px; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+}
+
+@media (max-width: 768px) {
+    .container-1300 { padding: 0 20px; }
+    .trusted-partners-section { padding: 60px 0; }
+    .team-minds-section { padding: 40px 0 80px 0; }
+    
+    .section-header h2 { font-size: 2rem; }
+    .partner-pill { padding: 0 25px; height: 55px; font-size: 0.95rem; }
+    
+    .team-grid { grid-template-columns: 1fr; gap: 25px; }
+    .team-photo-wrap { height: 350px; }
+}
+
+/* ================= FAQ SECTION STYLES ================= */
+
+.faq-section {
+    position: relative;
+    padding: 30px 0 70px 0;
+    background-color: #F0F7FD; /* The soft icy blue background */
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+/* Decorative Ring Background */
+.faq-bg-decoration {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 35px solid rgba(224, 240, 255, 0.6); /* Slightly darker/more opaque blue than bg */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.faq-container {
+    max-width: 1200px; /* Constrained width so the FAQ isn't too stretched */
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Header --- */
+/* --- Header --- */
+.faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+    
+  
+    background: linear-gradient(
+        to right, 
+        #2563EB, 
+        #3f82ca, 
+        #0EA5E9, 
+        #1f57cf  
+    );
+    background-size: 300% auto; 
+    color: transparent; 
+    -webkit-background-clip: text; 
+    background-clip: text;
+    
+    animation: flowGradient 10s linear infinite; 
+}
+
+@keyframes flowGradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+}
+
+.faq-header p {
+    font-size: 1.05rem;
+    color: #64748B;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* --- Accordion Layout --- */
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* Question Button */
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0F172A;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #2563EB; /* Turns blue on hover */
+}
+
+/* Magenta Chevron Icon */
+.faq-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D946EF; /* Matches the vibrant purple/magenta from the image */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Answer Container (Hidden by default) */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: #ffffff;
+}
+
+.faq-answer-content {
+    padding: 0 30px 24px 30px; /* Padding bottom for the text */
+}
+
+.faq-answer-content p {
+    margin: 0;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+/* --- ACTIVE STATE LOGIC --- */
+.faq-item.active .faq-icon {
+    transform: rotate(180deg); /* Flips the arrow upside down */
+}
+
+/* Active max-height is handled by Javascript calculation for perfect smoothness, 
+   but we can set a fallback here if JS fails */
+.faq-item.active .faq-answer {
+    /* JS will overwrite this with the exact pixel height */
+}
+
+/* --- Scroll Animations --- */
+.reveal-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.15s; }
+
+/* --- Mobile Responsive Rules --- */
+@media (max-width: 768px) {
+    .faq-section { padding: 80px 0; }
+    .faq-container { padding: 0 20px; }
+    .faq-header h2 { font-size: 2rem; }
+    .faq-header p { font-size: 1rem; }
+    
+    .faq-question { padding: 20px; font-size: 1rem; }
+    .faq-answer-content { padding: 0 20px 20px 20px; }
+    
+    .faq-bg-decoration {
+        width: 200px;
+        height: 200px;
+        top: -50px;
+        right: -50px;
+        border-width: 20px;
+    }
+}

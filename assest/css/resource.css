@@ -1,0 +1,1258 @@
+/* ================= RESOURCE HERO STYLES ================= */
+.resource-hero {
+    position: relative;
+    padding: 40px 0 70px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    text-align: center;
+    min-height: 80vh; /* Gives it nice breathing room */
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1000px; /* Keep text constrained for better reading */
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+
+    gap: 1rem;
+ 
+}
+/* --- Background Soft Glow --- */
+.hero-bottom-glow {
+    position: absolute;
+    bottom: -10%;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(14, 165, 233, 0.15) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- Floating Icons --- */
+.floating-elements {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.float-icon {
+    position: absolute;
+    /* Put placeholder styles just in case images are missing */
+    background-color: transparent;
+    object-fit: contain;
+}
+
+/* Specific Positions based on screenshot */
+.icon-tl { top: 20%; left: 10%; width: 60px; }
+.icon-tr { top: 22%; right: 10%; width: 50px; }
+/* Modified CSS for the Bird Icon */
+.icon-bl {
+    bottom: 20%;
+    left: 15%;
+    width: 70px; 
+    height: 70px;         
+    border-radius: 50%;   
+    object-fit: cover;   
+}
+.icon-br { bottom: 15%; right: 15%; width: 125px; }
+.sparkle-left { top: 50%; left: 10%; width: 30px; opacity: 0.6;}
+.sparkle-right { top: 60%; right: 12%; width: 40px; opacity: 0.4;}
+
+/* --- Center Content --- */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Top Badge */
+.resource-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #60A5FA; /* Soft Blue */
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+}
+.resource-badge svg { width: 14px; height: 14px; }
+
+/* Typography */
+.hero-content h1 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    color: #111827; /* Dark almost-black */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.text-blue { color: #1D4ED8; }
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #4B5563;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+}
+
+/* --- Trust Badge (Avatars) --- */
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatar-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid #ffffff; /* White border creates the overlap effect */
+    object-fit: cover;
+    background: #CBD5E1; /* Fallback color */
+}
+
+/* Overlap the images */
+.avatar-img:not(:first-child) { margin-left: -15px; }
+
+.reviews-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.stars { display: flex; gap: 2px; }
+.stars svg { width: 16px; height: 16px; }
+
+.review-text {
+    font-size: 0.85rem;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+/* --- Call to Action Button --- */
+.btn-demo-glow {
+    display: inline-block;
+    background: linear-gradient(90deg, #0284C7, #3B82F6, #06B6D4); /* Bright cyan to blue gradient */
+    background-size: 200% auto;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 16px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4); /* Glowing shadow */
+    transition: all 0.4s ease;
+}
+
+.btn-demo-glow:hover {
+    background-position: right center; /* Animates the gradient on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(14, 165, 233, 0.5);
+}
+
+/* ================= ANIMATIONS ================= */
+
+/* Initial Load Fade Ups */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpOnLoad 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeUpOnLoad {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Continuous Floating for Background Icons */
+.float-fast { animation: floatItem 5s ease-in-out infinite; }
+.float-medium { animation: floatItem 7s ease-in-out infinite reverse; } /* Reverse makes them look out of sync naturally */
+.float-slow { animation: floatItem 9s ease-in-out infinite; }
+
+@keyframes floatItem {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); } /* Bobs up and down */
+}
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 1024px) {
+    /* Bring icons closer to center on smaller desktop */
+    .icon-tl { left: 5%; }
+    .icon-tr { right: 5%; }
+    .icon-bl { left: 5%; }
+    .icon-br { right: 5%; }
+}
+
+@media (max-width: 768px) {
+    .resource-hero { padding: 100px 0 80px 0; min-height: auto; }
+    
+    .hero-content h1 { font-size: 2.2rem; }
+    
+    /* Fade out floating icons on mobile to prevent clutter */
+    .floating-elements { opacity: 0.15; }
+    
+    .trust-badge { flex-direction: column; text-align: center; gap: 10px; }
+    .reviews-content { align-items: center; }
+}
+
+/* ================= RESOURCE HUB STYLES ================= */
+.resource-hub-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Search Bar --- */
+.search-container {
+    max-width: 800px;
+    margin: 0 auto 35px auto;
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    color: #94A3B8;
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 18px 20px 18px 55px;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #1E293B;
+    background: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.search-input-wrapper input::placeholder {
+    color: #94A3B8;
+}
+
+.search-input-wrapper input:focus {
+    border-color: #0B57D0;
+    box-shadow: 0 0 0 4px rgba(11, 87, 208, 0.1);
+}
+
+/* --- Filter Pills --- */
+.filter-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 60px;
+}
+
+.filter-btn {
+    background: #F1F5F9;
+    border: none;
+    color: #475569;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #E2E8F0;
+    color: #1E293B;
+}
+
+.filter-btn.active {
+    background: #0B57D0; /* Primary blue from design */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(11, 87, 208, 0.2);
+}
+
+/* --- Featured Card --- */
+.featured-card {
+    display: flex;
+    background: #ffffff;
+    border: 1px solid #F1F5F9;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 20px 30px rgba(184, 228, 240, 0.538);
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+    /* box-shadow: 0 25px 50px rgba(159, 209, 223, 0.538); */
+}
+
+.fc-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #fafcff; /* Very subtle blue tint behind image */
+}
+
+.fc-image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+}
+
+.fc-content {
+    flex: 1;
+    padding: 60px 60px 60px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.badge-featured {
+    background: #DBEAFE;
+    color: #1E40AF;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.fc-content h2 {
+    font-size: clamp(2.2rem, 3vw, 2.5rem);
+    color: #111827;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.text-blue { color: #0B57D0; }
+
+.fc-content p {
+    font-size: 1.05rem;
+    color: #4B5563;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 450px;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0B57D0;
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-download svg { width: 18px; height: 18px; }
+
+.btn-download:hover {
+    background: #0947A6;
+    box-shadow: 0 8px 20px rgba(183, 225, 244, 0.786);
+}
+
+/* ================= ANIMATIONS ================= */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+
+/* Wave Text Animation */
+.wave-heading { display: block; }
+.wave-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) rotate(2deg);
+    margin-right: 0.15em; 
+}
+
+.wave-heading.active .wave-word {
+    animation: waveReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes waveReveal {
+    to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+    .featured-card { flex-direction: column; }
+    .fc-image { padding: 40px 20px; }
+    .fc-content { padding: 40px; align-items: center; text-align: center; }
+    .fc-content p { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .search-container { padding: 0 10px; }
+    .filter-pills { gap: 8px; }
+    .filter-btn { padding: 8px 18px; font-size: 0.85rem; }
+    .fc-content { padding: 30px 20px; }
+}
+
+/* --- Resource Grid --- */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.resource-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.rc-image-wrap {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background-color: #F8FAFC; 
+}
+
+.rc-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.resource-card:hover .rc-image-wrap img {
+    transform: scale(1.05);
+}
+
+.rc-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.badge-blue { background: #EFF6FF; color: #1D4ED8; }
+.badge-green { background: #ECFDF5; color: #047857; }
+.badge-purple { background: #FAF5FF; color: #7E22CE; }
+.badge-red { background: #FEF2F2; color: #BE123C; }
+
+.rc-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.rc-content h3 {
+    font-size: 1.2rem;
+    color: #0F172A;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.rc-content p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.rc-link {
+    font-weight: 600;
+    color: #2563EB;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.rc-link:hover { color: #1E40AF; }
+
+/* Filter Hidden State */
+.resource-card.hidden {
+    display: none;
+}
+
+/* ================= EXPLORE RESOURCES ================= */
+.explore-resources {
+    position: relative;
+    padding: 40px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Optional faint concentric background on the left */
+.bg-rings {
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    transform: translateY(-50%);
+    background-image: repeating-radial-gradient(circle, transparent, transparent 20px, rgba(0,0,0,0.02) 20px, rgba(0,0,0,0.02) 22px);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.section-header { margin-bottom: 60px; }
+.section-header h2 { font-size: clamp(2.5rem, 3vw, 3rem); color: #0F172A; font-weight: 700; letter-spacing: -1px; }
+.text-blue { color: #0066FF; }
+
+/* ================= BENTO GRID ================= */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Card Base */
+.bento-card {
+    background: linear-gradient(135deg, #ffffff 0%, #E0F2FE 100%);
+    border-radius: 32px; /* Very rounded corners matching the design */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 102, 255, 0.08);
+}
+
+.bento-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+}
+
+.bento-content h3 {
+    font-size: 1.6rem;
+    color: #111827;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.bento-content p {
+    font-size: 1rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.text-center { text-align: center; align-items: center; }
+
+.bento-link {
+    font-weight: 700;
+    color: #0066FF; /* Vibrant Blue */
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.bento-link:hover { color: #0047B3; }
+
+/* ================= INDIVIDUAL CARD LAYOUTS ================= */
+
+/* Card 1: Horizontal Layout (Insights) */
+.card-horizontal {
+    flex-direction: row;
+    align-items: center;
+}
+.card-horizontal .bento-content { flex: 1; padding-right: 0; }
+.card-horizontal .bento-visual { flex: 1; height: 100%; position: relative; min-height: 300px; }
+.img-laptop { position: absolute; top: 0; right: 20%; width: 60%; border-radius: 0 0 16px 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.img-interior { position: absolute; bottom: 0; right: 0; width: 45%; border-radius: 16px 0 0 0; box-shadow: -10px -10px 20px rgba(0,0,0,0.05); }
+
+/* Card 2, 3, 4: Vertical Layout */
+.card-vertical {
+    flex-direction: column;
+}
+.card-vertical .bento-visual {
+    height: 160px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+/* Playbooks Visual */
+.visual-playbooks { position: relative; }
+.clock-bubble {
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.08);
+    position: absolute;
+    color: #0066FF;
+}
+.clock-bubble.center { width: 70px; height: 70px; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 2;}
+.clock-bubble.center svg { width: 35px; }
+.clock-bubble.small { width: 45px; height: 45px; bottom: 30px; z-index: 1;}
+.clock-bubble.small.left { left: 25%; }
+.clock-bubble.small.right { right: 25%; }
+.clock-bubble.small svg { width: 22px; }
+
+/* Switch Visual */
+.icon-bubble {
+    width: 80px; height: 80px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+}
+.icon-bubble svg { width: 40px; height: 40px; }
+
+/* Avatars Visual */
+.visual-avatars { display: flex; gap: 40px; align-items: center; }
+.avatar-cluster { display: flex; }
+.av { width: 45px; height: 45px; border-radius: 50%; border: 3px solid #E0F2FE; object-fit: cover; }
+.avatar-cluster .av:not(:first-child) { margin-left: -15px; }
+
+/* Card 5: Webinars (Wide with Scrolling) */
+.card-wide {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    height: 400px;
+}
+.card-wide .bento-content { flex: 1; max-width: 500px; }
+
+.btn-primary {
+    display: inline-block;
+    background: #0066FF;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+.btn-primary:hover { background: #0052CC; }
+
+/* ================= SCROLLING GALLERY ================= */
+.visual-scrolling {
+    flex: 1.2;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    /* Fades the top and bottom edges so it blends into the card smoothly */
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.scroll-track {
+    display: flex;
+    gap: 15px; /* Reduced gap between columns */
+    padding: 10px;
+    height: 100%;
+    transform: rotate(5deg) scale(1.1); 
+}
+
+.scroll-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduced gap between images vertically */
+    width: 50%;
+}
+
+.scroll-col img {
+    width: 100%;
+    /* Add a max-height so images aren't excessively tall */
+    max-height: 140px; 
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    object-fit: cover;
+    background: #CBD5E1; 
+}
+
+/* The Infinite Scrolling Animations */
+.scroll-up {
+    animation: scrollUpAnim 10s linear infinite;
+}
+
+.scroll-down {
+    /* Start halfway down so they don't look mirrored */
+    transform: translateY(-50%); 
+    animation: scrollDownAnim 10s linear infinite;
+}
+
+@keyframes scrollUpAnim {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); } 
+}
+
+@keyframes scrollDownAnim {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+/* Pause scroll on hover for better UX */
+.visual-scrolling:hover .scroll-col {
+    animation-play-state: paused;
+}
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    
+    .card-horizontal { flex-direction: column-reverse; text-align: center;}
+    .card-horizontal .bento-content { align-items: center; }
+    .card-horizontal .bento-visual { width: 100%; min-height: 250px;}
+    
+    .card-wide { flex-direction: column; height: auto; }
+    .card-wide .bento-content { max-width: 100%; text-align: center; align-items: center;}
+    
+    .visual-scrolling { height: 350px; width: 100%; }
+    .scroll-track { transform: rotate(0deg) scale(1); padding: 0 10px;}
+}
+
+/* ================= RINGS BACKGROUND IMAGE ================= */
+
+.explore-resources {
+    position: relative; 
+    overflow: hidden;
+}
+
+/* 2. Style the rings container */
+.bg-rings {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    width: 40vw; 
+    max-width: 250px; 
+    height: 100%;
+    
+  
+    background-image: url('/assest/images/bgwave.png'); 
+    
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain; 
+    
+    opacity: 0.3; 
+    z-index: 0;
+    pointer-events: none; 
+}
+
+.explore-resources .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .bg-rings {
+        width: 60vw; 
+        left: -10%;
+        opacity: 0.15; 
+    }
+}
+/* ================= STACKS SECTION ================= */
+.stacks-section {
+    position: relative;
+    padding: 120px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Faint background grid mimicking the design */
+.bg-grid-pattern {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background-image: 
+        linear-gradient(to right, rgba(34, 197, 94, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(34, 197, 94, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: 0;
+}
+
+.stacks-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    /* This makes left and right columns sit side-by-side */
+    display: flex; 
+    
+    /* THIS IS CRITICAL: It ensures both columns start exactly at the top */
+    align-items: flex-start; 
+    
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+}
+/* ================= LEFT COLUMN (STICKY) ================= */
+.stacks-left {
+    flex: 1;
+    position: sticky;
+    top: 120px; /* Distance from top of screen when scrolling */
+    height: max-content;
+}
+
+.stacks-header {
+    margin-bottom: 50px;
+}
+
+
+.stacks-header p {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.text-blue { color: #0066FF; }
+
+/* Dynamic Image Gallery Wrapper */
+.dynamic-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 390px; /* Fixed height to ensure the whole image space is maintained */
+    border-radius: 24px;
+    overflow: hidden; /* CRITICAL: Keeps the image constrained inside the rounded corners */
+    box-shadow: 0 25px 50px rgba(184, 216, 235, 0.753);
+}
+
+.image-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(161, 210, 227, 0.696) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+}
+
+.stack-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CRITICAL: Ensures the image fills the box perfectly without squishing */
+    opacity: 0;
+    transform: scale(1.05); /* Smooth zoom-out effect instead of bouncing up/down */
+    transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+/* Active class applied by JS */
+.stack-img.active {
+    opacity: 1;
+    transform: scale(1); /* Settles into normal size */
+    z-index: 2;
+}
+/* Update the Header to force a single line */
+.stacks-header h2 {
+    font-size: clamp(2.2rem, 3.2vw, 2.4rem); /* Slightly adjusted to fit perfectly */
+    color: #0F172A;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    white-space: nowrap; /* Forces text to stay on one line */
+}
+
+.stacks-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* This guarantees 40px of space between every card */
+    padding-bottom: 40px; 
+    position: relative; /* Ensure it stays in document flow */
+    z-index: 2;
+}
+
+/* Make sure the heading can wrap on mobile so it doesn't break off-screen */
+@media (max-width: 992px) {
+    .stacks-header h2 {
+        white-space: normal;
+    }
+}
+
+.comp-card {
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    
+    /* Ensure it behaves like a block inside the flex container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Take up full width of the right column */
+    box-sizing: border-box; /* Padding doesn't increase width */
+    position: relative; /* Keep it in the normal flow */
+    
+    /* Prevents overlapping if content gets too tall */
+    min-height: 250px; 
+}
+
+/* Active card styling when it hits the center of the screen */
+.comp-card.in-view {
+    border-color: #DBEAFE;
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.08);
+    transform: scale(1.02);
+}
+
+.comp-icon {
+    width: 60px;
+    height: 60px;
+    background: #F1F5F9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: #0066FF;
+}
+
+.comp-icon svg { width: 24px; height: 24px; }
+
+.comp-card h3 {
+    font-size: 1.5rem;
+    color: #0F172A;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.comp-card p {
+    font-size: 1rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.comp-link {
+    font-weight: 600;
+    color: #0066FF;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.comp-link:hover { color: #0047B3; }
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .stacks-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .stacks-left {
+        position: relative; /* Disable sticky on mobile */
+        top: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .stacks-header p { margin: 0 auto; }
+    
+    .stacks-right {
+        width: 100%;
+        padding-bottom: 50px;
+    }
+    
+    /* On mobile, just keep the first image visible, or rely on JS to change it when cards are clicked */
+}
+
+/* ================= TECH & GLOSSARY STYLES ================= */
+.tech-glossary-section {
+    padding: 40px 0;
+    background-color: #F0F7FF; /* Very light blue background matching design */
+    font-family: 'Inter', sans-serif;
+}
+
+.tech-glossary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr; /* Right column slightly wider */
+    gap: 60px;
+}
+
+/* --- Headers --- */
+.column-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.header-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-blue {
+    background-color: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.icon-light-blue {
+    background-color: #E0F2FE;
+    color: #0369A1;
+}
+
+.header-icon svg { width: 20px; height: 20px; }
+
+.column-header h2 {
+    font-size: 1.6rem;
+    color: #0F172A;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* --- Left Column: Docs List --- */
+.docs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.doc-card {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.08);
+}
+
+.doc-icon {
+    width: 24px;
+    height: 24px;
+    color: #64748B;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.doc-text {
+    flex-grow: 1;
+}
+
+.doc-text h4 {
+    color: #0F172A;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+}
+
+.doc-text p {
+    color: #64748B;
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.doc-action {
+    color: #94A3B8;
+    width: 18px;
+    height: 18px;
+    transition: color 0.3s ease;
+}
+
+.doc-card:hover .doc-action {
+    color: #2563EB;
+}
+
+
+/* --- Right Column: Glossary Card --- */
+.glossary-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.glossary-item {
+    margin-bottom: 15px;
+}
+
+.glossary-item p {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.glossary-item strong {
+    color: #0F172A;
+    font-weight: 700;
+}
+
+.glossary-divider {
+    height: 1px;
+    background-color: #F1F5F9;
+    margin: 25px 0;
+}
+
+.glossary-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+.glossary-footer a {
+    color: #2563EB;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.glossary-footer a:hover {
+    color: #1E40AF;
+    text-decoration: underline;
+}
+
+/* ================= ANIMATIONS ================= */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .tech-glossary-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-glossary-section { padding: 60px 0; }
+    .doc-card { padding: 15px 20px; }
+    .glossary-card { padding: 30px 20px; }
+    .column-header h2 { font-size: 1.4rem; }
+}

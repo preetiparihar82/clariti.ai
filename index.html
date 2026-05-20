@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clariti | Your AI Copilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assest/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+</head>
+<body>
+    
+<header>
+        <div class="logo">
+            <img src="./assest/images/claritilogo.png" alt="Clariti">
+        </div>
+        
+        <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="solution.html">Solutions</a></li>
+                <li><a href="usecase.html">Use Cases</a></li>
+                <li><a href="resouce.html">Resources</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            
+            <div class="mobile-actions">
+                <a href="#sign-up" class="sign-up-link">Sign Up</a>
+                <button class="login-btn">Login</button>
+            </div>
+        </nav>
+
+        <div class="header-actions desktop-actions">
+            <a href="#sign-up" class="sign-up-link">Sign Up</a>
+            <button class="login-btn">Login</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" id="hero">
+            
+            <div class="hero-slide active" id="slide-1">
+                <div class="hero-content">
+                    <div class="text-column">
+                        <div class="hero-text-glow"></div>
+                        <span class="tag">
+    <img src="./assest/images/starico.png" alt="Star Icon" style="width: 14px; height: 14px; object-fit: contain; vertical-align: text-bottom; margin-right: 4px;">
+    NEXT GEN INTELLIGENCE
+</span>
+                        <h1 class="wave-heading">
+    <span class="wave-word" style="--i:1;">Your</span> 
+    <span class="wave-word" style="--i:2;"><span class="blue-text">AI</span></span> 
+    <span class="wave-word" style="--i:3;"><span class="blue-text">Copilot</span></span> 
+    <span class="wave-word" style="--i:4;">:</span> 
+ 
+    <span class="wave-word" style="--i:5;">Instant</span> 
+    <span class="wave-word" style="--i:6;">Answers</span> 
+    <span class="wave-word" style="--i:7;">from</span> 
+    <span class="wave-word" style="--i:8;">Your</span> 
+ 
+    <span class="wave-word" style="--i:9;">
+        <span class="blue-text position-relative">
+            Business Data
+            <svg class="text-swoosh" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 15 C 30 5, 70 5, 98 12 L 92 6 M 98 12 L 90 16" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+    </span>
+</h1>
+                        <p>Clariti bridges the gap between complex datasets and actionable insights. Query your warehouse in plain English and watch intelligence happen.</p>
+                        <button class="request-demo-btn">Request Demo ➔</button>
+                        <div class="reviews">
+                            <div class="avatar-group">
+                                <img src="./assest/images/Marcus Thorne.png" alt="User 1">
+                                <img src="./assest/images/Sarah Jenkins.png" alt="User 2">
+                                <img src="./assest/images/Marcus Thorne.png" alt="User 3">
+                                <img src="./assest/images/Sarah Jenkins.png" alt="User 4">
+                            </div>
+                            <div class="review-text">
+                                <span class="stars">★★★★★</span>
+                                <span class="review-count">from 200+ reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phone-column" id="phone-wrapper">
+                        <div class="right-bg-image">
+                            <img src="./assest/images/bgimg.png" alt="Background Swirls">
+                        </div>
+                        <div class="interactive-container" id="phone-container">
+                            <div class="phone-frame">
+                                <img src="./assest/images/herimg1.png" alt="Clariti App Interface Dashboard">
+                            </div>
+                            <div class="widget top-right-widget" id="performance-widget">
+                                <div class="widget-dark-header">
+                                    <div>
+                                        <div class="widget-title-white">Performance</div>
+                                        <div class="widget-subtitle">In the past 7 days</div>
+                                    </div>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                                </div>
+                                <div class="widget-light-body">
+                                    <div class="widget-value">49% <span class="green-badge">▲ 15%</span></div>
+                                    <p class="widget-desc">Business growth</p>
+                                    <div class="widget-tags">
+                                        <span>Strategic</span><span>AI-Focused</span><span>Grow Faster</span><span>Build Smart</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget bottom-left-widget" id="forecast-widget">
+                                <div class="forecast-header">
+                                    <div class="ai-icon">✦</div>
+                                    <div class="text-info">
+                                        <span class="forecast-label">FREE</span><span class="forecast-title">Revenue Forecast</span>
+                                    </div>
+                                </div>
+                                <p class="forecast-text">"Based on current trends, we expect a 12% increase in Q3 renewals."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-slide" id="slide-2">
+                <div class="hero-content">
+                    <div class="text-column">
+                        <div class="hero-text-glow glow-teal"></div>
+                    
+                        <span class="tag">
+    <img src="./assest/images/starico.png" alt="Star Icon" style="width: 14px; height: 14px; object-fit: contain; vertical-align: text-bottom; margin-right: 4px;">
+    CLARITY ENGINE INTELLIGENCE
+</span>
+                       <h1 class="wave-heading">
+    <span class="wave-word" style="--i:1;">Your</span> 
+    <span class="wave-word" style="--i:2;"><span class="blue-text">AI</span></span> 
+    <span class="wave-word" style="--i:3;"><span class="blue-text">Business</span></span> 
+    <span class="wave-word" style="--i:4;">Copilot</span> 
+    <span class="wave-word" style="--i:5;">Turn</span> 
+    <span class="wave-word" style="--i:6;">Data</span> 
+    <span class="wave-word" style="--i:7;">into</span> 
+    <span class="wave-word" style="--i:8;">Decisions</span> 
+    <span class="wave-word" style="--i:9;">-</span> 
+    
+    <span class="wave-word" style="--i:10;">
+        <span class="teal-text word-rotator">
+            <span class="word">Instantly</span> 
+            <span class="word">Intuitively</span> 
+            <span class="word">Intelligently</span>
+        </span>
+    </span>
+</h1>
+                        <p>Clariti is an AI-powered decision intelligence company helping businesses move from fragmented data to clear, confident decisions.</p>
+                        <button class="request-demo-btn">Start For Free ➔</button>
+                        <div class="reviews">
+                            <div class="avatar-group">
+                                <img src="./assest/images/Sarah Jenkins.png" alt="User 1">
+                                <img src="./assest/images/Marcus Thorne.png" alt="User 2">
+                                <img src="./assest/images/Sarah Jenkins.png" alt="User 3">
+                                <img src="./assest/images/Marcus Thorne.png" alt="User 4">
+                            </div>
+                            <div class="review-text">
+                                <span class="stars">★★★★★</span>
+                                <span class="review-count">from 200+ reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                   <div class="phone-column">
+    <div class="dark-dashboard-wrapper">
+        
+        <div class="main-dashboard-card float-el"  style="margin-top: -40px;">
+            <img src="./assest/images/whiteaidashboard.png" alt="Clariti Dashboard" class="dashboard-img" >
+        </div>
+
+        <div class="light-card chat-card float-el" style="animation-delay: 0.5s;">
+            <div class="chat-icon">✦</div>
+            <div class="chat-text">Start Your Chat with Clarity</div>
+        </div>
+
+        <!-- <div class="light-card earnings-card float-el" style="animation-delay: 0.8s;">
+            <div class="coins">💰</div>
+            <div class="earnings-label">You just earned</div>
+            <div class="earnings-value">0.02343,00 BTC</div>
+            <button class="dismiss-btn">Dismiss</button>
+        </div> -->
+
+    </div>
+</div>
+                </div>
+            </div>
+            
+        </section>
+        
+        <!-- <section style="height: 100vh;"></section> -->
+
+    </main>
+
+    <section class="infrastructure-section" id="infrastructure">
+    <!-- Thin Background Wave SVG -->
+    <div class="bg-wave-container">
+       <svg viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <!-- Smooth continuous double bezier curve for a more wavy look -->
+    <path d="M0 200 C 250 50, 450 350, 720 200 C 990 50, 1190 350, 1440 150" stroke="#E2E8F0" stroke-width="1" fill="none"/>
+</svg>
+    </div>
+
+    <div class="container infra-container">
+        <!-- Header Area -->
+        <div class="infra-header reveal-on-scroll">
+            <div class="infra-title-box">
+                <span class="infra-tag">CORE INFRASTRUCTURE</span>
+                <h2>Architecting The Future of <br><span class="blue-text">Data Intelligence</span></h2>
+            </div>
+            <div class="infra-desc-box">
+                <p>We don't just process data; we provide the blueprint for organizational clarity through three distinct pillars of technical excellence.</p>
+            </div>
+        </div>
+
+        <!-- Cards Area -->
+        <div class="infra-grid">
+            
+            <!-- Card 1 -->
+            <div class="infra-card reveal-on-scroll delay-1">
+                <div class="card-icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <h3>Zero-Code Integration</h3>
+                <p>Deploy in minutes, not months. Connect to your existing tech stack with 200+ native connectors that require zero engineering overhead.</p>
+                <a href="#" class="card-link">Explore Connectors &rarr;</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="infra-card reveal-on-scroll delay-2">
+                <div class="card-icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <h3>Real-time Intelligence</h3>
+                <p>Experience sub-second latency for complex queries. Our distributed engine processes petabytes of data as it flows into your system.</p>
+                <a href="#" class="card-link">Performance Benchmarks &rarr;</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="infra-card reveal-on-scroll delay-3">
+                <div class="card-icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h3>Enterprise-Grade Security</h3>
+                <p>SOC2 Type II compliant. Your data is encrypted at rest and in transit with localized data residency options for global compliance.</p>
+                <a href="#" class="card-link">Security Whitepaper &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Features Bento Section -->
+<section class="fb-section" id="features">
+    <div class="fb-container">
+        
+      <!-- Header Area -->
+<div class="fb-header fb-reveal">
+    <div class="fb-badge">
+        <!-- Replaced SVG with your Star Icon Image -->
+        <img src="./assest/images/starico.png" alt="Star Icon" class="fb-badge-icon">
+        KEY FEATURES
+    </div>
+    <h2 class="fb-title">Intelligence <span class="fb-blue">Built</span> For Action<br> Not Just <span class="fb-blue">Analysis</span></h2>
+    <p class="fb-subtitle">Clariti Moves Your Business Beyond Traditional BI Tools. Discover How Our AI Business Copilot Turns Scattered Data Into Clear, Decision-Grade Narratives—No Coding Or Data Migration Required.</p>
+</div>
+
+        <!-- Bento Box Grid -->
+        <div class="fb-bento-grid">
+            
+            <!-- Card 1: Just Ask (Left) -->
+            <div class="fb-card fb-card-left fb-reveal fb-delay-1">
+                
+                <!-- PLACE YOUR GRID BACKGROUND IMAGE HERE -->
+                <img src="./assest/images/maskbggrid.png" alt="Grid" class="fb-grid-bg">
+                
+                <!-- PLACE YOUR CHAT IMAGE HERE -->
+                <img src="./assest/images/group1.png" alt="Chat Interface" class="fb-feature-img fb-chat-img fb-float">
+
+                <!-- Text Content -->
+                <div class="fb-card-content">
+                    <h3>Just Ask. No Coding</h3>
+                    <p>Ask Questions In Plain English And Get Instant, Context-Aware Answers Like You Would From A Colleague.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Connects Instantly (Right) -->
+            <div class="fb-card fb-card-right fb-reveal fb-delay-2">
+                
+                <!-- PLACE YOUR GRID BACKGROUND IMAGE HERE -->
+                <img src="./assest/images/maskbggrid.png" alt="Grid" class="fb-grid-bg">
+                
+                <!-- PLACE YOUR DASHBOARD IMAGE HERE -->
+                <img src="./assest/images/group2.png" alt="Dashboard Interface" class="fb-feature-img fb-dashboard-img fb-float-slow">
+
+                <!-- Text Content -->
+                <div class="fb-card-content fb-text-right" style="margin-bottom: 100px;">
+                    <h3>Connects Instantly</h3>
+                    <p>Connects Directly To CRMs, ERPs, And Spreadsheets—Zero Heavy Data Migration Required.</p>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+        <!-- Bottom Bento Box Grid (3 New Cards) -->
+        <div class="fb-bento-grid-bottom">
+            
+            <!-- Card 3: Intelligence For All (Left Tall Card) -->
+            <div class="fb-card fb-card-tall fb-reveal fb-delay-1">
+                
+                <!-- PLACE YOUR GRID BACKGROUND IMAGE HERE -->
+                <img src="./assest/images/colorgrid.png" alt="Grid" class="fb-grid-bg">
+
+                <!-- PLACE YOUR INTELLIGENCE IMAGE HERE -->
+                <img src="./assest/images/group3.png" alt="Intelligence Flow" class="fb-feature-img fb-intel-img fb-float">
+
+                <div class="fb-card-content">
+                    <h3>Intelligence For All</h3>
+                    <p>Tailored Insights For Every Role—From The Plant Floor To The C-Suite—Aligned On One Unified Truth.</p>
+                </div>
+            </div>
+
+            <!-- Right Column for Stacked Cards -->
+            <div class="fb-bento-col-right">
+                
+                <!-- Card 4: Spot Trends & Risks (Top Right) -->
+                <div class="fb-card fb-card-small fb-card-trends fb-reveal fb-delay-2">
+                    
+                    <!-- PLACE YOUR GRID BACKGROUND IMAGE HERE -->
+                    <img src="./assest/images/maskbggrid.png" alt="Grid" class="fb-grid-bg">
+
+                    <!-- PLACE YOUR TRENDS IMAGE HERE -->
+                    <img src="./assest/images/group4.png" alt="Trend Alert" class="fb-feature-img fb-trends-img fb-float-slow">
+
+                    <div class="fb-card-content">
+                        <h3>Spot Trends & Risks</h3>
+                        <p>Go Beyond Static Dashboards.<br>Instantly Detect Anomalies And Run <br> Proactive "What-If" Scenarios.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Built-In Compliance (Bottom Right with Dynamic Orbit) -->
+             
+<div class="fb-card fb-card-small fb-card-compliance fb-reveal fb-delay-3">
+    
+    <!-- PLACE YOUR GRID BACKGROUND IMAGE HERE -->
+    <img src="./assest/images/maskbggrid.png" alt="Grid" class="fb-grid-bg">
+
+    <!-- Sweeping Orbit System -->
+    <div class="fb-orbit-system">
+        
+        <!-- Global SVG Gradient Definition for the Dashed Lines -->
+        <svg style="width:0; height:0; position:absolute;">
+            <defs>
+                <linearGradient id="orbit-grad" x1="100%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#ADA5F3" stop-opacity="0.9"/>
+                    <stop offset="50%" stop-color="#A0D3D8" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#92CD8F" stop-opacity="0.1"/>
+                </linearGradient>
+            </defs>
+        </svg>
+        
+        <!-- The Anchor Point (Positioned exactly at the Bottom-Right corner) -->
+        <div class="fb-orbit-center">
+            
+            <!-- Ring 1 (Inner Arc) - KPI -->
+            <div class="fb-orbit-ring fb-ring-1">
+                <svg width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 2px)" fill="none" stroke="url(#orbit-grad)" stroke-width="2.5" stroke-dasharray="10 10"/></svg>
+                <div class="fb-planet-wrapper fb-speed-1">
+                    <div class="fb-planet fb-planet-kpi">
+                        <span>98%</span><small>KPI</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ring 2 (Middle Arc) - ESG -->
+            <div class="fb-orbit-ring fb-ring-2">
+                <svg width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 2px)" fill="none" stroke="url(#orbit-grad)" stroke-width="2.5" stroke-dasharray="12 12"/></svg>
+                <div class="fb-planet-wrapper fb-speed-2">
+                    <div class="fb-planet fb-planet-esg">
+                        <span>95%</span><small>ESG</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ring 3 (Outer Arc) - KRA -->
+            <div class="fb-orbit-ring fb-ring-3">
+                <svg width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 2px)" fill="none" stroke="url(#orbit-grad)" stroke-width="2.5" stroke-dasharray="14 14"/></svg>
+                <div class="fb-planet-wrapper fb-speed-3">
+                    <div class="fb-planet fb-planet-kra">
+                        <span>99%</span><small>KRA</small>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Text Block -->
+    <div class="fb-card-content fb-text-right fb-compliance-text">
+        <h3>Built-In Compliance</h3>
+        <p>Track Your Critical KPIs, KRAs, And ESG Metrics Effortlessly Without Slowing Down Decisions.</p>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</section>
+ <!-- Solutions for Every Scale Section -->
+<section class="solutions-every-scale ses-reveal-section" id="solutions">
+    <!-- Subtle Background Glow -->
+    <div class="ses-bg-glow"></div>
+
+    <div class="ses-container">
+        
+        <!-- Header Area -->
+        <div class="ses-header-block">
+            <h2 class="ses-title"><span class="ses-blue-text">Solutions</span> for Every Scale</h2>
+            <p class="ses-subtitle">From seed-stage startups to Fortune 500 giants, Clariti adapts to your architectural complexity.</p>
+            
+            <!-- Exact curved arrow -->
+            <img src="./assest/images/curvearrow.png" class="ses-curve-arrow" alt="Arrow pointing to solutions">
+        </div>
+
+        <!-- 3-Column Card Grid -->
+        <div class="ses-grid">
+            
+            <!-- Column 1 (White) -->
+            <div class="ses-col ses-bg-white ses-reveal-item ses-delay-1">
+                <span class="ses-tag">FOUNDATION</span>
+                <h3 class="ses-col-title">Micro & Small</h3>
+                <p class="ses-col-desc">Connects directly to everyday tools like Excel, CSVs, and QuickBooks without requiring a complex setup.</p>
+                
+                <div class="ses-faq-list">
+                    <div class="ses-faq-item">
+                        <button class="ses-faq-btn">Will it work with my current tools? <span class="ses-plus-icon"></span></button>
+                        <div class="ses-faq-answer"><p>Absolutely. Clariti integrates seamlessly with top everyday tools like Excel and QuickBooks.</p></div>
+                    </div>
+                    <div class="ses-faq-item">
+                        <button class="ses-faq-btn">Do I have to move my data to the cloud? <span class="ses-plus-icon"></span></button>
+                        <div class="ses-faq-answer"><p>No, you can keep your data where it is. Clariti can connect to and analyze your data on-premise.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 (Light Gray) -->
+            <div class="ses-col ses-bg-light ses-reveal-item ses-delay-2">
+                <span class="ses-tag">SCALABILITY</span>
+                <h3 class="ses-col-title">Enterprise</h3>
+                <p class="ses-col-desc">Connects securely to major systems like SAP, Salesforce, Oracle, and PostgreSQL using APIs or direct SQL connections.</p>
+                
+                <div class="ses-faq-list">
+                    <div class="ses-faq-item">
+                        <button class="ses-faq-btn">Why use this over Power BI or Tableau? <span class="ses-plus-icon"></span></button>
+                        <div class="ses-faq-answer"><p>While Power BI/Tableau are for visual dashboards, Clariti utilizes conversational AI to get instant insights without steep learning curves.</p></div>
+                    </div>
+                    <div class="ses-faq-item">
+                        <button class="ses-faq-btn">Do you offer brand customization? <span class="ses-plus-icon"></span></button>
+                        <div class="ses-faq-answer"><p>Yes, Enterprise plans include full white-labeling and customization options to match your company's branding.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3 (Dark Gray) -->
+            <div class="ses-col ses-bg-dark ses-reveal-item ses-delay-3">
+                <span class="ses-tag">PRECISION</span>
+                <h3 class="ses-col-title">Technical Teams</h3>
+                <p class="ses-col-desc">Delivers a GDPR-compliant architecture utilizing AES-256 encryption and role-based access.</p>
+                
+                <div class="ses-faq-list">
+                    <div class="ses-faq-item">
+                        <button class="ses-faq-btn">Does Clariti store or move our data? <span class="ses-plus-icon"></span></button>
+                        <div class="ses-faq-answer"><p>Zero data leaves your ecosystem. Clariti connects and queries where it lives, ensuring maximum security and zero-retention architecture.</p></div>
+                    </div>
+                    <div class="ses-faq-item">
+                        <button class="ses-faq-btn">Is the architecture secure and compliant? <span class="ses-plus-icon"></span></button>
+                        <div class="ses-faq-answer"><p>Yes, we are SOC2 Type II, HIPAA, and GDPR compliant, with full audit logging and threat detection.</p></div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+
+<!-- What we Do -->
+<section class="what-we-do-section fb-section">
+    <!-- Subtle Grid Background Pattern for the whole section -->
+    <div class="grid-background-overlay"></div>
+    
+    <div class="fb-container content-wrapper">
+        
+        <!-- ================= STICKY LEFT COLUMN ================= -->
+        <div class="sticky-column-wrapper">
+            <div class="sticky-content">
+                <!-- Left BG Grid Image (Behind the text) -->
+                <img src="./assest/images/whatwedocolorgrid.png" alt="Grid Background" class="left-grid-image">
+
+                <!-- Soft Greenish Left Glow Effect -->
+                <div class="left-glow-layer"></div>
+                
+                <!-- Title Badge Pill -->
+                <div class="badge-pill">
+                    <img src="./assest/images/starico.png" alt="Star Icon" class="star-icon">
+                    <span>WHAT WE DO</span>
+                </div>
+                
+                <!-- Main Title Heading with Blue Highlight -->
+                <h2 class="section-title">From <span class="ses-blue-text">Scattered Data</span><br> To Unified Action</h2>
+                
+                <!-- Description Paragraph -->
+                <p class="section-desc">Go From Scattered Data To Actionable Insights Without A Single Line Of Code. Clariti Streamlines How You Connect, Analyze, And Act On Your Business Intelligence.</p>
+                
+                <!-- Status Bar 1 (Standard BI) -->
+                <div class="status-bar status-top">
+                    <img src="./assest/images/clock_what.png" alt="Clock Icon" class="status-icon">
+                    <span>Standard BI: Hindsight Reporting</span>
+                </div>
+                
+                <!-- Status Bar 2 (Clariti Decision-Centric) -->
+                <div class="status-bar status-bottom">
+                    <img src="./assest/images/arrow_what.png" alt="Graph Icon" class="status-icon">
+                    <span>Clariti: Decision-Centric Foresight</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SCROLLABLE RIGHT COLUMN ================= -->
+        <div class="scrollable-column-wrapper">
+            <div class="cards-grid">
+                
+                <!-- Card 01: Connect Your Data -->
+                <article class="feature-card fb-reveal staggered-1">
+                    <!-- Grid Image Inside Card -->
+                    <img src="./assest/images/whatwedogrid.png" alt="Card Grid" class="card-grid-bg">
+                    
+                    <div class="card-number-bg">01</div>
+                    <div class="card-content">
+                        <h3>Connect Your Data, As-Is.</h3>
+                        <p>Link your CRMs, ERPs, and spreadsheets securely with zero data migration.</p>
+                    </div>
+                </article>
+
+                <!-- Card 02: Ask Questions -->
+                <article class="feature-card fb-reveal staggered-2">
+                    <!-- Grid Image Inside Card -->
+                    <img src="./assest/images/whatwedogrid.png" alt="Card Grid" class="card-grid-bg">
+                    
+                    <div class="card-number-bg">02</div>
+                    <div class="card-content">
+                        <h3>Ask Questions in Plain English.</h3>
+                        <p>No complex queries. Ask about your business in plain English and get instant answers.</p>
+                    </div>
+                </article>
+
+                <!-- Card 03: Act on Decision-Grade Insights -->
+                <article class="feature-card fb-reveal staggered-3">
+                    <!-- Grid Image Inside Card -->
+                    <img src="./assest/images/whatwedogrid.png" alt="Card Grid" class="card-grid-bg">
+                    
+                    <div class="card-number-bg">03</div>
+                    <div class="card-content">
+                        <h3>Act on Decision-Grade Insights</h3>
+                        <p>Go beyond static dashboards. Get proactive alerts and smart insights to make faster decisions.</p>
+                    </div>
+                </article>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<!-- Encapsulated Timeline Section -->
+<section class="clariti-timeline-section">
+    <div class="clariti-header">
+       <div class="badge-pill">
+                    <img src="./assest/images/starico.png" alt="Star Icon" class="star-icon">
+                    <span>USE CASE</span>
+                </div>
+        <h2>Every Role, <span>Supercharged</span> By AI</h2>
+        <p>See How Clariti Empowers Different Teams Across Your Business With Customized, Context-Aware Insights From A Single Source Of Truth</p>
+    </div>
+
+    <div class="clariti-timeline-wrapper">
+        <!-- The Grid Wrapper -->
+        <div class="clariti-grid" id="clariti-grid">
+            
+            <!-- Dynamic SVG Layer -->
+            <svg id="clariti-path-layer"></svg>
+
+            <!-- Bottom Row: 01 -->
+            <div class="clariti-col bottom">
+                <div class="clariti-num-badge">01</div>
+                <div class="clariti-card">
+                    <h3>Executives & Founders</h3>
+                    <p>Get a unified, real-time view of your entire business. Spot risks early, track overall health, and align all teams seamlessly.</p>
+                </div>
+            </div>
+
+            <!-- Top Row: 02 -->
+            <div class="clariti-col top">
+                <div class="clariti-num-badge">02</div>
+                <div class="clariti-card">
+                    <h3>Finance Teams</h3>
+                    <p>Instantly detect financial anomalies, monitor KPIs, and run proactive "what-if" scenarios without waiting for month-end reports.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Row: 03 -->
+            <div class="clariti-col bottom">
+                <div class="clariti-num-badge">03</div>
+                <div class="clariti-card">
+                    <h3>Operations & Plant Managers</h3>
+                    <p>Predict unplanned downtime, monitor supply chain delays, and keep operations running smoothly with automated alerts.</p>
+                </div>
+            </div>
+
+            <!-- Top Row: 04 -->
+            <div class="clariti-col top">
+                <div class="clariti-num-badge">04</div>
+                <div class="clariti-card">
+                    <h3>Sales & Marketing</h3>
+                    <p>Discover hidden customer patterns, forecast demand accurately, and adapt strategies instantly to drive more growth.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Row: 05 -->
+            <div class="clariti-col bottom">
+                <div class="clariti-num-badge">05</div>
+                <div class="clariti-card">
+                    <h3>IT & Data Teams</h3>
+                    <p>Empower business teams to ask their own questions. Free up IT from endless report requests without building complex data pipelines.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    
+<!-- Social Proof Section -->
+<section class="sp-section">
+    <!-- Ambient Glow Background -->
+    <div class="sp-glow-bg"></div>
+
+    <div class="sp-container">
+        
+        <!-- Left Column: Headers and Scrolling Testimonials -->
+        <div class="sp-left">
+            <span class="sp-pre-heading">SOCIAL PROOF</span>
+            <h2 class="sp-heading">Architects of <span class="sp-text-blue">Modern Industry</span></h2>
+            
+            <!-- The Viewport hides the overflow and adds the fade masks -->
+            <div class="sp-testimonials-viewport">
+                <div class="sp-timeline-line"></div>
+                
+                <!-- The Track moves up and down -->
+                <div class="sp-testimonial-track" id="sp-test-track">
+                    
+                    <div class="sp-testimonial-item">
+                        <div class="sp-quote-icon">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        </div>
+                        <p class="sp-quote-text">"Clariti transformed our fragmented data silos into a single, conversational source of truth. The ROI was visible in week one."</p>
+                        <div class="sp-author">
+                            <img src="https://i.pravatar.cc/100?img=47" alt="CTO, Nexus Dynamics" class="sp-avatar">
+                            <span class="sp-author-title">CTO, Nexus Dynamics</span>
+                        </div>
+                    </div>
+
+                    <div class="sp-testimonial-item">
+                        <div class="sp-quote-icon">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        </div>
+                        <p class="sp-quote-text">"The precision of the AI engine is unmatched. It understands business context, not just keywords."</p>
+                        <div class="sp-author">
+                            <img src="https://i.pravatar.cc/100?img=11" alt="VP Data Strategy, Global Logistics" class="sp-avatar">
+                            <span class="sp-author-title">VP Data Strategy, Global Logistics</span>
+                        </div>
+                    </div>
+
+                    <div class="sp-testimonial-item">
+                        <div class="sp-quote-icon">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        </div>
+                        <p class="sp-quote-text">"Our teams are moving 5x faster. The ability to query complex databases with natural language is a total game-changer."</p>
+                        <div class="sp-author">
+                            <img src="https://i.pravatar.cc/100?img=33" alt="Lead Engineer, TechFlow" class="sp-avatar">
+                            <span class="sp-author-title">Lead Engineer, TechFlow</span>
+                        </div>
+                    </div>
+
+                    <div class="sp-testimonial-item">
+                        <div class="sp-quote-icon">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        </div>
+                        <p class="sp-quote-text">"Implementation took days, not months. It integrated with our existing secure infrastructure completely seamlessly."</p>
+                        <div class="sp-author">
+                            <img src="https://i.pravatar.cc/100?img=41" alt="Director of IT, FinSecure" class="sp-avatar">
+                            <span class="sp-author-title">Director of IT, FinSecure</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Staggered Stats Grid (Unchanged) -->
+        <div class="sp-right">
+            
+            <div class="sp-stat-column col-down">
+                <div class="sp-stat-card">
+                    <div class="sp-stat-content sp-animatable">
+                        <h3 class="sp-stat-number"><span class="stat-val">99</span><span class="stat-suf">%</span></h3>
+                        <p class="sp-stat-label">ACCURACY RATE</p>
+                    </div>
+                </div>
+                
+                <div class="sp-stat-card">
+                    <div class="sp-stat-content sp-animatable">
+                        <h3 class="sp-stat-number"><span class="stat-val">12</span><span class="stat-suf">ms</span></h3>
+                        <p class="sp-stat-label">AVG LATENCY</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-stat-column col-up">
+                <div class="sp-stat-card">
+                    <div class="sp-stat-content sp-animatable">
+                        <h3 class="sp-stat-number"><span class="stat-val">500</span><span class="stat-suf">+</span></h3>
+                        <p class="sp-stat-label">ENTERPRISE APPS</p>
+                    </div>
+                </div>
+                
+                <div class="sp-stat-card">
+                    <div class="sp-stat-content sp-animatable">
+                        <h3 class="sp-stat-number"><span class="stat-val">24/7</span><span class="stat-suf"></span></h3>
+                        <p class="sp-stat-label">LIVE SUPPORT</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Clariti CTA & Footer Section -->
+<div class="cl-section-wrapper">
+    
+    <!-- CTA Section -->
+    <section class="cl-cta-container cl-animate-up">
+        <div class="cl-cta-card">
+            <!-- Background Globe Image -->
+            <div class="cl-cta-bg-overlay" style="background-image: url('./assest/images/ctaimgbg.png');"></div>
+            
+            <div class="cl-cta-content">
+                <div class="cl-trusted-badge">
+                    Trusted By 20,000+ Clients 
+                    <span class="cl-stars">
+                        ★★★★★
+                    </span>
+                </div>
+                
+                <h2 class="cl-cta-title">Ready to clarify your data?</h2>
+                <p class="cl-cta-subtitle">Join over 500+ teams using Clariti to drive data-informed<br>decisions every single day.</p>
+                
+                <div class="cl-cta-actions">
+                    <a href="#" class="cl-btn cl-btn-primary">Get Started Free</a>
+                    <a href="#" class="cl-btn cl-btn-outline">Talk to Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer Section -->
+    <footer class="cl-footer cl-animate-up">
+        <div class="cl-footer-container">
+            <div class="cl-footer-grid">
+                
+                <!-- Column 1: Branding -->
+                <div class="cl-footer-col cl-brand-col">
+                    <img src="./assest/images/claritilogo.png" alt="Clariti Logo" class="cl-footer-logo" onerror="this.outerHTML='<h3 class=\'cl-fallback-logo\'><span style=\'color:#1A56DB\'>◩</span> Clariti</h3>'">
+                    <p class="cl-footer-desc">Empowering modern businesses with AI-driven decision intelligence.</p>
+                    
+                    <!-- Social Links (Using IMAGES instead of SVG) -->
+                    <div class="cl-social-links">
+                        <!-- Replace the 'onerror' fallbacks with your actual image files if needed -->
+                        <a href="#" aria-label="Facebook" class="cl-social-icon">
+                            <img src="./assest/images/facebook.png" alt="FB" onerror="this.src='https://cdn-icons-png.flaticon.com/512/733/733547.png'">
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="cl-social-icon">
+                            <img src="./assest/images/linkedin.png" alt="IN" onerror="this.src='https://cdn-icons-png.flaticon.com/512/733/733561.png'">
+                        </a>
+                        <a href="#" aria-label="Instagram" class="cl-social-icon">
+                            <img src="./assest/images/instagram.png" alt="IG" onerror="this.src='https://cdn-icons-png.flaticon.com/512/733/733558.png'">
+                        </a>
+                        <a href="#" aria-label="YouTube" class="cl-social-icon">
+                            <img src="./assest/images/youtube.png" alt="YT" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1384/1384060.png'">
+                        </a>
+                        <a href="#" aria-label="WhatsApp" class="cl-social-icon">
+                            <img src="./assest/images/whatsapp.png" alt="WA" onerror="this.src='https://cdn-icons-png.flaticon.com/512/733/733585.png'">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Policies -->
+                <div class="cl-footer-col">
+                    <h4 class="cl-footer-title">Company Policies</h4>
+                    <ul class="cl-footer-links">
+                        <li><a href="#">Privacy & Policies</a></li>
+                        <li><a href="#">Pricing Policy</a></li>
+                        <li><a href="#">Refund & cancellation policies</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Links -->
+                <div class="cl-footer-col">
+                    <h4 class="cl-footer-title">Useful Links</h4>
+                    <ul class="cl-footer-links">
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Use Case</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="cl-footer-col">
+                    <h4 class="cl-footer-title">Contact</h4>
+                    <ul class="cl-footer-contact">
+                        <li><strong>Phone No:</strong> +91 00000 00000</li>
+                        <li><strong>Email:</strong> abc@gmail.com</li>
+                        <li><strong>Address:</strong> Ahmedabad, Gujarat</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="cl-footer-bottom">
+                <p>&copy; 2024 Clariti AI. The Digital Architect of Information. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+    <script src="./assest/js/script.js"></script>
+</body>
+</html>

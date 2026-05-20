@@ -1,0 +1,2558 @@
+/* RESET & VARIABLES */
+/* ================= RESET & VARIABLES ================= */
+:root {
+    --primary-blue: #0077ff;
+    --text-main: #0F172A;
+    --text-muted: #475569;
+    --white: #ffffff;
+    --header-bg: rgba(240, 248, 255, 0.95); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #ffffff;
+    min-height: 70vh;
+    color: var(--text-main);
+    overflow-x: hidden; /* Prevents horizontal scroll bugs */
+}
+
+/* Hides the mobile buttons on large screens */
+.mobile-actions { display: none; }
+/* ================= TEXT WAVE ANIMATION ================= */
+h1 { opacity: 1; transform: none; animation: none; }
+.wave-heading { display: block; }
+
+.wave-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px) rotate(2deg); 
+    animation: waveReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--i) * 0.12s);
+}
+
+.wave-word:not(:last-child) {
+    margin-right: 0.08em; 
+}
+
+@keyframes waveReveal {
+    to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* ================= HEADER ================= */
+header {
+    background-color: var(--header-bg);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.0rem;
+    width: 92%;
+    max-width: 1400px;
+    margin: 0.5rem auto; 
+    position: sticky;
+    top: 20px; 
+    z-index: 1000; 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+}
+
+.logo img { height: 45px; width: auto; display: block; }
+nav ul { list-style: none; display: flex; gap: 2.5rem; }
+nav a { text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 1.1rem; transition: color 0.3s; }
+nav a:hover, nav a.active { color: var(--primary-blue); }
+.header-actions { display: flex; align-items: center; gap: 1.5rem; }
+.sign-up-link { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; }
+.login-btn {
+    background-color: var(--primary-blue); color: var(--white); border: none;
+    padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+    cursor: pointer; transition: background 0.3s, transform 0.2s;
+}
+.login-btn:hover { background-color: #0352c8ea; transform: translateY(-2px); }
+.mobile-menu-btn { display: none; }
+
+/* ================= HERO SECTION (SLIDE 1) ================= */
+.hero-section {
+    position: relative; max-width: 1350px; margin: 0 auto;
+    padding: 2rem 1rem 4rem 2rem;
+}
+
+.hero-content {
+    display: grid; 
+    grid-template-columns: 1fr 1.3fr; 
+    gap: 2rem; align-items: center;
+}
+
+.text-column { position: relative; z-index: 2; }
+
+.hero-text-glow {
+    position: absolute; width: 700px; height: 500px; top: -2%; left: 5%; 
+    background: radial-gradient(circle at 20% 30%, rgba(0, 200, 255, 0.289) 0%, rgba(0, 102, 255, 0.05) 60%, transparent 90%);
+    filter: blur(40px); z-index: -1; pointer-events: none;
+}
+
+.tag {
+    background: linear-gradient(90deg, #5b8fff 0%, #5682c8 100%);
+    color: var(--white); padding: 0.4rem 1rem; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 2rem; box-shadow: 0 4px 10px rgba(91, 143, 255, 0.3);
+}
+
+.text-column h1 { font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.15; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -1.5px; }
+.blue-text { color: var(--primary-blue); }
+.position-relative { position: relative; display: inline-block; }
+.text-swoosh { position: absolute; bottom: -15px; right: -20px; width: 120px; height: 30px; }
+.text-column p { font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6; max-width: 85%; font-weight: 400; }
+
+.request-demo-btn {
+    background: linear-gradient(90deg, #0066FF 0%, #00d4ff 100%); color: var(--white);
+    border: none; padding: 1rem 2rem; border-radius: 50px; font-size: 1rem; font-weight: 600;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 0.8rem;
+    transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(0, 150, 255, 0.3);
+}
+.request-demo-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 150, 255, 0.4); }
+
+.reviews { display: flex; align-items: center; gap: 1.2rem; margin-top: 3.5rem; }
+.avatar-group { display: flex; }
+.avatar-group img { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--white); margin-left: -12px; object-fit: cover; }
+.avatar-group img:first-child { margin-left: 0; }
+.review-text { display: flex; flex-direction: column; }
+.stars { color: var(--primary-blue); font-size: 1rem; letter-spacing: 2px; margin-bottom: 2px; }
+.review-count { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+
+.phone-column { position: relative; display: flex; justify-content: center; align-items: center; perspective: 1200px; z-index: 1; padding: 20px; }
+.phone-column::before {
+    content: ''; position: absolute; width: 80%; height: 80%; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.2) 0%, rgba(0, 102, 255, 0.15) 30%, transparent 70%);
+    filter: blur(60px); z-index: -4; pointer-events: none;
+}
+
+.patterned-network-bg {
+    position: absolute; width: 250%; height: 150%; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: -3; opacity: 0.6; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%2325c2a0%22%20fill-opacity%3D%220.3%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-repeat: repeat; background-size: 80px 80px; 
+}
+
+.right-bg-image {
+    position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%);
+    width: 115%; display: flex; justify-content: center; align-items: center; z-index: -2; pointer-events: none; 
+    animation: slow-rotate 70s linear infinite; 
+}
+.right-bg-image img { width: 94%; height: auto; object-fit: contain; }
+@keyframes slow-rotate { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.interactive-container { position: relative; width: 100%; max-width: 525px; transform-style: preserve-3d; z-index: 1; }
+.phone-frame img { width: 92%; height: 550px; border-radius: 53px; box-shadow: 0 30px 60px rgba(230, 248, 250, 0.693); }
+
+/* ================= SLIDE 1 WIDGETS ================= */
+.widget {
+    position: absolute; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(15px);
+    border-radius: 20px; box-shadow: 0 20px 40px rgba(255, 255, 255, 0.704); border: 1px solid rgba(255, 255, 255, 0.8);
+    transform: translateZ(80px); overflow: hidden; cursor: pointer; transform-style: preserve-3d;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.4s ease-out;
+    border-color: rgba(0, 102, 255, 0.4);
+}
+.widget > * { transform: translateZ(20px); transition: transform 0.3s ease; }
+.widget:hover { box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15), 0 0 30px rgba(0, 102, 255, 0.2), inset 0 0 20px rgba(0, 102, 255, 0.05); }
+.widget:hover .green-badge { box-shadow: 0 0 10px rgba(22, 104, 163, 0.4); }
+
+@keyframes generic-float { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
+
+/* ================= DESKTOP WIDGET FIX ================= */
+#performance-widget { 
+    position: absolute; 
+    top: 60%; 
+    right: -16%; 
+    width: 230px !important; /* Forces it back to full size */
+    z-index: 5; 
+    animation: generic-float 4s ease-in-out alternate infinite; 
+}
+
+#forecast-widget { 
+    position: absolute; 
+    bottom: -1%; 
+    left: -30%; 
+    width: 220px !important; /* Forces it back to full size */
+    z-index: 5; 
+    animation: generic-float 4.5s 0.2s ease-in-out alternate infinite; 
+    padding: 1.0rem;
+}
+.widget-dark-header { background: #111827; color: white; padding: 1rem 1.2rem; display: flex; justify-content: space-between; align-items: center; }
+.widget-title-white { font-size: 0.9rem; font-weight: 600; }
+.widget-subtitle { font-size: 0.65rem; color: #9CA3AF; margin-top: 3px; }
+.widget-light-body { padding: 1.2rem; background: white; }
+.widget-value { font-size: 2.2rem; font-weight: 800; display: flex; align-items: center; gap: 12px; }
+.green-badge { background: #DCFCE7; color: #16A34A; font-size: 0.65rem; font-weight: 700; padding: 4px 8px; border-radius: 20px; }
+.widget-desc { color: var(--text-muted); font-size: 0.75rem; font-weight: 500; margin-bottom: 1rem; }
+.widget-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.widget-tags span { font-size: 0.65rem; background: #F1F5F9; color: var(--text-muted); padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; }
+
+.forecast-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
+.ai-icon { background-color: #E0F2FE; width: 32px; height: 32px; display: flex; justify-content: center; align-items: center; border-radius: 8px; }
+.forecast-label { display: block; font-size: 0.65rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
+.forecast-title { font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+.forecast-text { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; font-weight: 500; }
+
+/* ================= SLIDE LOGIC & HELPERS ================= */
+#hero { position: relative; overflow: hidden; }
+.hero-slide { display: none; width: 100%; opacity: 0; }
+.hero-slide.active { display: block; opacity: 1; animation: fadeIn 0.8s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.teal-text { color: #04d9dd; }
+.glow-teal { background: radial-gradient(circle, rgba(4, 216, 216, 0.382) 0%, transparent 70%) !important; }
+.tag-teal { background: rgba(0, 192, 158, 0.1) !important; color: #00C09E !important; border: 1px solid rgba(0, 192, 158, 0.3); }
+.btn-teal { background: linear-gradient(90deg, #00C09E 0%, #0066FF 100%) !important; }
+.word-rotator { display: inline-grid; text-align: left; }
+.word-rotator .word { grid-area: 1 / 1; opacity: 0; color:#0066FF }
+
+/* Float Animation */
+.float-el { animation: slide2Float 5s ease-in-out infinite alternate; }
+@keyframes slide2Float { from { transform: translateY(0px) rotateY(-15deg); } to { transform: translateY(-20px) rotateY(-10deg); } }
+
+/* ================= SLIDE 2 DASHBOARD (DESKTOP) ================= */
+.dark-dashboard-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Wider for desktop */
+    height: 500px; /* Taller for desktop */
+    perspective: 1200px;
+    margin: 0 auto;
+}
+
+.dark-dashboard-wrapper::before {
+    content: ''; position: absolute; width: 130%; height: 90%; top: 40%; left: 50%; transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(214, 241, 247, 0.811) 0%, rgba(208, 247, 245, 0.805) 40%, transparent 70%);
+    filter: blur(40px); z-index: -2; pointer-events: none;
+}
+
+/* 1. Main Dashboard Standalone Image */
+.main-dashboard-card, .dashboard-direct-img {
+    position: absolute;
+    width: 120%; /* Makes it huge on desktop */
+    max-width: 900px;
+    top: 5%;
+    right: -25%; /* Offset to the right */
+    border: none;
+    background: transparent;
+    border-radius: 16px; 
+    box-shadow: 0 20px 60px rgba(228, 255, 254, 0.844); 
+    z-index: 1; 
+    transform: rotateY(-8deg) rotateX(2deg); /* 3D Tilt */
+}
+
+/* 2. Light Chat Card */
+.chat-card {
+    position: absolute;
+    width: 320px;
+    bottom: -9%;
+    left: -10%; /* Offset to the bottom left */
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 10px 20px rgba(0, 192, 158, 0.1);
+    backdrop-filter: blur(15px);
+    color: #1E293B;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 3;
+    font-weight: 500;
+}
+
+.chat-icon {
+    background: linear-gradient(135deg, #00C09E, #0066FF); width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0, 192, 158, 0.3);
+}
+
+/* ================= RESPONSIVE DESIGN (THE FIXES) ================= */
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* 1. NAVBAR FIX: Trigger Hamburger Menu earlier (at 1100px) */
+@media screen and (max-width: 1100px) {
+    header { width: 95%; padding: 1rem 1.5rem; margin: 1rem auto; flex-wrap: wrap; }
+    .mobile-menu-btn { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+    .mobile-menu-btn span { width: 25px; height: 3px; background-color: var(--text-main); border-radius: 3px; }
+    .desktop-actions { display: none; }
+    
+    #nav-menu {
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background: var(--header-bg); padding: 2rem; margin-top: 10px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); flex-direction: column; text-align: center; border-radius: 20px; z-index: 99;
+    }
+    #nav-menu.active { display: flex; }
+    #nav-menu ul { flex-direction: column; gap: 1.5rem; margin-bottom: 2rem; }
+}
+
+/* 2. TABLET STACKING (992px) */
+@media screen and (max-width: 992px) {
+    .hero-content { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
+    .text-column { align-items: center; display: flex; flex-direction: column; }
+    .text-swoosh { right: 0; left: 50%; transform: translateX(-50%); bottom: -20px; }
+    
+    .interactive-container { max-width: 350px; margin: 0 auto; }
+    
+    /* Slide 2 Tablet Protection */
+    .dark-dashboard-wrapper { width: 100% !important; margin: 0 auto !important; height: auto !important; min-height: 400px; display: flex !important; flex-direction: column !important; align-items: center !important; }
+    .main-dashboard-card { position: relative !important; width: 90% !important; max-width: 600px !important; transform: none !important; right: auto !important; left: auto !important; top: auto !important; margin: 0 auto !important; }
+    .chat-card { position: relative !important; left: auto !important; bottom: auto !important; transform: translateY(-30px) !important; margin: 0 auto !important; }
+}
+
+/* ================= DEFINITIVE MOBILE FIXES (768px) ================= */
+@media screen and (max-width: 768px) {
+    /* CRITICAL FIX 1: 'clip' stops sideways scrolling BUT lets the Sticky Navbar work! */
+    body, html { max-width: 100vw; overflow-x: clip !important; }
+   .hero-section { 
+        overflow-x: clip !important; 
+        overflow-y: visible !important; 
+        margin: 0 auto !important;
+        padding: 1rem 0rem 1rem 0rem !important; /* Added 1rem to the placeholders */
+        width: 100% !important;
+    }
+    
+    /* ================= NAVBAR & BUTTON FIXES ================= */
+    .desktop-actions { display: none !important; } 
+    
+    .mobile-actions {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* GUARANTEED STICKY HEADER */
+    header { 
+        position: sticky !important; 
+        top: 10px !important; 
+        z-index: 1000 !important;
+        padding: 0.8rem 1.5rem !important; 
+        margin: 0.5rem auto !important; 
+        border-radius: 25px !important; 
+        flex-wrap: wrap !important;
+        background-color: var(--header-bg) !important;
+    }
+    
+    .mobile-menu-btn { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+    .mobile-menu-btn span { width: 25px; height: 3px; background-color: var(--text-main); border-radius: 3px; }
+    
+    #nav-menu {
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background: var(--header-bg); padding: 2rem; margin-top: 10px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); flex-direction: column;
+        text-align: center; border-radius: 20px; z-index: 99;
+    }
+    #nav-menu.active { display: flex; }
+    
+    /* ================= SLIDE 1 FIXES ================= */
+    .text-column h1 { font-size: 2.1rem; word-wrap: break-word; }
+    .hero-content { gap: 4rem !important; padding: 0 1rem; width: 100% !important; }
+    
+    .phone-column { width: 100% !important; padding: 0 !important; display: flex; justify-content: center; overflow: visible !important; }
+    
+    .interactive-container { 
+        position: relative !important; width: 100% !important; max-width: 320px !important; margin: 0 auto !important; 
+        display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6px !important; align-items: stretch !important; 
+    } 
+
+    .phone-frame, .phone-frame img {
+        grid-column: 1 / 3 !important; width: 210px !important; height: auto !important; 
+        margin: 0 auto -18px auto !important; border-radius: 30px !important; display: block !important;
+        position: relative !important; z-index: 1 !important;
+    }
+
+    #performance-widget, #forecast-widget { 
+        position: relative !important; top: auto !important; bottom: auto !important; left: auto !important; right: auto !important;
+        width: 100% !important; transform: none !important; animation: none !important; z-index: 5 !important; 
+    }
+    
+    .widget-dark-header, .widget-light-body { padding: 0.6rem !important; }
+    .widget-title-white { font-size: 0.7rem !important; }
+    .widget-subtitle { font-size: 0.55rem !important; margin-top: 1px !important; }
+    .widget-value { font-size: 1rem !important; gap: 4px !important; }
+    .green-badge { font-size: 0.5rem !important; padding: 2px 4px !important; }
+    .widget-desc { font-size: 0.6rem !important; margin-bottom: 0.4rem !important; }
+    .widget-tags { gap: 0.2rem !important; }
+    .widget-tags span { font-size: 0.45rem !important; padding: 0.2rem 0.3rem !important; }
+    
+    .forecast-header { margin-bottom: 0.4rem !important; }
+    .ai-icon { width: 22px !important; height: 22px !important; font-size: 0.75rem !important; }
+    .forecast-label { font-size: 0.55rem !important; }
+    .forecast-title { font-size: 0.7rem !important; }
+    .forecast-text { font-size: 0.6rem !important; line-height: 1.3 !important; }
+    
+    .right-bg-image, .patterned-network-bg { display: none !important; }
+
+    /* ================= SLIDE 2 FIXES ================= */
+    /* SUCCESSFUL FIX: Allows natural wrapping so text never shoves elements off screen */
+    #slide-2 .text-column h1 { 
+        font-size: 2.1rem !important; 
+        line-height: 1.2 !important; 
+        white-space: normal !important; 
+    }
+    .word-rotator, .blue-text { 
+        white-space: normal !important; 
+        /* display: inline !important; */
+    }
+    
+    .dark-dashboard-wrapper { 
+        height: auto !important; 
+        min-height: auto !important;
+        display: flex !important; 
+        flex-direction: column !important;
+        align-items: center !important; 
+        padding-bottom: 2rem !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+   /* ================= SLIDE 2 IMAGE CENTERING FIX ================= */
+    
+    .main-dashboard-card { 
+        position: relative !important;
+        width: 100% !important; 
+        max-width: 320px !important; /* Limits the max size so it doesn't get too wide */
+        margin: 0 auto !important;   /* Centers the container on the screen */
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 10px !important;
+        z-index: 1 !important;
+    }
+    
+    .dashboard-direct-img, .dashboard-img {
+        width: 100% !important;   /* Forces the image to fill the container */
+        height: 220px !important;  /* Keeps the aspect ratio proportional */
+        max-width: 300px !important; /* Set your preferred max-width here */
+        display: block !important;
+        margin: 0 auto !important; /* Centers the image inside the container */
+        border-radius: 12px !important;
+        box-shadow: 0 10px 30px rgba(213, 224, 223, 0.833) !important;
+    }
+    
+    /* Perfectly stacked Chat Card overlapping the image base naturally */
+    .chat-card { 
+        position: relative !important; 
+        width: 90% !important; 
+        max-width: 320px !important;
+        margin: 0 auto !important; 
+        right: auto !important; 
+        left: auto !important; 
+        bottom: auto !important;
+        transform: translateY(0px) !important; /* Perfectly pulls it up over the bottom image boundary */
+        padding: 1rem 1.2rem !important; 
+        justify-content: flex-start !important; 
+        z-index: 5 !important;
+        box-shadow: 0 10px 25px rgba(219, 236, 246, 0.866) !important;
+    }
+
+    .chat-icon { 
+        width: 35px !important; 
+        height: 35px !important; 
+        flex-shrink: 0 !important; 
+        font-size: 1.2rem !important; 
+    }
+    
+    .chat-text { 
+        font-size: 1.05rem !important; 
+        white-space: normal !important; 
+    }
+    .chat-icon { width: 35px !important; height: 35px !important; flex-shrink: 0 !important; font-size: 1.2rem !important; }
+    .chat-text { font-size: 1.05rem !important; white-space: normal !important; }
+}
+
+/* ================= INFRASTRUCTURE SECTION ================= */
+.infrastructure-section {
+    position: relative;
+    background-color: #f1ffffd5; /* Very light off-white background */
+    padding: 60px 20px;
+    overflow: hidden;
+    color: #1E293B;
+    
+}
+
+/* Background Wave */
+.bg-wave-container {
+    position: absolute;
+    top: -1%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: 0;
+    pointer-events: none;
+}
+.bg-wave-container svg {
+    width: 100%;
+    height: 100%;
+}
+
+.infra-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Header Layout */
+.infra-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.infra-title-box {
+    flex: 1 1 500px;
+}
+
+.infra-tag {
+    display: inline-block;
+    color: #3B82F6;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.infra-title-box h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1E293B;
+    margin: 0;
+}
+
+.infra-desc-box {
+    flex: 1 1 400px;
+}
+
+.infra-desc-box p {
+    color: #64748B;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 500px;
+}
+
+/* Cards Grid */
+.infra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Individual Card Styling */
+.infra-card {
+    background-color: #1453c1f3; /* Deep primary blue */
+    border-radius: 24px;
+    padding: 40px 30px;
+    color: #d7f9f9;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infra-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.25);
+}
+
+.card-icon-wrapper {
+    background: rgba(255, 255, 255, 0.15);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.infra-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.infra-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+    flex-grow: 1; /* Pushes the link to the bottom */
+}
+
+.card-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+}
+
+.card-link:hover {
+    opacity: 0.8;
+}
+
+/* ================= SCROLL ANIMATION CLASSES ================= */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Stagger delays for the cards so they pop up one by one */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.5s; }
+
+/* The class added by JavaScript when element is in view */
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    /* 1. Ensure the container has consistent horizontal breathing room */
+    .infra-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        /* Force padding on the container so cards never touch the edges */
+        padding: 0 1px !important; 
+    }
+
+    /* 2. Style the cards to respect the container padding */
+    .infra-card {
+        width: 100% !important;
+        /* Ensure the card content doesn't hit the card edge */
+        padding: 20px 20px !important; 
+        box-sizing: border-box !important;
+        margin: 0 auto !important; /* Forces the card to center within the grid */
+    }
+
+    /* 3. Ensure the parent section doesn't override these margins */
+    .infra-container {
+        padding: 0 !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+}
+
+/* ================= ISOLATED SOLUTIONS SECTION ================= */
+
+.solutions-every-scale {
+    position: relative;
+    padding: 90px 0;
+    font-family: 'Inter', sans-serif;
+    color: #0F172A;
+    background-color: transparent;
+    z-index: 1; /* Ensures it sits properly on the page */
+}
+
+/* Base reset ONLY for this section so it doesn't break */
+.solutions-every-scale * {
+    box-sizing: border-box;
+}
+
+.ses-container {
+    max-width: 1300px; /* User requested width */
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.ses-bg-glow {
+    position: absolute;
+    width: 120%;
+    height: 65%; /* Covers the bottom portion of the section */
+    bottom: 0; /* Changed from 20px to 0 to remove the gap */
+    left: 0;
+    
+    /* Smooth, wide frosted-blue fade moving from bottom to top */
+    background: linear-gradient(
+        to top, 
+        rgba(214, 240, 253, 0.675) 0%,   /* Stronger blue at the very bottom */
+        rgba(212, 239, 244, 0.082) 45%,   /* Fades to lighter blue in the middle */
+        transparent 100%                /* Completely transparent at the top */
+    );
+    
+    z-index: -1;
+    pointer-events: none;
+}
+/* Header Area */
+.ses-header-block {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px auto;
+    position: relative;
+}
+
+.ses-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+    letter-spacing: -1px;
+    color: #0F172A;
+}
+
+.ses-blue-text {
+    color: #0066FF;
+}
+
+.ses-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #64748B;
+    margin: 0;
+}
+
+.ses-curve-arrow {
+    position: absolute;
+    right: -90px;
+    bottom: -50px;
+    width: 70px;
+    height: auto;
+    transform: rotate(5deg);
+    z-index: 5;
+}
+
+/* Grid Layout */
+.ses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 20px;
+    overflow: hidden; /* Clips the child columns so outer corners are round */
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.08);
+    background-color: #FFFFFF;
+}
+
+/* Column Base */
+.ses-col {
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Backgrounds */
+.ses-bg-white { background-color: #FFFFFF; }
+.ses-bg-light { background-color: #F8FAFC; border-left: 1px solid rgba(0,0,0,0.03); border-right: 1px solid rgba(0,0,0,0.03); }
+.ses-bg-dark { background-color: #E2E8F0; }
+
+/* Text in Columns */
+.ses-tag {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #3B82F6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.ses-col-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.3;
+    color: #0F172A;
+}
+
+.ses-col-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0 0 40px 0;
+    max-width: 95%;
+}
+
+/* Accordions */
+.ses-faq-list {
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ses-faq-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+}
+
+.ses-faq-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1E293B;
+    font-family: inherit;
+    outline: none;
+}
+
+/* Plus/Minus Custom Icon */
+.ses-plus-icon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    margin-left: 15px;
+    color: #3B82F6;
+}
+
+.ses-plus-icon::before, .ses-plus-icon::after {
+    content: '';
+    position: absolute;
+    background-color: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.ses-plus-icon::before { width: 14px; height: 2px; top: 6px; left: 0; }
+.ses-plus-icon::after { width: 2px; height: 14px; top: 0; left: 6px; }
+
+.ses-faq-item.ses-active .ses-plus-icon::after {
+    transform: rotate(90deg) scaleY(0);
+}
+
+/* Answer Area */
+.ses-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.ses-faq-answer p {
+    padding: 0 0 25px 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #475569;
+}
+
+/* ================= SCROLL ANIMATIONS ================= */
+.ses-reveal-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.ses-reveal-section.ses-is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ses-reveal-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.ses-is-visible .ses-reveal-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ses-is-visible .ses-delay-1 { transition-delay: 0.2s; }
+.ses-is-visible .ses-delay-2 { transition-delay: 0.4s; }
+.ses-is-visible .ses-delay-3 { transition-delay: 0.6s; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 991px) {
+    .ses-title { font-size: 2.2rem; }
+    .ses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ses-col { padding: 40px 30px; }
+    .ses-curve-arrow { right: 0; bottom: -70px; }
+    
+    .ses-bg-light {
+        border-top: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-left: none; border-right: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .solutions-every-scale { padding: 80px 0; }
+    .ses-title { font-size: 2rem; }
+    .ses-grid { grid-template-columns: 1fr; }
+    .ses-curve-arrow { display: none; /* Hide arrow on mobile to prevent overflow/overlap issues */ }
+}
+
+
+/* Custom Image Icon for the Badge */
+.fb-badge-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain; /* Prevents the image from stretching */
+}
+/* ================= ISOLATED FEATURES BENTO SECTION ================= */
+
+.fb-section {
+    padding: 90px 0;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: #0F172A;
+    overflow: hidden;
+}
+
+.fb-section * {
+    box-sizing: border-box;
+}
+
+.fb-container {
+    max-width: 1200px; /* Updated to 1300px per your request */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header Area --- */
+.fb-header {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 60px auto;
+}
+
+.fb-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #4A7AFA;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.fb-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    color: #1E293B;
+    letter-spacing: -1px;
+}
+
+.fb-blue { color: #0066FF; }
+
+.fb-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #64748B;
+    margin: 0;
+}
+
+/* --- Bento Grid Layout --- */
+.fb-bento-grid {
+    display: grid;
+    /* Ratio roughly 40% left, 60% right */
+    grid-template-columns: 4fr 6fr;
+    gap: 30px;
+}
+
+/* --- Base Card Styles --- */
+.fb-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 45px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    min-height: 330px;
+    display: flex;
+}
+
+.fb-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(78, 133, 199, 0.101);
+}
+
+.fb-card-content {
+    position: relative;
+    z-index: 3;
+}
+
+.fb-card-content h3 {
+    font-size: 1.8rem;
+    color: #0F172A;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.fb-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #334155;
+    margin: 0;
+    max-width: 400px;
+}
+
+/* --- Positioning for your actual images --- */
+.fb-feature-img {
+    position: absolute;
+    z-index: 2;
+    object-fit: contain;
+    
+}
+
+/* Left Card: Just Ask */
+.fb-card-left {
+    background: linear-gradient(135deg, #BDE3FF 0%, #B8F2E6 100%);
+    flex-direction: column;
+    justify-content: flex-end; /* Text at the bottom */
+}
+
+.fb-chat-img {
+    top: 25%;
+    left: 10%;
+    width: 80%; /* Scales your image nicely inside the card */
+    height: auto;
+}
+
+/* Right Card: Connects Instantly */
+.fb-card-right {
+     background: linear-gradient(135deg, #d0f8f3 0%, #E2F2EF 100%);
+    justify-content: flex-end; /* Pushes content to the right */
+    align-items: center;
+}
+
+.fb-text-right {
+    text-align: right;
+    width: 50%; /* Constrain text so it doesn't overlap dashboard */
+}
+
+.fb-dashboard-img {
+    bottom: -2%; /* Pulls the image down so it cuts off at the bottom edge */
+    left: 0.5%;    /* Pulls it slightly left */
+    width: 49%;   /* Controls the size */
+    height: auto;
+}
+
+
+/* --- Animations --- */
+.fb-float {
+    animation: fb-floating 6s ease-in-out infinite;
+}
+
+.fb-float-slow {
+    animation: fb-floating 8s ease-in-out infinite;
+}
+
+@keyframes fb-floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Scroll Reveals */
+.fb-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fb-reveal.fb-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fb-delay-1 { transition-delay: 0.1s; }
+.fb-delay-2 { transition-delay: 0.3s; }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .fb-title { font-size: 2.2rem; }
+    
+    /* Stack grid on smaller screens */
+    .fb-bento-grid { grid-template-columns: 1fr; }
+    
+    .fb-card-right {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-top: 250px; /* Make room for your dashboard image above text */
+    }
+    
+    .fb-text-right {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .fb-dashboard-img {
+        bottom: auto;
+        top: -5%;
+        left: 5%;
+        width: 90%;
+    }
+}
+
+/* --- Grid Image Background --- */
+.fb-grid-bg {
+    position: absolute;
+    top: 0;
+    right: -90px;
+    width: 80%;
+    height: 90%;
+    object-fit: contain;
+    z-index: 1; 
+    pointer-events: none; 
+    opacity: 0.6; 
+}
+
+/* ================= BOTTOM BENTO GRID LAYOUT ================= */
+.fb-bento-grid-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.fb-bento-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Base adjustment for new cards */
+.fb-card-tall {
+    background: linear-gradient(135deg, #E6FBF9 0%, #D8F5F2 100%);
+    min-height: 600px;
+}
+
+.fb-card-small {
+    min-height: 285px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.fb-card-trends {
+    background: linear-gradient(135deg, #d0f8f3 0%, #E2F2EF 100%);
+    justify-content: flex-start;
+}
+
+.fb-card-compliance {
+    background: linear-gradient(135deg, #D5E5FD 0%, #B7D2F8 100%);
+    justify-content: flex-end; /* Text at bottom */
+    align-items: flex-end;     /* Text on right */
+}
+
+/* --- Image Positioning for Cards 3 & 4 --- */
+.fb-intel-img {
+    bottom: 2%;
+    left: 5%;
+    width: 80%;
+}
+
+.fb-trends-img {
+    top: 23%;
+    right: 1%;
+    width: 42%;
+}
+
+
+
+/* Card Background */
+.fb-card-compliance {
+    background: linear-gradient(135deg, #BCE2F6 0%, #D1EAF5 50%, #C3F0E6 100%);
+    position: relative;
+    overflow: hidden; 
+}
+
+/* ================= EXACT BOTTOM-RIGHT ORBIT SYSTEM ================= */
+
+.fb-compliance-text {
+    position: relative;
+    z-index: 10;
+    margin-top: 120px; 
+}
+
+/* 2. Lock the orbit system behind the text */
+.fb-orbit-system {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    pointer-events: none;
+}
+
+.fb-orbit-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block; 
+}
+.fb-orbit-ring {
+    position: absolute;
+    right: -40px;  
+    bottom: -40px; 
+    border-radius: 50%;
+   
+    transform: translate(50%, 50%); 
+}
+/* SVG positioning inside the ring */
+.fb-orbit-ring svg {
+    position: absolute;
+    top: 0; left: 0;
+    display: block;
+}
+/* 3. Ring sizes scaled to fit perfectly while keeping Ring 1 safe */
+.fb-ring-1 { width: 800px; height: 800px; }   
+.fb-ring-2 { width: 1020px; height: 1020px; } 
+.fb-ring-3 { width: 1240px; height: 1240px; } 
+.fb-planet-wrapper {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; 
+}
+
+/* The visible Bubbles */
+.fb-planet {
+    position: absolute;
+    top: -35px; 
+    left: 50%;
+    margin-left: -35px;
+    width: 70px; 
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Bubble Typography & Colors */
+.fb-planet span { font-size: 1.1rem; font-weight: 800; line-height: 1; margin-bottom: 2px; }
+.fb-planet small { font-size: 0.6rem; font-weight: 600; line-height: 1; opacity: 0.9; text-transform: uppercase; }
+
+.fb-planet-kpi { background: #92CD8F; } /* Green */
+.fb-planet-kpi span, .fb-planet-kpi small { color: #1E4D1A; } 
+
+.fb-planet-esg { background: #A0D3D8; } /* Teal */
+.fb-planet-esg span, .fb-planet-esg small { color: #0C4E55; } 
+
+.fb-planet-kra { background: #ADA5F3; } /* Purple */
+.fb-planet-kra span, .fb-planet-kra small { color: #FFFFFF; } 
+
+
+/* --- FASTER Swing Animations --- */
+
+
+/* Inner Arc (KPI) - Fastest */
+.fb-speed-1 { animation-name: fb-swing-1; animation-duration: 7s; }
+.fb-speed-1 .fb-planet { animation-name: fb-counter-swing-1; animation-duration: 7s; }
+
+/* Middle Arc (ESG) - Medium */
+.fb-speed-2 { animation-name: fb-swing-2; animation-duration: 9s; }
+.fb-speed-2 .fb-planet { animation-name: fb-counter-swing-2; animation-duration: 9s; }
+
+/* Outer Arc (KRA) - Slower to cover more distance organically */
+.fb-speed-3 { animation-name: fb-swing-3; animation-duration: 13s; }
+.fb-speed-3 .fb-planet { animation-name: fb-counter-swing-3; animation-duration: 13s; }
+
+
+/* Orbit Keyframes - Swings them between the top edge and left edge of the card */
+@keyframes fb-swing-1 {
+    from { transform: rotate(-80deg); } /* Low on the left */
+    to { transform: rotate(-10deg); }   /* High on the right */
+}
+@keyframes fb-swing-2 {
+    from { transform: rotate(-70deg); }
+    to { transform: rotate(-20deg); }
+}
+@keyframes fb-swing-3 {
+    from { transform: rotate(-85deg); }
+    to { transform: rotate(-15deg); }
+}
+
+/* Counter-Rotation Keyframes - Perfectly inversed to keep text upright */
+@keyframes fb-counter-swing-1 {
+    from { transform: rotate(80deg); }
+    to { transform: rotate(10deg); }
+}
+@keyframes fb-counter-swing-2 {
+    from { transform: rotate(70deg); }
+    to { transform: rotate(20deg); }
+}
+@keyframes fb-counter-swing-3 {
+    from { transform: rotate(85deg); }
+    to { transform: rotate(15deg); }
+}
+
+
+
+/* .fb-section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+} */
+
+.fb-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Subtle Repeating Grid Background Overlay --- */
+.grid-background-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* PLACE YOUR GRID PATTERN IMAGE HERE */
+    background-image: url('/assest/images/whatwedogrid.png');
+    background-repeat: repeat;
+    background-size: 50px 50px;
+    opacity: 0.15; /* Subtlety is key */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- Main Two-Column Wrapper --- */
+.content-wrapper {
+    display: flex;
+    position: relative;
+    z-index: 2; /* Sits above the grid */
+    gap: 80px;
+}
+
+
+/* ================= STICKY LEFT COLUMN STYLES ================= */
+
+
+/* 1. Remove ANY overflow hiding from the main section */
+.what-we-do-section, .fb-section {
+    padding: 90px 0;
+    position: relative;
+    overflow: visible !important; /* CRITICAL: overflow: hidden breaks sticky */
+}
+
+/* 2. The flex container MUST stretch its children */
+.content-wrapper {
+    display: flex !important;
+    align-items: stretch !important; /* CRITICAL: Gives the left column a tall track */
+    position: relative;
+    z-index: 2;
+    gap: 80px;
+}
+
+/* 3. The Left Column Wrapper acts as the physical track */
+.sticky-column-wrapper {
+    flex: 1.1;
+    position: relative;
+ 
+}
+
+/* 4. The Sticky Element itself */
+.sticky-content {
+    position: -webkit-sticky; 
+    position: sticky !important;
+    top: 120px !important; 
+    height: max-content !important; 
+    padding-bottom: 20px;
+    z-index: 5;
+}
+
+
+/* --- New: Left Grid Background Image --- */
+.left-grid-image {
+    position: absolute;
+    top: -80px;
+    left: -100px;
+    width: 90%; /* Scale it behind the text */
+    height: auto;
+    opacity: 0.6; /* Adjust visibility of the grid */
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* --- New: Card Grid Background Image --- */
+.card-grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.15; /* Subtle grid overlay on the blue card */
+    mix-blend-mode: overlay; 
+    z-index: 0;
+    pointer-events: none;
+
+}
+
+/* Ensure card contents stay above the new background image */
+.card-number-bg {
+    z-index: 1;
+}
+.card-content {
+    z-index: 2;
+}
+
+/* --- Left Side Soft Greenish Glow Layer --- */
+.left-glow-layer {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -150px;
+    left: -350px;
+    background: radial-gradient(circle at center, rgba(146, 205, 143, 0.15) 0%, rgba(0, 102, 255, 0.05) 30%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1; /* Behind content */
+    pointer-events: none;
+}
+
+/* --- Badge Pill & Icons --- */
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #4A7AFA; /* Exact badge blue */
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.star-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+/* --- Sticky Headings & Text --- */
+.section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 25px 0;
+    color: #0F172A;
+    letter-spacing: -1.5px;
+}
+
+.highlight-blue {
+    color: var(--clariti-blue);
+}
+
+.section-desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 50px 0;
+}
+
+/* --- Status Indicators --- */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 10px;
+    padding: 18px 25px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    max-width: 420px;
+}
+
+.status-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.status-top {
+    background-color: #dedede; /* Soft Greenish background */
+    color: #163465;
+}
+
+.status-bottom {
+    background-color: #FFFFFF; /* Pure White background */
+    color: var(--text-main);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+/* ================= SCROLLABLE RIGHT COLUMN STYLES ================= */
+.scrollable-column-wrapper {
+    flex: 1; /* Scrollable right side */
+    position: relative;
+}
+
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* --- The Dynamic Cards --- */
+.feature-card {
+    position: relative;
+    border-radius: 30px;
+    padding: 60px;
+    overflow: hidden;
+    /* Specific Gradient Background (Medium Blue to Deep Dark Blue) */
+    background: linear-gradient(135deg, #1D4ED8 0%, #0F172A 100%);
+    box-shadow: 0 30px 60px rgba(158, 221, 253, 0.19);
+    color: white;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Text at bottom */
+    
+    /* Modern transition for hover dynamism */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+/* Subtle Interactive hover effect (no JS required) */
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 40px 70px rgba(0, 102, 255, 0.15);
+}
+
+/* --- Large Background Number (Outlined style) --- */
+.card-number-bg {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.39); /* Faded white outline */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2; /* Text above number */
+    max-width: 90%;
+}
+
+.card-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.3;
+}
+
+.card-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+/* Optional Spacing at the very bottom */
+.scroll-spacer {
+    height: 150px;
+}
+
+/* ================= SCROLL REVEAL ANIMATIONS ================= */
+.fb-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Activated by minimal JS */
+.fb-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.staggered-1 { transition-delay: 0.1s; }
+.staggered-2 { transition-delay: 0.3s; }
+.staggered-3 { transition-delay: 0.5s; }
+
+@media screen and (max-width: 768px) {
+    /* 1. Global Reset for this section */
+    .fb-section {
+        padding: 30px 5px !important;
+        overflow: hidden !important;
+    }
+
+    /* 2. Grid Fix: Force a clean vertical stack */
+    .fb-bento-grid, .fb-bento-grid-bottom {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 25px !important; /* Forces a uniform gap between all cards */
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    /* 3. Uniform Card Fix */
+    .fb-card {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 320px !important; /* Ensures it fits perfectly on mobile */
+        min-height: 400px !important;
+        padding: 20px !important;
+        margin: 0 !important; /* Removes offsetting margins */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
+    }
+
+    /* 4. Image Fix: Relative positioning inside the card */
+    .fb-feature-img, .fb-dashboard-img, .fb-chat-img, .fb-intel-img, .fb-trends-img {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: 250px !important;
+        margin: 20px auto !important; /* Perfectly centers the image */
+        order: -1 !important; /* Pushes image to the top of the card */
+    }
+
+    /* 5. Typography Alignment */
+    .fb-card-content {
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 10px !important;
+    }
+    
+    .fb-card-content h3 {
+        font-size: 1.4rem !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .fb-card-content p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        margin: 0 auto !important;
+    }
+       .fb-planet {
+        animation-play-state: running !important;
+        will-change: transform !important;
+        /* Ensure the orbit isn't 'frozen' by a parent overflow */
+        backface-visibility: hidden !important; 
+    }
+
+    /* Ensure the wrapper is visible and positioned for animation */
+    .fb-planet-wrapper {
+        display: block !important;
+        animation-play-state: running !important;
+    }
+    .fb-orbit-system {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+  
+}
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        flex-direction: column; /* Stack columns on smaller screens */
+        gap: 60px;
+    }
+    
+    .sticky-column-wrapper, .scrollable-column-wrapper {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .sticky-content {
+        position: relative; /* Not sticky on mobile */
+        top: 0;
+        padding-right: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .status-bar { max-width: 100%; }
+    
+    .left-glow-layer {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fb-section { padding: 60px 0; }
+    .section-title { font-size: 2.2rem; }
+    .feature-card { padding: 40px; min-height: auto; }
+    .card-content h3 { font-size: 1.5rem; }
+    .card-number-bg { font-size: 5rem; top: 15px; right: 20px; }
+}
+
+/* --- Scoped Reset --- */
+.clariti-timeline-section,
+.clariti-timeline-section * {
+    box-sizing: border-box;
+}
+
+.clariti-timeline-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden; 
+    padding: 4rem 2rem;
+    font-family: inherit;
+    color: #111827;
+}
+
+/* --- Header Styles --- */
+.clariti-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.clariti-badge-top {
+    background-color: #4F8AFA;
+    color: white;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.clariti-header h2 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1F2937;
+    line-height: 1.2;
+}
+
+.clariti-header h2 span {
+    color: #1A56DB;
+}
+
+.clariti-header p {
+    color: #6B7280;
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* --- Timeline Layout --- */
+.clariti-timeline-wrapper {
+    width: 100%;
+    position: relative;
+    padding: 4rem 1rem; 
+    /* Horizontal scrolling removed! */
+}
+
+.clariti-grid {
+    /* Switched to Flexbox to handle the mathematical overlap perfectly */
+    display: flex; 
+    width: 100%;
+    max-width: 1400px; 
+    margin: 0 auto; 
+    position: relative;
+    z-index: 2;
+}
+
+/* --- The Columns --- */
+.clariti-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    position: relative;
+    
+    /* Lock the column to exactly 300px */
+    width: 300px; 
+    flex-shrink: 0; /* Prevents the browser from squishing the cards */
+}
+
+.clariti-col:not(:last-child) {
+    margin-right: calc((100% - 1500px) / 4);
+}
+
+/* 270px margin creates the tall vertical lines */
+.clariti-col.bottom { margin-top: 270px; }
+.clariti-col.top { margin-bottom: 270px; }
+
+/* --- Animated Line --- */
+#clariti-path-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.clariti-animated-path {
+    fill: none;
+    stroke: #CBD5E1;
+    stroke-width: 2px;
+    stroke-dasharray: 6, 6;
+    animation: clariti-march-ants 1.5s linear infinite;
+}
+
+@keyframes clariti-march-ants {
+    from { stroke-dashoffset: 24; } 
+    to { stroke-dashoffset: 0; }
+}
+
+/* --- Number Badge UI --- */
+.clariti-num-badge {
+    width: 66px;
+    height: 73px;
+    background: white;
+    
+    /* Default Colors (Not Hovered) */
+    border: 2px solid #E2E8F0;
+    color: #4B5563;
+    box-shadow: none;
+    transform: translateY(0);
+    
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    
+    margin-bottom: 10px; 
+    margin-left: 20px; 
+
+    z-index: 5; 
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    color: #1A56DB;
+    border-color: #4F8AFA;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(26, 87, 219, 0.15);
+    cursor: default;
+}
+
+.clariti-num-badge:hover {
+    border-color: #4fccfa;
+    color: #1a87dbdf;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(12, 222, 215, 0.23);
+}
+
+/* --- Card UI --- */
+.clariti-card {
+    background: linear-gradient(135deg, #CDE4FE 0%, #A9CFF7 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    
+    /* Locked to exactly 300px */
+    width: 300px; 
+    height: 100%;
+    min-height: 150px;
+    
+    box-shadow: -6px 6px 0px #A2C8F4; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    position: relative;
+    z-index: 10; 
+}
+
+.clariti-card:hover {
+    transform: translate(2px, -2px);
+    box-shadow: -10px 10px 0px #8CB7EA; 
+}
+
+.clariti-card h3 {
+    color: #1E3A8A;
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.clariti-card p {
+    color: #475569;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    /* 1. Ensure the timeline section itself is fluid */
+    .clariti-timeline-wrapper {
+        padding-left: 2rem !important;
+        border-left: 2px dashed #CBD5E1 !important;
+        margin-left: 1rem !important;
+    }
+
+    /* 2. The Column: Use Flex Row to keep badge and card side-by-side */
+    .clariti-col {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important; /* Aligns badge to top of card */
+        width: 100% !important;
+        margin-bottom: 2rem !important;
+        position: relative !important;
+    }
+
+    /* 3. The Number Badge: Relative positioning keeps it locked to the line */
+    .clariti-num-badge {
+        position: relative !important;
+        left: -48px !important; /* Aligns with the dashed border */
+        margin-right: -30px !important; /* Pulls the card closer to the number */
+        flex-shrink: 0 !important;
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1rem !important;
+    }
+
+    /* 4. The Card: Ensure it has no margin-left that pushes it away */
+    .clariti-card {
+        width: 100% !important;
+        margin-left: 0 !important; /* Reset margin */
+        padding: 1rem !important;
+    }
+}
+/* --- Mobile Fallback --- */
+@media (max-width: 1024px) {
+    .clariti-grid {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 500px; 
+        gap: 2rem;
+    }
+    .clariti-col {
+        width: 100%;
+    }
+    /* Reset the magic overlap math for mobile */
+    .clariti-col:not(:last-child) {
+        margin-right: 0;
+    }
+    .clariti-card {
+        width: 100%;
+    }
+    .clariti-col.bottom, .clariti-col.top {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .clariti-num-badge {
+        margin-left: 0;
+        position: absolute;
+        left: -48px;
+        top: 0;
+    }
+    #clariti-path-layer {
+        display: none; 
+    }
+    .clariti-timeline-wrapper {
+        padding-left: 24px;
+        border-left: 2px dashed #CBD5E1;
+    }
+}
+
+/* --- Base Scoping --- */
+.sp-section, .sp-section * {
+    box-sizing: border-box;
+}
+
+.sp-section {
+    position: relative;
+    width: 100%;
+    padding: 4rem 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fdfdfd;
+    overflow: hidden;
+}
+
+/* --- Ambient Background Glow --- */
+.sp-glow-bg {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(26, 145, 219, 0.15) 0%, rgba(87, 221, 245, 0.14) 45%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(50px);
+}
+
+.sp-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    z-index: 2; 
+}
+
+/* --- Left Column --- */
+.sp-left {
+    flex: 1;
+    max-width: 550px;
+}
+
+.sp-pre-heading {
+    display: inline-block;
+    color: #4F8AFA;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.sp-heading {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1F2937;
+    line-height: 1.1;
+    margin-bottom: 3.5rem;
+}
+
+.sp-text-blue {
+    color: #1A56DB;
+    display: block;
+}
+
+/* --- Testimonials Viewport & Track --- */
+.sp-testimonials-viewport {
+    position: relative;
+    height: 400px; /* Fixed height to allow hiding the scrolling overflow */
+    overflow: hidden;
+    padding-left: 2.5rem; 
+    /* Creates a beautiful fade-out at the very bottom */
+    mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+
+.sp-timeline-line {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #CBD5E1;
+    z-index: 1;
+}
+
+.sp-testimonial-track {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sp-testimonial-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+    z-index: 2;
+    flex-shrink: 0; /* Prevents text from squishing during scroll */
+}
+
+.sp-quote-icon {
+    position: absolute;
+    left: -40px; 
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    background-color: #8CB7EA; 
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 6px #fdfdfd; 
+}
+
+.sp-quote-text {
+    font-size: 1.25rem;
+    color: #4B5563;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    font-weight: 300;
+}
+
+.sp-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sp-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #E5E7EB;
+}
+
+.sp-author-title {
+    font-size: 0.85rem;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+/* --- Right Column: Stats Grid --- */
+.sp-right {
+    flex: 1;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.sp-stat-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 280px;
+}
+
+.sp-stat-column.col-down { margin-top: 3rem; }
+.sp-stat-column.col-up { margin-top: -1rem; }
+
+.sp-stat-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 20px 40px -15px rgba(27, 91, 228, 0.09); 
+    border: 1px solid rgba(229, 231, 235, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sp-stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 50px -15px rgba(26, 180, 219, 0.15);
+}
+
+.sp-stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1A56DB;
+    margin: 0 0 0.5rem 0;
+    line-height: 1;
+}
+
+.sp-stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6B7280;
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Dynamic Animation Classes for Right Side Swap */
+.sp-animatable {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sp-fade-out {
+    opacity: 0;
+    transform: translateY(-10px); 
+}
+
+.sp-fade-in-prepare {
+    opacity: 0;
+    transform: translateY(10px); 
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 1024px) {
+    .sp-container { flex-direction: column; gap: 5rem; }
+    .sp-left { max-width: 100%; }
+    .sp-right { justify-content: center; width: 100%; }
+    .sp-testimonials-viewport { height: 300px; } /* Slightly shorter on tablet */
+}
+
+@media (max-width: 768px) {
+    .sp-right { flex-direction: column; }
+    .sp-stat-column { max-width: 100%; }
+    .sp-stat-column.col-down, .sp-stat-column.col-up { margin-top: 0; }
+    .sp-stat-card { text-align: center; }
+}
+
+
+/* --- Cleanly Scoped CSS (cl- namespace) --- */
+
+.cl-section-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #e3ecfa;
+    background-color: #f7fbfde4; /* Very light blue background to match the image */
+    line-height: 1.5;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+}
+
+.cl-section-wrapper *, .cl-section-wrapper *::before, .cl-section-wrapper *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- CTA Section --- */
+.cl-cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 20px;
+}
+
+.cl-cta-card {
+    position: relative;
+    /* Deep blue exactly matching the screenshot */
+    background-color: #0F4A9E; 
+    border-radius: 36px;
+    padding: 70px 40px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.cl-cta-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1; 
+    z-index: 1;
+}
+
+.cl-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.cl-trusted-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.cl-stars {
+    color: #417BDB; /* Blue stars matching the screenshot */
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
+.cl-cta-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+}
+
+.cl-cta-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0 0 36px 0;
+    opacity: 0.95;
+    line-height: 1.5;
+}
+
+/* CTA Buttons */
+.cl-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cl-btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cl-btn-primary {
+    background-color: white;
+    color: #0F4A9E; 
+}
+
+.cl-btn-primary:hover {
+    background-color: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.cl-btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25); 
+}
+
+.cl-btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+/* --- Footer Section --- */
+.cl-footer {
+    position: relative;
+    background-color: #F8FAFC;
+    /* Updated background implementation so grid displays properly */
+    background-image: url('/assest/images/footergrid.png'); 
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding: 30px 20px 20px 20px;
+    /* Full width grey line across the top */
+    border-top: 1px solid #E2E8F0; 
+}
+
+/* PERFECTLY CENTERED blue line */
+.cl-footer::before {
+    content: '';
+    position: absolute;
+    top: -1px; /* Overlaps the grey border seamlessly */
+    left: 50%;
+    transform: translateX(-50%); /* This perfectly centers it */
+    width: 1250px; /* Width of the blue line */
+    height: 2px;
+    background-color: #5d8bf0ec; 
+    z-index: 2;
+}
+
+.cl-footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3; 
+}
+
+.cl-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1.2fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Branding Column */
+.cl-footer-logo {
+    height: 50px;
+    margin-bottom: 24px;
+}
+
+.cl-footer-desc {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 28px;
+    max-width: 250px;
+    line-height: 1.6;
+}
+
+/* --- Beautiful Social Link Hovers --- */
+/* --- Beautiful Social Link Hovers (FIXED FOR COLORED ICONS) --- */
+.cl-social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.cl-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #DBEAFE; /* Light blue base */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    text-decoration: none;
+}
+
+.cl-social-icon img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* On hover: Float up, add a soft glow, and change circle to white so colored icons pop */
+.cl-social-icon:hover {
+    background-color: #ffffff; 
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 15px rgba(26, 86, 219, 0.15); /* Soft blue shadow */
+}
+
+/* Optional: Gives the icon itself a tiny bounce on hover */
+.cl-social-icon:hover img {
+    transform: scale(1.1);
+}
+
+/* Note: I removed the "filter: brightness(0)" rule that was causing the white blobs! */
+
+/* On hover: turn the dark icon image pure white */
+/* .cl-social-icon:hover img {
+    filter: brightness(0) invert(1);
+} */
+
+/* Link Columns */
+.cl-footer-title {
+    color: #2563EB;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.cl-footer-links, .cl-footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cl-footer-links li, .cl-footer-contact li {
+    margin-bottom: 14px;
+}
+
+.cl-footer-links a {
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.cl-footer-links a:hover {
+    color: #2563EB;
+}
+
+.cl-footer-contact li {
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+.cl-footer-contact strong {
+    color: #1E293B;
+    font-weight: 600;
+}
+
+/* Footer Bottom */
+.cl-footer-bottom {
+    padding-top: 24px;
+    text-align: left;
+}
+
+.cl-footer-bottom p {
+    color: #64748B;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* --- Scroll Animations --- */
+.cl-animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cl-animate-up.cl-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .cl-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+    .cl-cta-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .cl-cta-card {
+        padding: 50px 20px;
+        border-radius: 20px;
+    }
+    .cl-cta-title {
+        font-size: 2.2rem;
+    }
+    .cl-cta-actions {
+        flex-direction: column;
+    }
+    .cl-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .cl-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .cl-footer-bottom {
+        text-align: center;
+    }
+}

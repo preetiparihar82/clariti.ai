@@ -1,0 +1,1196 @@
+/* ================= CLARITY ENGINE SECTION ================= */
+.clarity-engine-section {
+    position: relative;
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    overflow: hidden; /* Keeps background elements from causing scrollbars */
+    z-index: 1;
+}
+
+/* Background Glow Effect */
+.engine-bg-glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(235, 244, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Floating Decorative Doodles */
+.doodle-arrow {
+    position: absolute;
+    top: 25%;
+    right: 15%;
+    width: 80px;
+    opacity: 0.8;
+    z-index: -1;
+    pointer-events: none;
+    transform: rotate(15deg);
+}
+
+.doodle-squiggle {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 150px;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+    transform: rotate(-15deg);
+}
+
+.engine-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header Text Styling */
+.engine-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.engine-header h2 {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #111827;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+}
+
+.text-blue {
+    color: #2563EB; /* Bright Blue */
+}
+
+.engine-subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: #4B5563;
+    line-height: 1.7;
+    font-weight: 400;
+    max-width: 900px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* Buttons */
+.engine-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.btn-dark-blue, .btn-primary-blue {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-dark-blue {
+    background-color: #1E3A8A; /* Darker navy blue */
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+.btn-dark-blue:hover { background-color: #172554; transform: translateY(-2px); }
+
+.btn-primary-blue {
+    background-color: #2563EB; /* Primary bright blue */
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+.btn-primary-blue:hover { background-color: #1D4ED8; transform: translateY(-2px); }
+
+
+/* ================= IMAGE SHOWCASE AREA ================= */
+
+.engine-visuals {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    perspective: 1000px;
+    /* Ensure no extra padding is creating a white box */
+    padding: 0;
+    background: transparent; 
+}
+
+.img-main-dashboard {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* REMOVED: backgrounds, borders, and heavy shadows */
+    background: transparent;
+    border: none;
+    box-shadow: none; 
+    border-radius: 16px;
+}
+
+/* Floating Image Widgets Setup */
+.img-float {
+    position: absolute;
+    /* REMOVED: background: #fff; and border to prevent white boxes on transparent PNGs */
+    background: transparent;
+    border: none;
+    /* Added a very soft, natural shadow just in case the PNG doesn't have one */
+    box-shadow: 0 15px 35px rgba(206, 240, 246, 0.7); 
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.img-float:hover {
+    transform: translateY(-8px);
+}
+
+.float-bottom-left {
+    bottom: -12%;
+    left: -8%;
+    width: 55%; /* Scales gracefully with the main dashboard */
+    max-width: 550px;
+    z-index: 3;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.float-bottom-right {
+    bottom: -15%;
+    right: -2%;
+    width: 42%;
+    max-width: 320px;
+    z-index: 4;
+    
+    /* THE FIX: Force it to be completely naked */
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+@media screen and (max-width: 1024px) {
+    .doodle-arrow { right: 5%; top: 20%; width: 60px; }
+    
+    /* Bring floating images in slightly to prevent horizontal scroll */
+    .float-bottom-left { left: -2%; width: 58%; }
+    .float-bottom-right { right: -2%; width: 35%; }
+}
+
+@media screen and (max-width: 768px) {
+    .clarity-engine-section { padding: 2rem 1.5rem; }
+    
+    .desktop-break { display: none; }
+    
+    .engine-btn-group { flex-direction: column; gap: 1rem; width: 100%; max-width: 350px; margin: 0 auto;}
+    .btn-dark-blue, .btn-primary-blue { width: 100%; text-align: center; }
+    
+    .doodle-arrow, .doodle-squiggle { display: none; }
+
+    .engine-visuals { 
+        margin-top: 3rem; 
+        margin-bottom: 2rem; 
+    }
+    
+    .float-bottom-left {
+        bottom: -10%;
+        left: -5%;
+        width: 65%;
+    }
+
+    .float-bottom-right {
+        bottom: -15%;
+        right: -2%;
+        width: 42%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .engine-header h2 { font-size: 2.2rem; }
+    
+    /* Extra tight mobile screens */
+    .float-bottom-left {
+        bottom: -8%;
+        left: -2%;
+        width: 70%; 
+    }
+
+    .float-bottom-right {
+        bottom: -12%;
+        right: -2%;
+        width: 45%; 
+    }
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+@media screen and (max-width: 1024px) {
+    .doodle-arrow { right: 5%; top: 20%; width: 60px; }
+    
+   
+    .float-bottom-left { left: -5%; width: 60%; }
+    .float-bottom-right { right: -5%; width: 40%; }
+}
+
+@media screen and (max-width: 768px) {
+    .clarity-engine-section { padding: 2rem 1.5rem; }
+    
+    .desktop-break { display: none; } 
+    
+    .engine-btn-group { flex-direction: column; gap: 1rem; width: 100%; max-width: 350px; margin: 0 auto;}
+    .btn-dark-blue, .btn-primary-blue { width: 100%; text-align: center; }
+    
+    .doodle-arrow { display: none; } /* Hide doodles on mobile to reduce clutter */
+    .doodle-squiggle { display: none; }
+
+    .engine-visuals { margin-top: 2rem; }
+    
+    /* On mobile, un-absolute the widgets so they stack nicely instead of overlapping off-screen */
+    .float-bottom-left, .float-bottom-right {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: 0 auto;
+        display: block;
+        width: 90%;
+        max-width: 400px;
+        z-index: 2;
+    }
+    
+    /* Pull them up slightly to overlap the image above them artificially */
+    .float-bottom-left { margin-top: -10%; }
+    .float-bottom-right { margin-top: -12%; }
+}
+
+@media screen and (max-width: 480px) {
+    .engine-header h2 { font-size: 2.2rem; }
+}
+
+/* ================= ARCHITECTURE / HOW IT WORKS SECTION ================= */
+.architecture-section {
+    position: relative;
+    background-color: #FAFAFA; 
+    padding: 3rem 2rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Background Wave Image */
+.bg-wave {
+    position: absolute;
+    top: 40px;
+    left: -5%;
+    width: 250px;
+    height: 500px;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.arch-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header Text Area */
+.arch-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.arch-pill {
+    display: inline-block;
+    background-color: #DBEAFE;
+    color: #2563EB;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.arch-header h2 {
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.2rem;
+}
+
+.arch-header p {
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    color: #4B5563;
+    line-height: 1.6;
+}
+
+/* Main Grid Layout */
+.arch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+/* Step Columns & Cards */
+.steps-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 1.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.step-number {
+    background-color: #2563EB;
+    color: #ffffff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.step-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    color: #4B5563;
+    line-height: 1.6;
+}
+
+/* Center Diagram Column */
+.diagram-column {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.status-pill {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 5;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981; /* Green */
+    border-radius: 50%;
+}
+
+/* NO WHITE BOX FIX: Ensure image is completely naked */
+.arch-diagram-img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    display: block;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Bottom Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-box {
+    background-color: #F3F4F6; /* Light gray box matching your design */
+    border-radius: 12px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.stat-icon {
+    opacity: 0.8;
+}
+
+.stat-text h4 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.stat-text p {
+    font-size: 0.85rem;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+@media screen and (max-width: 1024px) {
+    /* Tablet: Move image to top, put steps side-by-side */
+    .arch-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .diagram-column {
+        grid-column: 1 / -1; /* Spans across both columns */
+        order: -1; /* Forces it to the top */
+        margin-bottom: 2rem;
+    }
+    
+    .status-pill {
+        right: 15%; /* Adjust for tablet width */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .architecture-section { padding: 2rem 1.5rem; }
+    
+    .bg-wave { width: 250px; opacity: 0.4; } /* Shrink wave on mobile */
+    
+    /* Mobile: Stack everything vertically */
+    .arch-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .stats-row { grid-template-columns: 1fr; }
+    
+    .status-pill { top: -15px; right: 5%; }
+    
+    .stat-box { 
+        flex-direction: row; /* Horizontal layout for stats on mobile */
+        align-items: center; 
+        padding: 1.2rem;
+    }
+}
+
+/* ================= GLOBAL/UTILITY CLASSES ================= */
+.text-blue { color: #2563EB; }
+
+/* ================= CTA BANNER SECTION ================= */
+.cta-banner-section {
+    padding: 0rem;
+    max-width: 1300px;
+    margin: 0 auto 4rem auto;
+}
+
+.cta-container {
+    background-color: #173E88; /* Dark Blue */
+    border-radius: 16px;
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 20px 40px rgba(23, 62, 136, 0.15);
+}
+
+.cta-text h2 {
+    color: #ffffff;
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.cta-text p {
+    color: #BFDBFE; /* Light blue/gray text */
+    font-size: 1.05rem;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* Allows stacking on very small screens */
+}
+
+.btn-solid-white, .btn-outline-white {
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-solid-white {
+    background-color: #ffffff;
+    color: #173E88;
+}
+.btn-solid-white:hover { background-color: #F3F4F6; }
+
+.btn-outline-white {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-outline-white:hover { background-color: rgba(255, 255, 255, 0.1); border-color: #ffffff; }
+
+/* ================= DATA & CONTROL SECTION ================= */
+.data-control-section {
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.data-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr; /* Right side slightly larger */
+    gap: 5rem;
+    align-items: center;
+}
+
+/* Left Content Area */
+.data-content h2 {
+    font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.data-description {
+    font-size: 1.05rem;
+    color: #4B5563;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+
+.feature-icon {
+    background-color: #DBEAFE; /* Light blue background */
+    color: #1E3A8A;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-text h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1E3A8A; /* Navy blue */
+    margin-bottom: 0.4rem;
+}
+
+.feature-text p {
+    font-size: 0.95rem;
+    color: #4B5563;
+    line-height: 1.6;
+}
+
+.watch-demo-btn {
+    display: inline-block;
+    background-color: #2563EB;
+    color: #ffffff;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+}
+.watch-demo-btn:hover { background-color: #1D4ED8; transform: translateY(-2px); }
+
+/* Right Image Area */
+.data-visuals {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Make sure the image sits properly without adding white boxes */
+.security-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    background: transparent;
+    border: none;
+}
+
+/* Floating Privacy Card */
+.privacy-float-card {
+    position: absolute;
+    bottom: -31%;
+    right: -5%;
+    background: #F0F9FF; /* Very light cool blue */
+    border: 1px solid #E0F2FE;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 280px;
+    z-index: 2;
+}
+
+.privacy-header {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1F2937;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.green-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10B981;
+    border-radius: 50%;
+}
+
+.privacy-float-card p {
+    font-size: 0.85rem;
+    color: #4B5563;
+    line-height: 1.5;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media screen and (max-width: 1024px) {
+    .cta-container { padding: 2.5rem; flex-direction: column; text-align: center; }
+    .cta-actions { justify-content: center; }
+    
+    .data-container { gap: 3rem; }
+    
+    .privacy-float-card { right: 0; bottom: -10%; }
+}
+
+@media screen and (max-width: 768px) {
+    .cta-banner-section { padding: 1rem; }
+    .cta-container { padding: 2rem 1.5rem; border-radius: 12px; }
+    
+    .data-control-section { padding: 3rem 1.5rem; }
+    .data-container { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+    
+    /* Center align features for mobile */
+    .feature-item { flex-direction: column; align-items: center; text-align: center; }
+    
+    .privacy-float-card { 
+        position: relative; 
+        bottom: auto; 
+        right: auto; 
+        margin: 2rem auto 0 auto; 
+        text-align: left;
+    }
+}
+
+/* ================= COMPLIANCE & SECURITY SECTION ================= */
+.compliance-section {
+    position: relative;
+    background: linear-gradient(135deg, #2B62CB 0%, #174291 100%);
+    padding: 4rem 2rem;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    z-index: 1;
+}
+
+/* Background Swirl Doodle */
+.bg-swirl {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    z-index: -1;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.comp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Header Area --- */
+.comp-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 5rem auto;
+}
+
+.comp-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.comp-header h2 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.comp-header p {
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    color: #C2D6F9; /* Soft light blue text */
+    line-height: 1.6;
+}
+
+/* --- Main Grid Layout --- */
+.comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    align-items: stretch; /* Forces both left and right columns to be exactly the same height */
+}
+
+/* Ensure both columns use flexbox to manage internal heights */
+.jurisdictions-col, .deployment-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Column Headers --- */
+.col-header {
+    margin-bottom: 2rem;
+    min-height: 40px; /* Ensures the text and lines match exactly on both sides */
+}
+
+.col-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.header-line {
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.align-right h3 { text-align: right; }
+
+/* --- Card Base Styles & Hover Animations --- */
+.comp-card {
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    cursor: pointer;
+}
+
+.comp-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Left Column: Horizontal Cards --- */
+.jurisdictions-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* <-- This adds the perfect gap between the two stacked boxes */
+}
+
+.horiz-card {
+    flex: 1; /* Forces the two cards to grow and fill the vertical space evenly */
+    background: #18689E; 
+    padding: 2.5rem 2rem; /* Nice thick padding so the text breathes */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers text perfectly inside the box */
+}
+
+.horiz-card:hover { 
+    background: #1A75B3; 
+}
+
+.horiz-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.horiz-card p {
+    font-size: 0.95rem;
+    color: #B9D6F3;
+    line-height: 1.6;
+}
+/* --- Right Column: Vertical Cards --- */
+/* --- Right Column: Vertical Cards --- */
+.deployment-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.deployment-cards {
+    flex: 1; /* Fills the space under the header */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-content: center; /* THIS is the magic line that perfectly centers the smaller boxes vertically */
+}
+
+.vert-card {
+    background: #164DB0; 
+    padding: 2rem 1.5rem; /* Reduced padding to make them smaller */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto; /* REMOVED height: 100% so they don't stretch artificially */
+}
+
+.vert-card:hover { 
+    background: #1A59C9; 
+}
+
+.icon-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem; /* Reduced slightly to match the smaller card size */
+}
+
+.vert-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.vert-card p {
+    font-size: 0.85rem;
+    color: #A3C5FA;
+    line-height: 1.6;
+}
+/* ================= ENTRANCE ANIMATIONS ================= */
+.animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media screen and (max-width: 1024px) {
+    .comp-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .align-right h3 { text-align: left; }
+    
+    .bg-swirl { width: 150px; height: 150px; }
+}
+
+@media screen and (max-width: 768px) {
+    .compliance-section { padding: 2rem 1.5rem; }
+    
+    .comp-header { margin-bottom: 3rem; }
+    .comp-header h2 { font-size: 2.2rem; }
+    
+    .deployment-cards {
+        grid-template-columns: 1fr; /* Stack deployment cards on mobile */
+    }
+    
+    .vert-card { 
+        padding: 2rem; 
+        flex-direction: row; 
+        align-items: center; 
+        gap: 1.5rem; 
+    }
+    
+    .icon-wrapper { margin-bottom: 0; min-width: 45px; height: 45px; }
+    .vert-card h4 { margin-bottom: 0.3rem; font-size: 1.2rem; br { display: none; } }
+}
+
+/* ================= CORE CAPABILITIES & TECH SECTION ================= */
+.capabilities-tech-section {
+    position: relative; /* Crucial for absolute background elements */
+    background-color: #FAFAFB;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    color: #111827;
+}
+
+.ct-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Keeps content above the background wave */
+}
+
+/* --- Decorative Backgrounds & Arrows --- */
+.bg-wave-right {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 80%;
+    width: auto;
+    max-width: 400px;
+    opacity: 0.4;
+    z-index: 1; /* Sits behind the cards */
+    pointer-events: none; /* Stops it from messing with clicks */
+}
+
+.doodle-arrow-left {
+    position: absolute;
+    left: -120px; /* Pushes it out to the left of the heading */
+    top: -20px;
+    width: 90px;
+    height: 90px;
+    transform: rotate(-15deg);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.relative-z {
+    position: relative;
+    z-index: 3;
+}
+
+.text-blue { color: #2563EB; }
+
+/* --- Carousel Header --- */
+.cap-header-row {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3rem; gap: 2rem;
+}
+
+.cap-title h2 { font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 0.5rem; }
+.cap-title p { color: #4B5563; font-size: 1rem; max-width: 500px; }
+
+.carousel-controls { display: flex; gap: 1rem; }
+.slider-btn {
+    background: #ffffff; border: 1px solid #E5E7EB; width: 45px; height: 45px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: #111827; transition: all 0.2s ease;
+}
+.slider-btn:hover { border-color: #2563EB; color: #2563EB; }
+
+/* --- Carousel Track --- */
+.carousel-wrapper {
+    overflow: hidden; width: 100%; padding: 10px 0 30px 0;
+}
+.carousel-track {
+    display: flex; gap: 2rem;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    flex-wrap: nowrap; 
+}
+
+/* --- The Card --- */
+.cap-card {
+    background: #ffffff; border-radius: 16px; border: 1px solid #F3F4F6;
+    overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    flex: 0 0 calc((100% - 4rem) / 3); 
+    width: calc((100% - 4rem) / 3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cap-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+
+.cap-img-wrapper { width: 100%; height: 220px; background: #E5E7EB; padding: 0; }
+.cap-content { padding: 2rem; }
+.cap-card-title { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+.cap-content p { font-size: 0.95rem; color: #4B5563; line-height: 1.6; margin-bottom: 1.5rem; }
+.learn-more-link { font-size: 0.95rem; font-weight: 600; color: #2563EB; text-decoration: none; }
+.learn-more-link:hover { text-decoration: underline; }
+
+/* --- Tech Stack Section --- */
+.tech-header { text-align: center; margin: 6rem 0 3.5rem 0; position: relative; display: inline-block; left: 0%; transform: translateX(-50%); }
+.tech-header h2 { font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 700; }
+
+.tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.tech-card {
+    background: #ffffff; border-radius: 16px; padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #F3F4F6;
+    display: flex; flex-direction: column; transition: transform 0.3s ease;
+}
+.tech-card:hover { transform: translateY(-5px); }
+
+.tech-icon-box {
+    width: 45px; height: 45px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem; font-size: 1.2rem;
+}
+.bg-blue-light { background: #DBEAFE; color: #2563EB; }
+.bg-teal-light { background: #CCFBF1; color: #0D9488; }
+.bg-gray-light { background: #F3F4F6; color: #4B5563; }
+
+.tech-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+.tech-badge {
+    align-self: flex-start; padding: 4px 10px; border-radius: 50px;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 1.5rem;
+}
+.badge-blue { background: #2563EB; color: white; }
+.badge-teal { background: #CCFBF1; color: #0D9488; }
+.badge-gray { background: #E5E7EB; color: #374151; }
+
+.tech-card p { font-size: 0.95rem; color: #4B5563; line-height: 1.6; flex-grow: 1; margin-bottom: 2rem; }
+.tech-footer {
+    border-top: 1px solid #F3F4F6; padding-top: 1.5rem;
+    display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #6B7280; font-weight: 500;
+}
+
+/* --- Responsive Adjustments --- */
+@media screen and (max-width: 1024px) {
+    .cap-card { flex: 0 0 calc((100% - 2rem) / 2); width: calc((100% - 2rem) / 2); }
+    .tech-grid { grid-template-columns: repeat(2, 1fr); }
+    .bg-wave-right { opacity: 0.15; } /* Fade out wave on tablets */
+}
+
+@media screen and (max-width: 768px) {
+    .capabilities-tech-section { padding: 3rem 1.5rem; }
+    .cap-header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .cap-card { flex: 0 0 100%; width: 100%; }
+    .tech-grid { grid-template-columns: 1fr; }
+    
+    /* Hide decorative elements on mobile so they don't break the layout */
+    .doodle-arrow-left, .bg-wave-right { display: none; }
+}
+
+/* ================= SCROLL ANIMATIONS ONLY ================= */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform; 
+}
+
+/* Added by JS when scrolling into view */
+.fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays for cascading effect */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+
+/* Keep hover animations intact AFTER elements become visible */
+.cap-card.is-visible:hover,
+.tech-card.is-visible:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* adjust to match your hover style */
+}
+
+/* --- Modern Scroll Animation Base --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* The class added by JavaScript when element enters view */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delays for Grids (Tech Cards, Step Cards) */
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
+
+/* Scale effect for images (optional but modern) */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}

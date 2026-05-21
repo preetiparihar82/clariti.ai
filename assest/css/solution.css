@@ -520,7 +520,7 @@
         grid-template-columns: 1fr; 
         gap: 25px; 
     }
-    .modules-title-area h2, .persona-header h2 { font-size: 2.2rem; }
+    .modules-title-area h2, .persona-header h2 { font-size: 1.8rem; }
     .module-card, .persona-card { padding: 25px; }
 
   
@@ -542,8 +542,8 @@
     /* 2. Fix the Icon Spacing specifically */
     .data-ai-card .card-icon {
         position: relative !important; 
-        display: inline-block !important; /* Ensures margins work properly */
-        margin-top: 20px !important;      /* THE FIX: Explicitly pushes the icon down */
+        display: inline-block !important; 
+        margin-top: 20px !important;     
         margin-bottom: 5px !important;   /* Space between icon and the 'Heads of Data' title */
     }
 
@@ -676,7 +676,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
     position: relative;
     z-index: 1;
 }
@@ -700,8 +700,8 @@
     border: none;
     padding: 10px 30px;
     border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 500;
     color: #475569;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -741,7 +741,7 @@
 }
 
 .section-header h2 {
-    font-size: clamp(2.2rem, 3vw, 2.3rem);
+    font-size: clamp(2rem, 2vw, 2rem);
     color: #0f172a;
     font-weight: 700;
     margin-bottom: 15px;
@@ -1034,8 +1034,8 @@
 
 /* ================= LEADERSHIP PERSONAS SECTION ================= */
 .leadership-personas-section {
-    margin-top: 80px;
-    padding-top: 60px;
+    margin-top: 30px;
+    padding-top: 40px;
     border-top: 1px solid rgba(0, 0, 0, 0.05); /* Soft divider from previous section */
     font-family: 'Inter', sans-serif;
 }
@@ -1046,7 +1046,7 @@
 }
 
 .leadership-header h2 {
-    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    font-size: clamp(2rem, 2vw, 2rem);
     color: #111827; /* Near Black */
     font-weight: 700;
 }
@@ -1161,7 +1161,7 @@
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 1024px) {
     .persona-row { gap: 40px; }
-    .persona-title { font-size: 1.8rem; }
+    .persona-title { font-size: 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -1495,7 +1495,7 @@
 }
 
 .company-size-header h2 {
-    font-size: clamp(2.2rem, 3vw, 2.5rem);
+    font-size: clamp(2rem, 2vw, 2rem);
     color: #111827;
     font-weight: 700;
     margin-bottom: 15px;
@@ -1764,7 +1764,7 @@
 .container {
     max-width: 1350px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 .text-blue { color: #2563EB; }
@@ -1781,7 +1781,7 @@
     padding: 60px;
     box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05);
     border: 1px solid rgba(226, 232, 240, 0.8);
-    margin-bottom: 100px;
+    margin-bottom: 90px;
 }
 
 .hero-card-content { flex: 1.2; }
@@ -1799,9 +1799,9 @@
 .overline svg { width: 16px; height: 16px; }
 
 .hero-card-content h2 {
-    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-size: clamp(2rem, 3vw, 2rem);
     color: #111827;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
     letter-spacing: -0.5px;
@@ -1930,7 +1930,7 @@
 }
 
 .tailored-header h2 {
-    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-size: clamp(2rem, 2vw, 2rem);
     color: #111827;
     font-weight: 700;
     margin-bottom: 15px;
@@ -2041,15 +2041,19 @@
 @media (max-width: 1024px) {
     .consultant-hero-card {
         flex-direction: column;
-        padding: 40px 30px;
+        padding: 30px 20px;
     }
     .hero-card-visual { width: 100%; justify-content: center; margin-top: 30px; }
     .floating-badge { left: 10%; bottom: -20px; }
     
-    .tailored-card { flex: 0 0 calc(50% - 12.5px); } /* 2 cards visible */
+    .tailored-card { flex: 0 0 calc(50% - 12.5px); }
 }
 
 @media (max-width: 768px) {
-    .feature-grid { grid-template-columns: 1fr; } /* Stack features */
-    .tailored-card { flex: 0 0 85%; } /* 1 card visible, peeking next card */
+    .feature-grid { grid-template-columns: 1fr; } 
+    .tailored-card { flex: 0 0 85%; } 
+    .floating-badge {
+        left: 10%;
+        bottom: -80px;
+    }
 }

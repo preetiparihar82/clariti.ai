@@ -3,7 +3,7 @@
 .hero-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 .clariti-hero-section {
@@ -201,23 +201,80 @@
     to { opacity: 1; }
 }
 
+
 /* --- Mobile Responsive Rules --- */
 @media (max-width: 1024px) {
-    .hero-wrapper { flex-direction: column; text-align: center; gap: 40px; }
-    .hero-text-col { max-width: 800px; padding-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
-    .hero-subtext { margin: 0 auto 40px auto; }
-    .text-bg-sparkle { left: 10%; }
+    .hero-wrapper { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 40px; 
+    }
+    .hero-text-col { 
+        max-width: 800px; 
+        padding-bottom: 20px; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .hero-subtext { 
+        margin: 0 auto 40px auto; 
+    }
+    .text-bg-sparkle { 
+        left: 50%; 
+        transform: translateX(-50%); /* Centers the sparkle behind text */
+    }
     
-    .hero-visual-col { width: 100%; min-height: 450px; }
-    .layer-bars { right: 50%; transform: translateX(50%); height: 95%; }
+    .hero-visual-col { 
+        width: 100%; 
+        min-height: auto; /* Let the image dictate the height instead of a fixed minimum */
+        display: flex;
+        justify-content: center;
+    }
+
+    
+    .layer-woman {
+        width: 100%;
+        max-width: 450px; 
+        height: auto;
+        bottom: 0;
+    }
+
+    .layer-bars {
+        position: absolute;
+        left: 0;        
+        right: 0;        
+        margin: 0 auto; 
+        transform: none; 
+        width: 100%;
+        max-width: 450px; 
+        height: auto;
+        bottom: 0;
+        object-position: bottom center;
+    }
 }
 
 @media (max-width: 768px) {
-    .clariti-hero-section { padding-top: 60px; }
-    .main-heading { font-size: 2.5rem; letter-spacing: -1px; }
-    .hero-subtext { font-size: 1rem; }
-    .hero-visual-col { min-height: 380px; }
+    .clariti-hero-section { 
+        padding-top: 20px; 
+    }
+    .main-heading { 
+        font-size: 2.2rem; /* Slightly smaller for 320px screens */
+        letter-spacing: -1px; 
+    }
+    .hero-subtext { 
+        font-size: 1rem; 
+    }
+    
+    /* Ensure the images fit comfortably within narrow mobile screens */
+    .layer-woman {
+        max-width: 90%; 
+    }
+    .layer-bars {
+        max-width: 85%; /* Keeps the background graphic slightly contained behind her */
+    }
 }
+
+
 
 /* ================= ABOUT OUR COMPANY STYLES ================= */
 
@@ -234,7 +291,7 @@
     width: 100%;
     max-width: 1250px; /* Standardized width */
     margin: 0 auto; /* This handles the horizontal centering */
-    padding: 0 30px; /* Balanced side padding */
+    padding: 0 20px; /* Balanced side padding */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers the header area items */
@@ -381,8 +438,8 @@
 }
 
 .story-heading {
-    font-size: 2.2rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 700;
     color: #111827;
     line-height: 1.1; /* Tighter line height for the heading */
     margin-bottom: 25px;
@@ -565,7 +622,7 @@
 
 .driving-force-section {
     position: relative;
-    padding: 30px 0 100px 0;
+    padding: 30px 0 50px 0;
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     overflow: hidden;
@@ -603,7 +660,7 @@
 }
 
 .df-header h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #111827;
     margin-bottom: 15px;
@@ -670,7 +727,7 @@
     z-index: 2; /* Sits on top of the side circles */
     /* Negative horizontal margins to create the overlap effect */
     margin: 0 -60px; 
-    box-shadow: 0 30px 60px rgba(0, 71, 212, 0.35);
+    box-shadow: 0 20px 20px rgba(85, 137, 242, 0.35);
 }
 
 .center-circle h3 {
@@ -773,7 +830,7 @@
 
 /* Tablets and Mobile (Stack vertically) */
 @media (max-width: 900px) {
-    .driving-force-section { padding: 80px 0; }
+    .driving-force-section { padding: 10px 0; }
     
     .circles-wrapper {
         flex-direction: column;
@@ -804,7 +861,7 @@
 
 .work-process-section {
     position: relative;
-    padding: 120px 0;
+    padding: 60px 0;
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     overflow: hidden;
@@ -813,7 +870,7 @@
 .wp-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
     position: relative;
     z-index: 2;
 }
@@ -852,8 +909,8 @@
 }
 
 .wp-header h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 700;
     color: #111827;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -976,9 +1033,9 @@
 }
 
 .timeline-content h3 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: #111827;
-    font-weight: 800;
+    font-weight: 600;
     margin-bottom: 12px;
 }
 
@@ -1043,64 +1100,81 @@
     transform: translateY(0);
 }
 
-/* --- Mobile Responsive Rules --- */
-@media (max-width: 900px) {
-    .timeline-img { width: 250px; height: 180px; }
-    .timeline-item.left .timeline-img { left: calc(100% + 40px); }
-    .timeline-item.right .timeline-img { right: calc(100% + 40px); }
-    .timeline-item.left { padding-right: 40px; }
-    .timeline-item.right { padding-left: 40px; }
-}
-
 @media (max-width: 768px) {
-    .work-process-section { padding: 80px 0; }
+    .timeline-wrapper {
+        overflow-x: hidden; 
+        padding-bottom: 40px;
+    }
+
+    .work-process-section { padding: 10px 0; }
     .wp-header h2 { font-size: 2rem; }
     
+    /* 1. Lock the line exactly 25px from the left */
     .timeline-line-bg, .timeline-line-progress {
-        left: 20px;
-        transform: none;
+        left: 25px !important;
+        transform: none !important;
     }
     
+    /* 2. Lock the timeline item so it cannot overflow */
     .timeline-item {
         width: 100%;
-        left: 0;
-        margin-bottom: 80px;
+        box-sizing: border-box !important;
+        left: 0 !important;
+        margin-bottom: 70px;
         flex-direction: column;
         align-items: flex-start;
+        padding-left: 70px !important; /* Starts text after the dot */
+        padding-right: 15px !important; /* Prevents touching the right edge */
     }
     
     .timeline-item.left, .timeline-item.right {
-        padding-left: 60px;
-        padding-right: 0;
         text-align: left;
+        justify-content: flex-start;
     }
     
-    /* Center the dot exactly over the 20px line */
+    /* 3. Align the dot perfectly over the 25px line */
+    /* A 40px dot placed at left: 5px has its center exactly at 25px */
     .timeline-item.left .timeline-marker, .timeline-item.right .timeline-marker {
-        left: 0px; 
-        right: auto;
-        top: 20px; 
-        transform: none;
+        left: 5px !important; 
+        right: auto !important;
+        top: 0px !important; /* Aligns dot with the top of the text */
+        transform: none !important;
     }
     
-    .timeline-item.left .timeline-content { transform: translateX(30px); }
-    
-    .timeline-img {
-        position: relative;
+    /* 4. Fix the text clipping and long words */
+    .timeline-item.left .timeline-content, .timeline-item.right .timeline-content { 
+        transform: none !important; /* Stop pushing text right! */
+        max-width: 100%;
         width: 100%;
-        height: 200px;
-        top: auto;
-        margin-top: 25px;
     }
     
-    .timeline-item.left .timeline-img, .timeline-item.right .timeline-img {
-        left: 0;
-        right: auto;
-        transform: translateY(20px) scale(0.95);
+    .timeline-content h3 {
+        font-size: 1.4rem; /* Slightly smaller for narrow phones */
+        word-wrap: break-word; /* Forces long words to wrap instead of pushing off screen */
+        hyphens: auto;
+    }
+
+    .timeline-item.active .timeline-content {
+        transform: none !important;
+        opacity: 1;
+    }
+    
+    /* 5. Keep the image fully inside the container */
+    .timeline-img {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 180px;
+        margin-top: 20px;
+        left: 0 !important; 
+        right: auto !important; 
+        transform: none !important; /* Prevents desktop slide from shifting it right */
+        border-radius: 12px;
     }
     
     .timeline-item.active .timeline-img {
-        transform: translateY(0) scale(1);
+        transform: scale(1) !important;
     }
 }
 
@@ -1117,7 +1191,7 @@
 .cp-container {
     max-width: 1350px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
     position: relative;
     z-index: 2;
 }
@@ -1151,8 +1225,8 @@
 }
 
 .cp-header h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 700;
     color: #0F172A;
     margin-bottom: 15px;
     letter-spacing: -1px;
@@ -1284,8 +1358,8 @@
 }
 
 .dna-title-wrapper h3 {
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #0F172A;
     margin-bottom: 10px;
 }
@@ -1318,8 +1392,8 @@
 }
 
 .dna-title-wrapper h3 {
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #0F172A;
     margin-bottom: 10px;
 }
@@ -1400,8 +1474,8 @@
 }
 
 @media (max-width: 768px) {
-    .cp-section { padding: 60px 0; }
-    .cp-header h2 { font-size: 2rem; }
+    .cp-section { padding: 20px 0; }
+    .cp-header h2 { font-size: 1.8rem; }
     .cp-slide-card p { font-size: 1.1rem; }
     .dna-grid { grid-template-columns: 1fr; }
 }
@@ -1526,8 +1600,8 @@
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 700;
     color: #0F172A;
     letter-spacing: -1px;
     margin-bottom: 12px;
@@ -1737,7 +1811,7 @@
     .trusted-partners-section { padding: 60px 0; }
     .team-minds-section { padding: 40px 0 80px 0; }
     
-    .section-header h2 { font-size: 2rem; }
+    .section-header h2 { font-size: 1.8rem; }
     .partner-pill { padding: 0 25px; height: 55px; font-size: 0.95rem; }
     
     .team-grid { grid-template-columns: 1fr; gap: 25px; }
@@ -1776,14 +1850,14 @@
 }
 
 /* --- Header --- */
-/* --- Header --- */
+
 .faq-header {
     text-align: center;
     margin-bottom: 60px;
 }
 
 .faq-header h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 18px;
     letter-spacing: -0.5px;
@@ -1848,8 +1922,8 @@
     cursor: pointer;
     text-align: left;
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     color: #0F172A;
     transition: color 0.3s ease;
 }
@@ -1863,7 +1937,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D946EF; /* Matches the vibrant purple/magenta from the image */
+    color: #0a6283; /* Matches the vibrant purple/magenta from the image */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1916,7 +1990,7 @@
 
 /* --- Mobile Responsive Rules --- */
 @media (max-width: 768px) {
-    .faq-section { padding: 80px 0; }
+    .faq-section { padding: 60px 0; }
     .faq-container { padding: 0 20px; }
     .faq-header h2 { font-size: 2rem; }
     .faq-header p { font-size: 1rem; }

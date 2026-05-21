@@ -665,7 +665,42 @@
     gap: 5px;
 }
 .bento-link:hover { color: #0047B3; }
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+    /* Fix Resource Grid */
+    .resource-grid {
+        grid-template-columns: 1fr; /* Force exactly 1 column */
+        gap: 20px;
+        margin-top: 30px;
+    }
 
+    /* Fix Bento Grid */
+    .bento-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+   
+    .bento-card {
+        flex-direction: column; 
+        border-radius: 24px; 
+    }
+
+    .bento-content {
+        padding: 25px; 
+        align-items: flex-start; 
+    }
+
+    .bento-content h3 {
+        font-size: 1.35rem; 
+    }
+
+    /* Keep headers centered */
+    .section-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
 /* ================= INDIVIDUAL CARD LAYOUTS ================= */
 
 /* Card 1: Horizontal Layout (Insights) */

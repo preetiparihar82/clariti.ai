@@ -125,10 +125,10 @@
 }
 
 /* Exact placement of your 4 images */
-.img-users { top: -5%; left: 25%; width: 55%; min-height: 150px; z-index: 2; }
+.img-users { top: -8%; left: 25%; width: 55%; min-height: 150px; z-index: 2; }
 .img-percent { top: 25%; right: 0%; width: 25%; min-height: 100px; z-index: 3; }
 .img-price { bottom: 4%; left: 20px; width: 35%; min-height: 60px; z-index: 4; }
-.img-main-video { bottom: -45%; right: 0px; width: 65%; min-height: 200px; z-index: 1; border-radius: 20px;}
+.img-main-video { bottom: -37%; right: 0px; width: 65%; min-height: 200px; z-index: 1; border-radius: 20px;}
 
 /* --- Bottom Stats Row --- */
 .hero-stats-row {
@@ -277,6 +277,87 @@
         gap: 30px 10px;
         border-top: none; 
     }
+}
+/* =====================================================================
+   CLEAN ROW-BY-ROW STACK (ZERO OVERLAP GUARANTEED)
+===================================================================== */
+
+@media (max-width: 768px) {
+    .hero-content-split { flex-direction: column !important; text-align: center !important; gap: 0 !important; }
+    .hero-left { margin: 0 auto !important; width: 100% !important; }
+    .hero-left h1 { font-size: 2.2rem !important; line-height: 1.2 !important; }
+
+    /* 1. Reset the container to let the rows dictate the height naturally */
+    .hero-right {
+        width: 100% !important;
+        height: auto !important;         
+        margin-top: 50px !important;     
+        margin-bottom: -40px !important; 
+        display: block !important;
+    }
+
+    /* 2. THE GRID: Forces items into distinct rows */
+    .visual-composition {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Creates 2 columns for the middle cards */
+        gap: 25px 15px !important; /* 25px vertical space between rows, 15px horizontal */
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        align-items: center !important;
+    }
+
+    /* 3. Strip ALL absolute positioning so they act like normal blocks */
+    .float-img {
+        position: relative !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+    }
+
+    /* --- ROW 1: Main Video --- */
+    .img-main-video {
+        grid-column: 1 / -1 !important; /* Spans all the way across */
+        order: 1 !important;
+        width: 100% !important;
+    }
+
+    /* --- ROW 2: The Small Accents (Side by Side) --- */
+    .img-price {
+        grid-column: 1 / 2 !important; /* Left half */
+        order: 2 !important;
+        width: 95% !important;
+        justify-self: center !important;
+    }
+
+    .img-percent {
+        grid-column: 2 / 3 !important; /* Right half */
+        order: 3 !important;
+        width: 75% !important;
+        justify-self: center !important;
+    }
+
+    /* --- ROW 3: Users Card --- */
+    .img-users {
+        grid-column: 1 / -1 !important; /* Spans all the way across */
+        order: 4 !important;
+        width: 95% !important;
+        justify-self: center !important;
+        margin-top: 5px !important; /* A tiny bit of extra breathing room from the cards above */
+    }
+
+    .hero-stats-row { margin-top: 20px !important; }
+}
+
+/* For ultra-tiny screens (like 320px) */
+@media (max-width: 380px) {
+    .hero-left h1 { font-size: 1.9rem !important; }
+    .visual-composition { gap: 20px 10px !important; } /* Slightly tighter gaps */
 }
 
 /* ================= TOUGHEST CHALLENGES STYLES ================= */
@@ -618,7 +699,7 @@
 /* ================= STOP REPORTING SECTION ================= */
 .future-section {
     position: relative;
-    padding: 80px 0 120px 0;
+    padding: 10px 0 10px 0;
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     overflow: hidden;
@@ -766,6 +847,58 @@
     .future-content h2 { font-size: 2rem; }
 }
 
+/* =====================================================================
+   MOBILE FIX: DECOUPLING THE LINK AND THE FLOATING CARD
+===================================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Ensure the parent has physical space below it so the link doesn't hit the next section */
+    .future-content {
+        margin-bottom: 130px !important; /* Creates a safe zone below the main graphic */
+        position: relative !important;
+    }
+
+    /* 2. Freeze the floating card in place */
+    .css-floating-card {
+        width: 85% !important; 
+        max-width: 260px !important;
+        right: 5% !important; 
+        bottom: -30px !important; /* This will no longer move when you adjust the link */
+        z-index: 5 !important;
+    }
+
+    .float-card-img {
+        height: 120px !important;
+    }
+
+    /* 3. THE FIX: Make the link absolute so it stops stretching the parent */
+    .discover-link {
+        position: absolute !important;
+        bottom: -100px !important; /* Anchors the link 100px below the parent */
+        left: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 0 !important;  /* Strip out the old margin hack */
+        z-index: 10 !important;
+    }
+}
+
+/* Specific adjustment for ultra-tiny 320px screens */
+@media (max-width: 380px) {
+    .future-content {
+        margin-bottom: 110px !important; 
+    }
+    
+    .css-floating-card {
+        width: 90% !important;
+        right: 5% !important; 
+        bottom: -20px !important;
+    }
+    
+    .discover-link {
+        bottom: -60px !important; /* Pull it up slightly on tiny phones */
+    }
+}
 /* ================= DEPARTMENTAL SECTION ================= */
 .departmental-section {
     position: relative;
@@ -1010,15 +1143,42 @@
 }
 
 @media (max-width: 768px) {
-    .dept-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .dept-track .dept-card { flex: 0 0 100%; } /* Stack to 1 card slider on mobile */
-    .strategy-content, .strategy-visual { padding: 30px; }
-    .strategy-visual { padding-top: 0; height: 250px; }
+    .dept-header { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 20px; 
+    }
+    
+    /* THE FIX: Reset min-width so the card perfectly fits and centers */
+    .dept-track .dept-card { 
+        flex: 0 0 100% !important; 
+        min-width: 0 !important;   /* CRITICAL: Overrides the 320px desktop limit */
+        width: 100% !important;    /* Forces it to exactly fill the container */
+        box-sizing: border-box !important;
+    } 
+    
+    .strategy-content, .strategy-visual { 
+        padding: 30px; 
+    }
+    
+    .strategy-visual { 
+        padding-top: 0; 
+        height: 250px; 
+    }
 }
 
+/* Optional: Extra tightening for ultra-tiny 320px screens */
+@media (max-width: 380px) {
+    .dept-track .dept-card {
+        padding: 25px !important; /* Give the text a little more room on tiny screens */
+    }
+    .strategy-content {
+        padding: 25px !important;
+    }
+}
 /* ================= CUSTOM USE CASE SECTION ================= */
 .custom-usecase-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     position: relative;
@@ -1032,14 +1192,14 @@
 .container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 .usecase-card {
     background: #ffffff;
     border: 1px solid #E2E8F0;
     border-radius: 40px; /* Large rounded corners from screenshot */
-    padding: 80px;
+    padding: 50px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
@@ -1189,7 +1349,7 @@
 }
 
 @media (max-width: 768px) {
-    .usecase-card { padding: 40px 25px; border-radius: 24px; }
+    .usecase-card { padding: 40px 10px; border-radius: 24px; }
     .form-row { flex-direction: column; gap: 0; }
     .curve-arrow-img { top: -30px; left: 10px; width: 60px; }
 }

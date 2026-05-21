@@ -215,19 +215,36 @@
     .icon-bl { left: 5%; }
     .icon-br { right: 5%; }
 }
-
 @media (max-width: 768px) {
-    .resource-hero { padding: 20px 0 80px 0; min-height: auto; }
+    .resource-hero { 
+        padding: 20px 0 40px 0; /* Reduced bottom padding */
+        min-height: auto; 
+    }
     
-    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content {
+        gap: 15px !important; /* Forces the flex items to sit closer together */
+    }
     
-    /* Fade out floating icons on mobile to prevent clutter */
-    .floating-elements { opacity: 0.15; }
+    .hero-content h1 { 
+        font-size: 1.8rem; 
+        margin-bottom: 5px !important; 
+        line-height: 1.1;
+    }
     
-    .trust-badge { flex-direction: column; text-align: center; gap: 10px; }
+    .hero-subtitle {
+        margin: 0 auto 20px auto !important; 
+    }
+    
+    .trust-badge { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 5px !important;
+        margin-bottom: 20px !important; 
+    }
+    
+    .floating-elements { opacity: 0.1; }
     .reviews-content { align-items: center; }
 }
-
 /* ================= RESOURCE HUB STYLES ================= */
 .resource-hub-section {
     padding: 80px 0;

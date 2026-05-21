@@ -528,7 +528,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .infra-title-box h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1.2;
     color: #1E293B;
@@ -950,7 +950,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .fb-title {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1.2;
     margin: 0 0 20px 0;
@@ -1282,14 +1282,14 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .fb-speed-2 .fb-planet { animation-name: fb-counter-swing-2; animation-duration: 9s; }
 
 /* Outer Arc (KRA) - Slower to cover more distance organically */
-.fb-speed-3 { animation-name: fb-swing-3; animation-duration: 13s; }
-.fb-speed-3 .fb-planet { animation-name: fb-counter-swing-3; animation-duration: 13s; }
+.fb-speed-3 { animation-name: fb-swing-3; animation-duration: 11s; }
+.fb-speed-3 .fb-planet { animation-name: fb-counter-swing-3; animation-duration: 11s; }
 
 
 /* Orbit Keyframes - Swings them between the top edge and left edge of the card */
 @keyframes fb-swing-1 {
-    from { transform: rotate(-80deg); } /* Low on the left */
-    to { transform: rotate(-10deg); }   /* High on the right */
+    from { transform: rotate(-80deg); } 
+    to { transform: rotate(-10deg); }  
 }
 @keyframes fb-swing-2 {
     from { transform: rotate(-70deg); }
@@ -1461,7 +1461,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 
 /* --- Sticky Headings & Text --- */
 .section-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.2;
     margin: 0 0 25px 0;
@@ -1723,7 +1723,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 
 @media (max-width: 768px) {
     .fb-section { padding: 60px 0; }
-    .section-title { font-size: 2.2rem; }
+    .section-title { font-size: 2rem; }
     .feature-card { padding: 40px; min-height: auto; }
     .card-content h3 { font-size: 1.5rem; }
     .card-number-bg { font-size: 5rem; top: 15px; right: 20px; }
@@ -1739,7 +1739,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     position: relative;
     width: 100%;
     overflow: hidden; 
-    padding: 4rem 2rem;
+    padding: 4rem 1rem;
     font-family: inherit;
     color: #111827;
 }
@@ -1766,7 +1766,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .clariti-header h2 {
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
     color: #1F2937;
@@ -2006,7 +2006,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .sp-section {
     position: relative;
     width: 100%;
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #fdfdfd;
     overflow: hidden;
@@ -2055,7 +2055,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .sp-heading {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #1F2937;
     line-height: 1.1;

@@ -75,17 +75,25 @@
 }
 
 .btn-primary-dark {
-    background: #0f172a;
+    /* Apply the gradient */
+    background: linear-gradient(90deg, #0066FF 0%, #00d4ff 100%);
     color: #ffffff;
     padding: 1rem 2.2rem;
     border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(15, 23, 42, 0.2);
+    
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
+    display: inline-block; 
 }
-.btn-primary-dark:hover { background: #1e293b; transform: translateY(-2px); }
 
+.btn-primary-dark:hover {
+  
+    background: linear-gradient(90deg, #0052cc 0%, #00b8de 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.4);
+}
 .btn-outline-light {
     background: #ffffff;
     color: #374151;

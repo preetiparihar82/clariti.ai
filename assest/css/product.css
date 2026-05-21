@@ -98,14 +98,25 @@
 }
 
 .btn-dark-blue {
-    background-color: #1E3A8A; /* Darker navy blue */
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+    /* Set the gradient */
+    background: linear-gradient(90deg, #0066FF 0%, #00d4ff 100%);
+    color: #ffffff; 
+    border: none; 
+    padding: 16px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
 }
-.btn-dark-blue:hover { background-color: #172554; transform: translateY(-2px); }
 
+.btn-dark-blue:hover {
+   
+    background: linear-gradient(90deg, #0052cc 0%, #00b8de 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
 .btn-primary-blue {
-    background-color: #2563EB; /* Primary bright blue */
+    background-color: #2563EB; 
     color: #ffffff;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }

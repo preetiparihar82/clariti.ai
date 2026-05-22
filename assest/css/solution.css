@@ -169,7 +169,7 @@
 }
 
 /* ================= MOBILE RESPONSIVE ================= */
-/* ================= TABLET RESPONSIVE (Max 1024px) ================= */
+
 @media (max-width: 1024px) {
     .hero-premium-section { padding: 6rem 1.5rem 2rem 1.5rem; display: flex; flex-direction: column; }
     .hero-inner-container { flex-direction: column; gap: 3rem; }
@@ -208,7 +208,7 @@
     /* 2. Force sections to be exactly 100% of the screen */
     .hero-premium-section, 
     .modules-section { 
-        padding: 3rem 1rem 1rem 1rem; 
+        padding: 1rem 1rem 0rem 1rem; 
         width: 100%;
         box-sizing: border-box;
     }

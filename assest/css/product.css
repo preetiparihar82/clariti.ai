@@ -202,7 +202,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .clarity-engine-section { padding: 0rem 1.5rem; }
+    .clarity-engine-section { padding: 1.5rem 1.5rem; }
     
     .desktop-break { display: none; }
     
@@ -213,7 +213,7 @@
 
     .engine-visuals { 
         margin-top: 3rem; 
-        margin-bottom: 2rem; 
+        margin-bottom: 0rem; 
     }
     
     .float-bottom-left {
@@ -257,7 +257,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .clarity-engine-section { padding: 0rem 1.5rem; }
+    .clarity-engine-section { padding: 1.5rem 1.5rem; }
     
     .desktop-break { display: none; } 
     

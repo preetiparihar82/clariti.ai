@@ -258,23 +258,53 @@
         padding-top: 20px; 
     }
     .main-heading { 
-        font-size: 1.9rem; /* Slightly smaller for 320px screens */
+        font-size: 1.9rem; 
+        
         letter-spacing: -1px; 
     }
     .hero-subtext { 
         font-size: 1rem; 
     }
     
-    /* Ensure the images fit comfortably within narrow mobile screens */
+    
     .layer-woman {
         max-width: 90%; 
     }
     .layer-bars {
-        max-width: 85%; /* Keeps the background graphic slightly contained behind her */
+        max-width: 85%; 
     }
 }
 
+/* --- Mobile Responsive Fix for About Section --- */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
 
+    .about-col-left {
+        align-items: center; 
+        width: 100%;
+    }
+
+    
+    .blue-stat-card,
+    .dark-chart-card {
+        margin: 0 auto; 
+        max-width: 280px; 
+    }
+
+    
+    .about-col-right {
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    .floating-badge {
+        right: 10px; 
+        bottom: -15px;
+    }
+}
 
 /* ================= ABOUT OUR COMPANY STYLES ================= */
 
@@ -905,7 +935,7 @@
 /* Header */
 .wp-header {
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .wp-header h2 {
@@ -1107,7 +1137,7 @@
     }
 
     .work-process-section { padding: 10px 0; }
-    .wp-header h2 { font-size: 2rem; }
+    .wp-header h2 { font-size: 1.9rem; margin-top : 30px}
     
     /* 1. Lock the line exactly 25px from the left */
     .timeline-line-bg, .timeline-line-progress {
@@ -1245,7 +1275,7 @@
 /* --- Dynamic Slider --- */
 .cp-slider-container {
     position: relative;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
     width: 100%;
 }
 
@@ -1475,7 +1505,7 @@
 
 @media (max-width: 768px) {
     .cp-section { padding: 20px 0; }
-    .cp-header h2 { font-size: 1.8rem; }
+    .cp-header h2 { font-size: 1.8rem; margin-top : 20px; }
     .cp-slide-card p { font-size: 1.1rem; }
     .dna-grid { grid-template-columns: 1fr; }
 }

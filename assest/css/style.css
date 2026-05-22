@@ -1325,7 +1325,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .fb-container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 /* --- Subtle Repeating Grid Background Overlay --- */
@@ -1348,7 +1348,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     display: flex;
     position: relative;
     z-index: 2; /* Sits above the grid */
-    gap: 80px;
+    gap: 70px;
 }
 
 
@@ -1368,7 +1368,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     align-items: stretch !important; /* CRITICAL: Gives the left column a tall track */
     position: relative;
     z-index: 2;
-    gap: 80px;
+    gap: 70px;
 }
 
 /* 3. The Left Column Wrapper acts as the physical track */
@@ -1694,7 +1694,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 @media (max-width: 1024px) {
     .content-wrapper {
         flex-direction: column; /* Stack columns on smaller screens */
-        gap: 60px;
+        gap: 20px;
     }
     
     .sticky-column-wrapper, .scrollable-column-wrapper {

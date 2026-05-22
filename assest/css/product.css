@@ -2,7 +2,7 @@
 .clarity-engine-section {
     position: relative;
     background-color: #ffffff;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     overflow: hidden; /* Keeps background elements from causing scrollbars */
     z-index: 1;
 }

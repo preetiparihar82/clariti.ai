@@ -208,7 +208,7 @@
     /* 2. Force sections to be exactly 100% of the screen */
     .hero-premium-section, 
     .modules-section { 
-        padding: 1rem 1rem 0rem 1rem; 
+        padding: 1.5rem 1rem 0rem 1rem; 
         width: 100%;
         box-sizing: border-box;
     }

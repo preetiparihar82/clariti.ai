@@ -52,9 +52,14 @@
 
 .float-icon {
     position: absolute;
-    /* Put placeholder styles just in case images are missing */
     background-color: transparent;
     object-fit: contain;
+    opacity: 0.4; /* Adds a soft, faded overlay look to background icons */
+    transition: opacity 0.3s ease;
+}
+
+.float-icon:hover {
+    opacity: 0.8; /* Lights up slightly if the user's mouse passes over them */
 }
 
 /* Specific Positions based on screenshot */
@@ -98,7 +103,7 @@
 
 /* Typography */
 .hero-content h1 {
-    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-size: clamp(2.8rem, 3.5vw, 2.8rem);
     color: #111827; /* Dark almost-black */
     font-weight: 700;
     line-height: 1.2;
@@ -117,28 +122,41 @@
 }
 
 /* --- Trust Badge (Avatars) --- */
+
 .trust-badge {
     display: flex;
     align-items: center;
+    justify-content: center; 
     gap: 15px;
     margin-bottom: 50px;
 }
 
 .avatars {
     display: flex;
+    align-items: center;
+    position: relative; 
 }
 
 .avatar-img {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    border: 3px solid #ffffff; /* White border creates the overlap effect */
+    border: 3px solid #ffffff;
     object-fit: cover;
-    background: #CBD5E1; /* Fallback color */
+    background: #CBD5E1; 
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
-/* Overlap the images */
-.avatar-img:not(:first-child) { margin-left: -15px; }
+/* Overlap the images by pulling them left */
+.avatar-img:not(:first-child) { 
+    margin-left: -15px; 
+}
+
+
+.avatars:hover .avatar-img:not(:first-child) {
+    transform: translateX(8px);
+}
 
 .reviews-content {
     display: flex;
@@ -226,7 +244,7 @@
     }
     
     .hero-content h1 { 
-        font-size: 1.8rem; 
+        font-size: 1.9rem; 
         margin-bottom: 5px !important; 
         line-height: 1.1;
     }
@@ -242,7 +260,7 @@
         margin-bottom: 20px !important; 
     }
     
-    .floating-elements { opacity: 0.1; }
+    .floating-elements { opacity: 0.4; }
     .reviews-content { align-items: center; }
 }
 /* ================= RESOURCE HUB STYLES ================= */

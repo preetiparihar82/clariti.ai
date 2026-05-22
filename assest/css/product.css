@@ -515,7 +515,7 @@
 @media screen and (max-width: 768px) {
     .architecture-section { padding: 2rem 1.5rem; }
     
-    .bg-wave { width: 250px; opacity: 0.3; } /* Shrink wave on mobile */
+    .bg-wave { width: 250px; opacity: 0.2; } /* Shrink wave on mobile */
     
     /* Mobile: Stack everything vertically */
     .arch-grid { grid-template-columns: 1fr; gap: 1.5rem; }

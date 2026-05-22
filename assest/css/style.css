@@ -1639,13 +1639,13 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     /* 4. Image Fix: Relative positioning inside the card */
     .fb-feature-img, .fb-dashboard-img, .fb-chat-img, .fb-intel-img, .fb-trends-img {
         position: relative !important;
-        top: auto !important;
+        top: -10px !important;
         left: auto !important;
         bottom: auto !important;
         right: auto !important;
         width: 100% !important;
         max-width: 250px !important;
-        margin: 20px auto !important; /* Perfectly centers the image */
+        margin: 60px auto !important; /* Perfectly centers the image */
         order: -1 !important; /* Pushes image to the top of the card */
     }
 

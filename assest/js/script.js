@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let slideTimer;
 
         function showSlide(index) {
-            // Clear any existing timers
+          
             clearTimeout(slideTimer);
 
             // Hide old, show new
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const visualElements = slide.querySelectorAll('.phone-column');
             const words = slide.querySelectorAll('.word');
 
-            // Reset word opacity if they exist (so they can animate again next loop)
             if(words.length) {
                 words.forEach(w => { 
                     w.style.opacity = 0; 
@@ -36,13 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Create a Timeline. 
-            // The 'complete' function guarantees the slide only changes AFTER animations end.
+       
             const tl = anime.timeline({
                 complete: () => {
                     // SMART TIMER: 
-                    // If there are words (Slide 2), wait 3 seconds after the last word.
-                    // If there are NO words (Slide 1), wait 7 seconds so the user can read the slide.
+        
                     const holdTime = words.length > 0 ? 3000 : 6000; 
 
                     slideTimer = setTimeout(() => {
@@ -64,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Step 2: Animate the rotating words one by one in the same spot
             if (words.length > 0) {
-                // Wait briefly before starting the word rotation
+             
                 tl.add({ duration: 300 }); 
 
                 words.forEach((word, i) => {
@@ -79,14 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         easing: 'easeOutQuad'
                     });
 
-                    // If it's NOT the last word, hold it so the user can read, then fade it OUT
+                    
                     if (!isLast) {
                         tl.add({
                             targets: word,
-                            translateY: [0, -15], // Slide up and fade out
+                            translateY: [0, -15], 
                             opacity: [1, 0],
                             duration: 400,
-                            delay: 1200, // HOLD DURATION: How long the word stays on screen
+                            delay: 1200, 
                             easing: 'easeInQuad'
                         });
                     }
@@ -95,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
 
-        // Start the slider loop
+       
         showSlide(0);
 
         // --- 2. Floating Animations ---
@@ -155,28 +152,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Select all elements that should animate on scroll
+    
     const reveals = document.querySelectorAll('.reveal-on-scroll');
 
-    // Create an Intersection Observer
+    
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // If the element is visible in the viewport
+           
             if (entry.isIntersecting) {
-                // Add the animation class
+                
                 entry.target.classList.add('is-visible');
-                // Optional: Stop observing once it has animated so it doesn't repeat
+                
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        // Triggers when 15% of the element is visible
+        
         threshold: 0.15, 
-        // Starts the calculation slightly before it hits the bottom of the screen
+        
         rootMargin: "0px 0px -50px 0px" 
     });
 
-    // Tell the observer to watch each element
+    
     reveals.forEach(reveal => {
         revealObserver.observe(reveal);
     });
@@ -186,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. Interactive Accordion Logic --- */
-    // Only target buttons inside our safe namespace
+    
     const faqButtons = document.querySelectorAll('.ses-faq-btn');
 
     faqButtons.forEach(btn => {
@@ -228,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('ses-is-visible');
-                    observer.unobserve(entry.target); // Run once
+                    observer.unobserve(entry.target); 
                 }
             });
         }, observerOptions);
@@ -268,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.fb-card');
     
     cards.forEach(card => {
-        // Target your actual image tags
+        
         const image = card.querySelector('.fb-feature-img');
         if(!image) return;
 
@@ -277,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            // Calculate movement amount (higher divider = softer movement)
+            
             const moveX = (x - rect.width / 2) / 40; 
             const moveY = (y - rect.height / 2) / 40;
 
@@ -285,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         card.addEventListener('mouseleave', () => {
-            // Smoothly snap back into position and re-engage the CSS floating keyframes
+            
             image.style.transform = `translate(0, 0)`;
             image.style.transition = `transform 0.5s ease-out`;
             
@@ -298,20 +295,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- IntersectionObserver for Scroll Reveal Animation --- */
+    /* --- Intersection Observer for Scroll Reveal Animation --- */
     const revealElements = document.querySelectorAll('.fb-reveal');
 
     const observerOptions = {
-        root: null, // use viewport
-        threshold: 0.15, // trigger when 15% of element is visible
-        rootMargin: "0px 0px -50px 0px" // starts calculating just before hitting bottom edge
+        root: null, 
+        threshold: 0.15, 
+        rootMargin: "0px 0px -50px 0px" 
     };
 
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Stop observing once revealed
+                observer.unobserve(entry.target); 
             }
         });
     };
@@ -327,7 +324,7 @@ function renderClaritiPath() {
     const svg = document.getElementById('clariti-path-layer');
     const container = document.querySelector('.clariti-grid'); 
     
-    // 1. MOBILE FIX: If screen is small, clear the line and exit so it doesn't leave a frozen desktop line
+    
     if (window.innerWidth <= 1024) {
         if(svg) svg.innerHTML = ''; 
         return;
@@ -342,7 +339,7 @@ function renderClaritiPath() {
     svg.innerHTML = '';
     const containerRect = container.getBoundingClientRect();
 
-    // Map badge coordinates relative to the grid container
+    
     const badgePoints = badges.map(badge => {
         const rect = badge.getBoundingClientRect();
         return {
@@ -352,7 +349,7 @@ function renderClaritiPath() {
         };
     });
 
-    // Map card coordinates to find the exact gaps between columns
+    
     const cardPoints = cards.map(card => {
         const rect = card.getBoundingClientRect();
         return {
@@ -363,17 +360,17 @@ function renderClaritiPath() {
 
     let d = "";
 
-    // The horizontal line bringing the path in from the left
+    
     const entryHeight = badgePoints[1].yCenter; 
     const dropX = badgePoints[0].leftEdge - 24; 
     
-    // Draw Entry Line (comes from far left)
+    
     d += `M -500 ${entryHeight} `; 
     d += `L ${dropX} ${entryHeight} `; 
     d += `L ${dropX} ${badgePoints[0].yCenter} `; 
     d += `L ${badgePoints[0].leftEdge} ${badgePoints[0].yCenter} `; 
 
-    // Draw connecting zigzag loops behind the cards
+    
     for (let i = 0; i < badgePoints.length - 1; i++) {
         const currentBadge = badgePoints[i];
         const nextBadge = badgePoints[i + 1];
@@ -381,28 +378,28 @@ function renderClaritiPath() {
         const currentCard = cardPoints[i];
         const nextCard = cardPoints[i + 1];
 
-        // Start path at the right edge of the current badge
+        
         d += `M ${currentBadge.rightEdge} ${currentBadge.yCenter} `;
         
-        // Calculate the exact middle gap between the CARDS
+       
         const midX = currentCard.rightEdge + ((nextCard.leftEdge - currentCard.rightEdge) / 2);
         
-        // Draw straight right (hides invisibly behind the card because card has z-index: 10)
+        
         d += `L ${midX} ${currentBadge.yCenter} `;
         
-        // Drop down/up through the empty gap safely
+        
         d += `L ${midX} ${nextBadge.yCenter} `;
         
-        // Draw into the left side of the next badge
+        
         d += `L ${nextBadge.leftEdge} ${nextBadge.yCenter} `;
     }
 
-    // Draw Exit Line (extends off the right side of the screen)
+    
     const lastBadge = badgePoints[badgePoints.length - 1];
     d += `M ${lastBadge.rightEdge} ${lastBadge.yCenter} `;
     d += `L ${containerRect.width + 500} ${lastBadge.yCenter} `;
 
-    // Render the SVG path onto the DOM
+    
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', d);
     path.setAttribute('class', 'clariti-animated-path');
@@ -410,15 +407,15 @@ function renderClaritiPath() {
     svg.appendChild(path);
 }
 
-// Bind standard resize events
+
 window.addEventListener('load', renderClaritiPath);
 window.addEventListener('resize', renderClaritiPath);
 
-// 2. FONT FIX: Wait for custom web fonts to load before drawing to prevent misalignment
+
 if (document.fonts) {
     document.fonts.ready.then(renderClaritiPath);
 } else {
-    // Fallback for older browsers
+    
     setTimeout(renderClaritiPath, 150);
     setTimeout(renderClaritiPath, 600);
 }
@@ -426,15 +423,15 @@ if (document.fonts) {
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- 1. Automated Vertical Testimonial Scroller ---
+    
     const track = document.getElementById('sp-test-track');
     
-    // Scroll interval (every 4 seconds)
+    
     setInterval(() => {
-        // Get the top testimonial
+        
         const firstItem = track.children[0];
         
-        // Calculate exactly how far to slide up (height of item + its bottom margin)
+        
         const style = window.getComputedStyle(firstItem);
         const margin = parseFloat(style.marginBottom);
         const shiftDistance = firstItem.offsetHeight + margin;
@@ -443,20 +440,20 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         track.style.transform = `translateY(-${shiftDistance}px)`;
 
-        // Wait for the slide animation to finish
+        
         setTimeout(() => {
-            // Remove animation temporarily
+            
             track.style.transition = 'none';
-            // Pop the first item and place it invisibly at the bottom
+            
             track.appendChild(firstItem);
-            // Instantly snap the track back to top position (no visual jump because item is gone)
+            
             track.style.transform = 'translateY(0)';
-        }, 600); // 600ms matches the CSS transition time
+        }, 600); 
 
     }, 4000); 
 
 
-    // --- 2. Automated Stats Swapper (Unchanged from before) ---
+    // --- 2. Automated Stats Swapper ---
     const statsData = [
         { val: "99", suf: "%", label: "ACCURACY RATE" },
         { val: "12", suf: "ms", label: "AVG LATENCY" },
@@ -473,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 2. Wait for fade, shift array, and inject new data
         setTimeout(() => {
             const lastItem = statsData.pop();
-            statsData.unshift(lastItem); // Circular shift
+            statsData.unshift(lastItem); 
 
             statContainers.forEach((container, i) => {
                 container.querySelector('.stat-val').innerText = statsData[i].val;
@@ -483,35 +480,62 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Reset and fade back in
                 container.classList.remove('sp-fade-out');
                 container.classList.add('sp-fade-in-prepare');
-                void container.offsetWidth; // Trigger DOM reflow
+                void container.offsetWidth; 
                 container.classList.remove('sp-fade-in-prepare');
             });
         }, 400); 
 
-    }, 3500); // Swaps slightly faster than the scroll to offset animations nicely
+    }, 3500); 
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Select all elements with the animation class
+    
     const elementsToAnimate = document.querySelectorAll('.cl-animate-up');
 
-    // Create an intersection observer
+    
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // If the element is in the viewport
+            
             if (entry.isIntersecting) {
                 entry.target.classList.add('cl-visible');
-                // Unobserve so the animation only happens once
+                
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.15 // Triggers when 15% of the element is visible
+        threshold: 0.15 
     });
 
-    // Observe each element
+    
     elementsToAnimate.forEach(element => {
         observer.observe(element);
     });
 });
 
+// ================= PRICING SECTION ANIMATIONS =================
+document.addEventListener("DOMContentLoaded", () => {
+    // Select all the elements we want to animate in the pricing section
+    const pricingElements = document.querySelectorAll('.reveal-up');
+
+    if (pricingElements.length > 0) {
+        const pricingObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // When the element scrolls into view...
+                if (entry.isIntersecting) {
+                    // Add the 'active' class to trigger the CSS animation
+                    entry.target.classList.add('active');
+                    // Stop observing it so it only animates once
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15, 
+            rootMargin: "0px 0px -50px 0px" 
+        });
+
+        // Attach the observer to each pricing element
+        pricingElements.forEach(el => {
+            pricingObserver.observe(el);
+        });
+    }
+});

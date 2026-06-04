@@ -1,4 +1,4 @@
-/* RESET & VARIABLES */
+
 /* ================= RESET & VARIABLES ================= */
 :root {
     --primary-blue: #0077ff;
@@ -19,11 +19,12 @@ body {
     background: #ffffff;
     min-height: 70vh;
     color: var(--text-main);
-    overflow-x: hidden; /* Prevents horizontal scroll bugs */
+    overflow-x: hidden; 
 }
 
 /* Hides the mobile buttons on large screens */
 .mobile-actions { display: none; }
+
 /* ================= TEXT WAVE ANIMATION ================= */
 h1 { opacity: 1; transform: none; animation: none; }
 .wave-heading { display: block; }
@@ -104,7 +105,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     margin-bottom: 2rem; box-shadow: 0 4px 10px rgba(91, 143, 255, 0.3);
 }
 
-.text-column h1 { font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.15; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -1.5px; }
+.text-column h1 { font-size: clamp(2rem, 3.2vw, 3rem); line-height: 1.15; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -1.5px; }
 .blue-text { color: var(--primary-blue); }
 .position-relative { position: relative; display: inline-block; }
 .text-swoosh { position: absolute; bottom: -15px; right: -20px; width: 120px; height: 30px; }
@@ -170,7 +171,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     position: absolute; 
     top: 60%; 
     right: -16%; 
-    width: 230px !important; /* Forces it back to full size */
+    width: 230px !important; 
     z-index: 5; 
     animation: generic-float 4s ease-in-out alternate infinite; 
 }
@@ -179,7 +180,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     position: absolute; 
     bottom: -1%; 
     left: -30%; 
-    width: 220px !important; /* Forces it back to full size */
+    width: 220px !important; 
     z-index: 5; 
     animation: generic-float 4.5s 0.2s ease-in-out alternate infinite; 
     padding: 1.0rem;
@@ -221,8 +222,8 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .dark-dashboard-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Wider for desktop */
-    height: 500px; /* Taller for desktop */
+    max-width: 800px; 
+    height: 500px; 
     perspective: 1200px;
     margin: 0 auto;
 }
@@ -236,16 +237,16 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* 1. Main Dashboard Standalone Image */
 .main-dashboard-card, .dashboard-direct-img {
     position: absolute;
-    width: 120%; /* Makes it huge on desktop */
+    width: 120%; 
     max-width: 900px;
     top: 5%;
-    right: -25%; /* Offset to the right */
+    right: -25%; 
     border: none;
     background: transparent;
     border-radius: 16px; 
     box-shadow: 0 20px 60px rgba(228, 255, 254, 0.844); 
     z-index: 1; 
-    transform: rotateY(-8deg) rotateX(2deg); /* 3D Tilt */
+    transform: rotateY(-8deg) rotateX(2deg); 
 }
 
 /* 2. Light Chat Card */
@@ -253,7 +254,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     position: absolute;
     width: 320px;
     bottom: -9%;
-    left: -10%; /* Offset to the bottom left */
+    left: -10%; 
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(255, 255, 255, 1);
     border-radius: 20px;
@@ -273,11 +274,11 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0, 192, 158, 0.3);
 }
 
-/* ================= RESPONSIVE DESIGN (THE FIXES) ================= */
+
 
 /* ================= RESPONSIVE DESIGN ================= */
 
-/* 1. NAVBAR FIX: Trigger Hamburger Menu earlier (at 1100px) */
+
 @media screen and (max-width: 1100px) {
     header { width: 95%; padding: 1rem 1.5rem; margin: 1rem auto; flex-wrap: wrap; }
     .mobile-menu-btn { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
@@ -309,13 +310,13 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 
 /* ================= DEFINITIVE MOBILE FIXES (768px) ================= */
 @media screen and (max-width: 768px) {
-    /* CRITICAL FIX 1: 'clip' stops sideways scrolling BUT lets the Sticky Navbar work! */
+  
     body, html { max-width: 100vw; overflow-x: clip !important; }
    .hero-section { 
         overflow-x: clip !important; 
         overflow-y: visible !important; 
         margin: 0 auto !important;
-        padding: 1rem 0rem 1rem 0rem !important; /* Added 1rem to the placeholders */
+        padding: 1rem 0rem 1rem 0rem !important; 
         width: 100% !important;
     }
     
@@ -332,7 +333,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
         border-top: 1px solid rgba(0,0,0,0.1);
     }
 
-    /* GUARANTEED STICKY HEADER */
+   
     header { 
         position: sticky !important; 
         top: 10px !important; 
@@ -422,8 +423,8 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     .main-dashboard-card { 
         position: relative !important;
         width: 100% !important; 
-        max-width: 320px !important; /* Limits the max size so it doesn't get too wide */
-        margin: 0 auto !important;   /* Centers the container on the screen */
+        max-width: 320px !important; 
+        margin: 0 auto !important;   
         display: flex !important;
         justify-content: center !important;
         padding: 0 10px !important;
@@ -431,16 +432,16 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     }
     
     .dashboard-direct-img, .dashboard-img {
-        width: 100% !important;   /* Forces the image to fill the container */
-        height: 220px !important;  /* Keeps the aspect ratio proportional */
-        max-width: 300px !important; /* Set your preferred max-width here */
+        width: 100% !important;   
+        height: 220px !important;  
+        max-width: 300px !important; 
         display: block !important;
-        margin: 0 auto !important; /* Centers the image inside the container */
+        margin: 0 auto !important; 
         border-radius: 12px !important;
         box-shadow: 0 10px 30px rgba(213, 224, 223, 0.833) !important;
     }
     
-    /* Perfectly stacked Chat Card overlapping the image base naturally */
+   
     .chat-card { 
         position: relative !important; 
         width: 90% !important; 
@@ -449,7 +450,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
         right: auto !important; 
         left: auto !important; 
         bottom: auto !important;
-        transform: translateY(0px) !important; /* Perfectly pulls it up over the bottom image boundary */
+        transform: translateY(0px) !important; 
         padding: 1rem 1.2rem !important; 
         justify-content: flex-start !important; 
         z-index: 5 !important;
@@ -474,7 +475,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* ================= INFRASTRUCTURE SECTION ================= */
 .infrastructure-section {
     position: relative;
-    background-color: #f1ffffd5; /* Very light off-white background */
+    background-color: #f1ffffd5;
     padding: 60px 20px;
     overflow: hidden;
     color: #1E293B;
@@ -547,41 +548,122 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     max-width: 500px;
 }
 
-/* Cards Grid */
+/* ================= THE BENTO GRID ================= */
+
 .infra-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
 }
 
-/* Individual Card Styling */
+/* ================= MODERN CARD STYLING ================= */
 .infra-card {
-    background-color: #1453c1f3; /* Deep primary blue */
-    border-radius: 24px;
-    padding: 40px 30px;
-    color: #d7f9f9;
+    background: linear-gradient(145deg, #1d4ed8 0%, #1e40af 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px 30px; 
+    color: #f8fafc;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: flex-start;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Inner glow effect for depth */
+.infra-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    background: radial-gradient(800px circle at top left, rgba(255,255,255,0.1), transparent);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .infra-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
 }
 
+/* Glassmorphism Icon Box */
 .card-icon-wrapper {
-    background: rgba(255, 255, 255, 0.15);
-    width: 48px;
-    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 50px;
+    height: 50px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px; /* Even space below the icon */
 }
 
+.infra-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.infra-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    /* Removing margin-bottom ensures the bottom of the text perfectly hits the 40px padding constraint */
+    margin-bottom: 0; 
+}
+
+/* ================= THE 7TH FEATURE CARD ================= */
+.infra-card:nth-child(7) {
+    grid-column: 1 / -1; 
+    flex-direction: row; 
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+.infra-card:nth-child(7) .card-icon-wrapper {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+@media screen and (max-width: 1024px) {
+    .infra-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .infra-card:nth-child(7) {
+        grid-column: 1 / -1; 
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 0;
+        padding: 40px 30px;
+    }
+    
+    .infra-card:nth-child(7) .card-icon-wrapper {
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .infra-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    .infra-card {
+        padding: 35px 25px; /* Slightly tighter for mobile phones, but still symmetrical */
+    }
+}
 .infra-card h3 {
     font-size: 1.4rem;
     font-weight: 600;
@@ -593,7 +675,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 40px;
-    flex-grow: 1; /* Pushes the link to the bottom */
+    flex-grow: 1; 
 }
 
 .card-link {
@@ -616,37 +698,37 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Stagger delays for the cards so they pop up one by one */
+
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.3s; }
 .delay-3 { transition-delay: 0.5s; }
 
-/* The class added by JavaScript when element is in view */
+
 .reveal-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 @media screen and (max-width: 768px) {
-    /* 1. Ensure the container has consistent horizontal breathing room */
+   
     .infra-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 20px !important;
-        /* Force padding on the container so cards never touch the edges */
+       
         padding: 0 1px !important; 
     }
 
-    /* 2. Style the cards to respect the container padding */
+ 
     .infra-card {
         width: 100% !important;
-        /* Ensure the card content doesn't hit the card edge */
+       
         padding: 20px 20px !important; 
         box-sizing: border-box !important;
-        margin: 0 auto !important; /* Forces the card to center within the grid */
+        margin: 0 auto !important;
     }
 
-    /* 3. Ensure the parent section doesn't override these margins */
+   
     .infra-container {
         padding: 0 !important;
         margin: 0 auto !important;
@@ -662,16 +744,16 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     font-family: 'Inter', sans-serif;
     color: #0F172A;
     background-color: transparent;
-    z-index: 1; /* Ensures it sits properly on the page */
+    z-index: 1;
 }
 
-/* Base reset ONLY for this section so it doesn't break */
+
 .solutions-every-scale * {
     box-sizing: border-box;
 }
 
 .ses-container {
-    max-width: 1300px; /* User requested width */
+    max-width: 1300px; 
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
@@ -681,16 +763,15 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .ses-bg-glow {
     position: absolute;
     width: 120%;
-    height: 65%; /* Covers the bottom portion of the section */
-    bottom: 0; /* Changed from 20px to 0 to remove the gap */
+    height: 65%; 
+    bottom: 0; 
     left: 0;
     
-    /* Smooth, wide frosted-blue fade moving from bottom to top */
     background: linear-gradient(
         to top, 
-        rgba(214, 240, 253, 0.675) 0%,   /* Stronger blue at the very bottom */
-        rgba(212, 239, 244, 0.082) 45%,   /* Fades to lighter blue in the middle */
-        transparent 100%                /* Completely transparent at the top */
+        rgba(214, 240, 253, 0.675) 0%,   
+        rgba(212, 239, 244, 0.082) 45%,   
+        transparent 100%          
     );
     
     z-index: -1;
@@ -739,7 +820,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-radius: 20px;
-    overflow: hidden; /* Clips the child columns so outer corners are round */
+    overflow: hidden; 
     box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.08);
     background-color: #FFFFFF;
 }
@@ -897,15 +978,15 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     .solutions-every-scale { padding: 80px 0; }
     .ses-title { font-size: 2rem; }
     .ses-grid { grid-template-columns: 1fr; }
-    .ses-curve-arrow { display: none; /* Hide arrow on mobile to prevent overflow/overlap issues */ }
+    .ses-curve-arrow { display: none; }
 }
 
 
-/* Custom Image Icon for the Badge */
+
 .fb-badge-icon {
     width: 14px;
     height: 14px;
-    object-fit: contain; /* Prevents the image from stretching */
+    object-fit: contain; 
 }
 /* ================= ISOLATED FEATURES BENTO SECTION ================= */
 
@@ -922,7 +1003,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .fb-container {
-    max-width: 1200px; /* Updated to 1300px per your request */
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -970,12 +1051,12 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* --- Bento Grid Layout --- */
 .fb-bento-grid {
     display: grid;
-    /* Ratio roughly 40% left, 60% right */
+    
     grid-template-columns: 4fr 6fr;
     gap: 30px;
 }
 
-/* --- Base Card Styles --- */
+
 .fb-card {
     position: relative;
     border-radius: 24px;
@@ -998,10 +1079,18 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .fb-card-content h3 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: #0F172A;
-    margin: 0 0 15px 0;
+    margin: 0 0 5px 0; /* Reduced to pull the h4 closer */
     font-weight: 600;
+}
+
+.fb-card-content h4 {
+    font-size: 1.1rem;
+    color: #0066FF; /* Vibrant, attractive blue */
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    letter-spacing: -0.3px;
 }
 
 .fb-card-content p {
@@ -1012,7 +1101,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     max-width: 400px;
 }
 
-/* --- Positioning for your actual images --- */
+
 .fb-feature-img {
     position: absolute;
     z-index: 2;
@@ -1024,33 +1113,38 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .fb-card-left {
     background: linear-gradient(135deg, #BDE3FF 0%, #B8F2E6 100%);
     flex-direction: column;
-    justify-content: flex-end; /* Text at the bottom */
+    justify-content: flex-end; 
 }
 
 .fb-chat-img {
-    top: 25%;
-    left: 10%;
-    width: 80%; /* Scales your image nicely inside the card */
-    height: auto;
+    top: 30px;        /* Pinned to the top */
+    right: 50px;      /* Pinned to the right */
+    left: auto;       /* Removes your old left positioning */
+    width: 80%;       /* Keeps it out of the text's way */
 }
 
-/* Right Card: Connects Instantly */
+.fb-card-left .fb-card-content {
+    max-width: 80%;   /* Gives the text more room to breathe at the bottom */
+}
+
+
 .fb-card-right {
-     background: linear-gradient(135deg, #d0f8f3 0%, #E2F2EF 100%);
-    justify-content: flex-end; /* Pushes content to the right */
+    /* Updated to the new soft Light Mint fading to Light Blue */
+    background: linear-gradient(135deg, #e2f6f3 0%, #bdd5f8 100%);
+    justify-content: flex-end; 
     align-items: center;
 }
-
 .fb-text-right {
     text-align: right;
-    width: 50%; /* Constrain text so it doesn't overlap dashboard */
+    width: 50%; 
 }
 
 .fb-dashboard-img {
-    bottom: -2%; /* Pulls the image down so it cuts off at the bottom edge */
-    left: 0.5%;    /* Pulls it slightly left */
-    width: 49%;   /* Controls the size */
+    bottom: -1px;
+    left: 0.5%;    
+    width: 49%;  
     height: auto;
+    border-radius: 15px;
 }
 
 
@@ -1087,14 +1181,14 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 @media (max-width: 992px) {
     .fb-title { font-size: 2.2rem; }
     
-    /* Stack grid on smaller screens */
+    
     .fb-bento-grid { grid-template-columns: 1fr; }
     
     .fb-card-right {
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-start;
-        padding-top: 250px; /* Make room for your dashboard image above text */
+        padding-top: 250px; 
     }
     
     .fb-text-right {
@@ -1139,7 +1233,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 
 /* Base adjustment for new cards */
 .fb-card-tall {
-    background: linear-gradient(135deg, #E6FBF9 0%, #D8F5F2 100%);
+    background: linear-gradient(135deg, #cbe0ff 0%, #bcf0e4 100%);
     min-height: 600px;
 }
 
@@ -1150,29 +1244,41 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .fb-card-trends {
-    background: linear-gradient(135deg, #d0f8f3 0%, #E2F2EF 100%);
+    background: linear-gradient(135deg, #e2f6f3 0%, #bdd5f8 100%);
     justify-content: flex-start;
 }
 
 .fb-card-compliance {
     background: linear-gradient(135deg, #D5E5FD 0%, #B7D2F8 100%);
-    justify-content: flex-end; /* Text at bottom */
-    align-items: flex-end;     /* Text on right */
+    justify-content: flex-end; 
+    align-items: flex-end;     
 }
 
 /* --- Image Positioning for Cards 3 & 4 --- */
+.fb-card-tall .fb-card-content,
+.fb-card-tall .fb-card-content p {
+    max-width: 100%; 
+}
+
+/* Ensure the image sits perfectly at the bottom center */
 .fb-intel-img {
-    bottom: 2%;
-    left: 5%;
-    width: 80%;
+    bottom: 6%; /* Let it sink slightly off the bottom edge */
+    left: 3%;
+    transform: translateX(-50%); /* Perfect centering */
+    width: 90%;
+}
+/* Restrict the text to the left side */
+.fb-card-trends .fb-card-content {
+    max-width: 55%; 
 }
 
+/* Restrict the image to the right side */
 .fb-trends-img {
-    top: 23%;
-    right: 1%;
-    width: 42%;
+    bottom: -2px;
+    right: 0%;
+    width: 40%; 
+    border-radius: 15px;
 }
-
 
 
 /* Card Background */
@@ -1190,7 +1296,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     margin-top: 120px; 
 }
 
-/* 2. Lock the orbit system behind the text */
+
 .fb-orbit-system {
     position: absolute;
     top: 0;
@@ -1223,7 +1329,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     top: 0; left: 0;
     display: block;
 }
-/* 3. Ring sizes scaled to fit perfectly while keeping Ring 1 safe */
+
 .fb-ring-1 { width: 800px; height: 800px; }   
 .fb-ring-2 { width: 1020px; height: 1020px; } 
 .fb-ring-3 { width: 1240px; height: 1240px; } 
@@ -1273,20 +1379,18 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* --- FASTER Swing Animations --- */
 
 
-/* Inner Arc (KPI) - Fastest */
+
 .fb-speed-1 { animation-name: fb-swing-1; animation-duration: 7s; }
 .fb-speed-1 .fb-planet { animation-name: fb-counter-swing-1; animation-duration: 7s; }
 
-/* Middle Arc (ESG) - Medium */
 .fb-speed-2 { animation-name: fb-swing-2; animation-duration: 9s; }
 .fb-speed-2 .fb-planet { animation-name: fb-counter-swing-2; animation-duration: 9s; }
 
-/* Outer Arc (KRA) - Slower to cover more distance organically */
 .fb-speed-3 { animation-name: fb-swing-3; animation-duration: 11s; }
 .fb-speed-3 .fb-planet { animation-name: fb-counter-swing-3; animation-duration: 11s; }
 
 
-/* Orbit Keyframes - Swings them between the top edge and left edge of the card */
+
 @keyframes fb-swing-1 {
     from { transform: rotate(-80deg); } 
     to { transform: rotate(-10deg); }  
@@ -1300,7 +1404,6 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     to { transform: rotate(-15deg); }
 }
 
-/* Counter-Rotation Keyframes - Perfectly inversed to keep text upright */
 @keyframes fb-counter-swing-1 {
     from { transform: rotate(80deg); }
     to { transform: rotate(10deg); }
@@ -1314,6 +1417,87 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     to { transform: rotate(15deg); }
 }
 
+.fb-bento-grid-extra {
+    display: grid;
+    /* Changed from 1fr 1fr to 6fr 4fr to perfectly mirror the top row! */
+    grid-template-columns: 5.5fr 4.5fr; 
+    gap: 30px;
+    margin-top: 30px; 
+}
+/* ================= EXTRA BOTTOM CARDS (CARDS 6 & 7) ================= */
+
+.fb-card-new {
+    display: flex;
+    flex-direction: row-reverse; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 40px;
+    min-height: 320px;
+}
+
+
+.fb-card-new:nth-child(1) {
+    background: linear-gradient(135deg, #e2f6f3 0%, #bdd5f8 100%);
+}
+
+
+.fb-card-new:nth-child(2) {
+    background: linear-gradient(135deg, #cbe0ff 0%, #bcf0e4 100%);
+}
+
+.fb-card-new h4 {
+    color: #0066FF; 
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* --- Text Container (Left Side) --- */
+.fb-card-new .fb-text-safe {
+    width: 50%; 
+    text-align: left;
+    position: relative;
+    z-index: 2;
+    margin: 0; 
+}
+
+.fb-card-new .fb-feature-img {
+    position: relative;
+    width: 49%; 
+    max-height: 230px; 
+    object-fit: contain; 
+    margin: auto 0; 
+    z-index: 2;
+
+    bottom: auto; 
+    right: auto; 
+    left: auto;
+    top: auto;
+}
+
+/* --- Responsive Adjustments for Mobile --- */
+@media (max-width: 992px) {
+    .fb-bento-grid-extra {
+        grid-template-columns: 1fr; 
+    }
+    
+    .fb-card-new {
+        flex-direction: column-reverse; 
+        padding: 40px 25px;
+    }
+    
+    .fb-card-new .fb-text-safe {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px; 
+    }
+    
+    .fb-card-new .fb-feature-img {
+        width: 80%; 
+        max-height: 250px;
+        margin: 0 auto; 
+    }
+}
 
 
 /* .fb-section {
@@ -1328,17 +1512,17 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     padding: 0 15px;
 }
 
-/* --- Subtle Repeating Grid Background Overlay --- */
+
 .grid-background-overlay {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    /* PLACE YOUR GRID PATTERN IMAGE HERE */
+    
     background-image: url('/assest/images/whatwedogrid.png');
     background-repeat: repeat;
     background-size: 50px 50px;
-    opacity: 0.15; /* Subtlety is key */
+    opacity: 0.15; 
     z-index: 1;
     pointer-events: none;
 }
@@ -1347,7 +1531,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .content-wrapper {
     display: flex;
     position: relative;
-    z-index: 2; /* Sits above the grid */
+    z-index: 2; 
     gap: 70px;
 }
 
@@ -1355,23 +1539,22 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* ================= STICKY LEFT COLUMN STYLES ================= */
 
 
-/* 1. Remove ANY overflow hiding from the main section */
 .what-we-do-section, .fb-section {
     padding: 90px 0;
     position: relative;
-    overflow: visible !important; /* CRITICAL: overflow: hidden breaks sticky */
+    overflow: visible !important; 
 }
 
-/* 2. The flex container MUST stretch its children */
+
 .content-wrapper {
     display: flex !important;
-    align-items: stretch !important; /* CRITICAL: Gives the left column a tall track */
+    align-items: stretch !important; 
     position: relative;
     z-index: 2;
     gap: 70px;
 }
 
-/* 3. The Left Column Wrapper acts as the physical track */
+
 .sticky-column-wrapper {
     flex: 1.1;
     position: relative;
@@ -1389,19 +1572,19 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 
-/* --- New: Left Grid Background Image --- */
+
 .left-grid-image {
     position: absolute;
     top: -80px;
     left: -100px;
-    width: 90%; /* Scale it behind the text */
+    width: 90%;
     height: auto;
-    opacity: 0.6; /* Adjust visibility of the grid */
+    opacity: 0.6;
     z-index: -2;
     pointer-events: none;
 }
 
-/* --- New: Card Grid Background Image --- */
+
 .card-grid-bg {
     position: absolute;
     top: 0;
@@ -1409,14 +1592,14 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     width: 100%;
     height: 100%;
     object-fit: contain;
-    opacity: 0.15; /* Subtle grid overlay on the blue card */
+    opacity: 0.15; 
     mix-blend-mode: overlay; 
     z-index: 0;
     pointer-events: none;
 
 }
 
-/* Ensure card contents stay above the new background image */
+
 .card-number-bg {
     z-index: 1;
 }
@@ -1424,7 +1607,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     z-index: 2;
 }
 
-/* --- Left Side Soft Greenish Glow Layer --- */
+
 .left-glow-layer {
     position: absolute;
     width: 600px;
@@ -1433,7 +1616,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     left: -350px;
     background: radial-gradient(circle at center, rgba(146, 205, 143, 0.15) 0%, rgba(0, 102, 255, 0.05) 30%, transparent 70%);
     filter: blur(80px);
-    z-index: -1; /* Behind content */
+    z-index: -1; 
     pointer-events: none;
 }
 
@@ -1442,7 +1625,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background-color: #4A7AFA; /* Exact badge blue */
+    background-color: #4A7AFA; 
     color: white;
     padding: 8px 18px;
     border-radius: 50px;
@@ -1500,12 +1683,12 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .status-top {
-    background-color: #dedede; /* Soft Greenish background */
+    background-color: #dedede; 
     color: #163465;
 }
 
 .status-bottom {
-    background-color: #FFFFFF; /* Pure White background */
+    background-color: #FFFFFF;
     color: var(--text-main);
     border: 1px solid rgba(0,0,0,0.06);
     box-shadow: 0 5px 15px rgba(0,0,0,0.03);
@@ -1513,7 +1696,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 
 /* ================= SCROLLABLE RIGHT COLUMN STYLES ================= */
 .scrollable-column-wrapper {
-    flex: 1; /* Scrollable right side */
+    flex: 1; 
     position: relative;
 }
 
@@ -1529,20 +1712,18 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     border-radius: 30px;
     padding: 60px;
     overflow: hidden;
-    /* Specific Gradient Background (Medium Blue to Deep Dark Blue) */
+  
     background: linear-gradient(135deg, #1D4ED8 0%, #0F172A 100%);
     box-shadow: 0 30px 60px rgba(158, 221, 253, 0.19);
     color: white;
     min-height: 380px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Text at bottom */
-    
-    /* Modern transition for hover dynamism */
+    justify-content: flex-end; 
+   
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
 }
 
-/* Subtle Interactive hover effect (no JS required) */
 .feature-card:hover {
     transform: translateY(-8px) scale(1.01);
     box-shadow: 0 40px 70px rgba(0, 102, 255, 0.15);
@@ -1557,14 +1738,14 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     font-weight: 800;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.39); /* Faded white outline */
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.39); 
     z-index: 1;
     pointer-events: none;
 }
 
 .card-content {
     position: relative;
-    z-index: 2; /* Text above number */
+    z-index: 2; 
     max-width: 90%;
 }
 
@@ -1582,7 +1763,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     margin: 0;
 }
 
-/* Optional Spacing at the very bottom */
+
 .scroll-spacer {
     height: 150px;
 }
@@ -1605,29 +1786,29 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .staggered-3 { transition-delay: 0.5s; }
 
 @media screen and (max-width: 768px) {
-    /* 1. Global Reset for this section */
+    
     .fb-section {
         padding: 30px 5px !important;
         overflow: hidden !important;
     }
 
-    /* 2. Grid Fix: Force a clean vertical stack */
+    
     .fb-bento-grid, .fb-bento-grid-bottom {
         display: flex !important;
         flex-direction: column !important;
-        gap: 25px !important; /* Forces a uniform gap between all cards */
+        gap: 25px !important; 
         align-items: center !important;
         width: 100% !important;
     }
 
-    /* 3. Uniform Card Fix */
+   
     .fb-card {
         position: relative !important;
         width: 100% !important;
-        max-width: 320px !important; /* Ensures it fits perfectly on mobile */
+        max-width: 320px !important;
         min-height: 400px !important;
         padding: 20px !important;
-        margin: 0 !important; /* Removes offsetting margins */
+        margin: 0 !important; 
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
@@ -1636,7 +1817,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
         box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
     }
 
-    /* 4. Image Fix: Relative positioning inside the card */
+   
     .fb-feature-img, .fb-dashboard-img, .fb-chat-img, .fb-intel-img, .fb-trends-img {
         position: relative !important;
         top: -10px !important;
@@ -1645,8 +1826,8 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
         right: auto !important;
         width: 100% !important;
         max-width: 250px !important;
-        margin: 60px auto !important; /* Perfectly centers the image */
-        order: -1 !important; /* Pushes image to the top of the card */
+        margin: 60px auto !important; 
+        order: -1 !important; 
     }
 
     /* 5. Typography Alignment */
@@ -1669,11 +1850,11 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
        .fb-planet {
         animation-play-state: running !important;
         will-change: transform !important;
-        /* Ensure the orbit isn't 'frozen' by a parent overflow */
+        
         backface-visibility: hidden !important; 
     }
 
-    /* Ensure the wrapper is visible and positioned for animation */
+    
     .fb-planet-wrapper {
         display: block !important;
         animation-play-state: running !important;
@@ -1693,7 +1874,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* ================= RESPONSIVE ADJUSTMENTS ================= */
 @media (max-width: 1024px) {
     .content-wrapper {
-        flex-direction: column; /* Stack columns on smaller screens */
+        flex-direction: column; 
         gap: 20px;
     }
     
@@ -1703,7 +1884,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     }
     
     .sticky-content {
-        position: relative; /* Not sticky on mobile */
+        position: relative; 
         top: 0;
         padding-right: 0;
         text-align: center;
@@ -1739,7 +1920,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     position: relative;
     width: 100%;
     overflow: hidden; 
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
     font-family: inherit;
     color: #111827;
 }
@@ -1747,7 +1928,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* --- Header Styles --- */
 .clariti-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .clariti-badge-top {
@@ -1790,11 +1971,11 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     width: 100%;
     position: relative;
     padding: 4rem 1rem; 
-    /* Horizontal scrolling removed! */
+    
 }
 
 .clariti-grid {
-    /* Switched to Flexbox to handle the mathematical overlap perfectly */
+    
     display: flex; 
     width: 100%;
     max-width: 1400px; 
@@ -1810,16 +1991,15 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     align-items: flex-start; 
     position: relative;
     
-    /* Lock the column to exactly 300px */
     width: 300px; 
-    flex-shrink: 0; /* Prevents the browser from squishing the cards */
+    flex-shrink: 0; 
 }
 
 .clariti-col:not(:last-child) {
     margin-right: calc((100% - 1500px) / 4);
 }
 
-/* 270px margin creates the tall vertical lines */
+
 .clariti-col.bottom { margin-top: 270px; }
 .clariti-col.top { margin-bottom: 270px; }
 
@@ -1853,7 +2033,6 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     height: 73px;
     background: white;
     
-    /* Default Colors (Not Hovered) */
     border: 2px solid #E2E8F0;
     color: #4B5563;
     box-shadow: none;
@@ -1891,8 +2070,6 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     background: linear-gradient(135deg, #CDE4FE 0%, #A9CFF7 100%);
     border-radius: 12px;
     padding: 1.5rem;
-    
-    /* Locked to exactly 300px */
     width: 300px; 
     height: 100%;
     min-height: 150px;
@@ -1925,38 +2102,38 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 @media (max-width: 768px) {
-    /* 1. Ensure the timeline section itself is fluid */
+  
     .clariti-timeline-wrapper {
         padding-left: 2rem !important;
         border-left: 2px dashed #CBD5E1 !important;
         margin-left: 1rem !important;
     }
 
-    /* 2. The Column: Use Flex Row to keep badge and card side-by-side */
+    
     .clariti-col {
         display: flex !important;
         flex-direction: row !important;
-        align-items: flex-start !important; /* Aligns badge to top of card */
+        align-items: flex-start !important; 
         width: 100% !important;
         margin-bottom: 2rem !important;
         position: relative !important;
     }
 
-    /* 3. The Number Badge: Relative positioning keeps it locked to the line */
+    
     .clariti-num-badge {
         position: relative !important;
-        left: -48px !important; /* Aligns with the dashed border */
-        margin-right: -30px !important; /* Pulls the card closer to the number */
+        left: -48px !important; 
+        margin-right: -30px !important; 
         flex-shrink: 0 !important;
         width: 44px !important;
         height: 44px !important;
         font-size: 1rem !important;
     }
 
-    /* 4. The Card: Ensure it has no margin-left that pushes it away */
+    
     .clariti-card {
         width: 100% !important;
-        margin-left: 0 !important; /* Reset margin */
+        margin-left: 0 !important; 
         padding: 1rem !important;
     }
 }
@@ -1972,7 +2149,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     .clariti-col {
         width: 100%;
     }
-    /* Reset the magic overlap math for mobile */
+    
     .clariti-col:not(:last-child) {
         margin-right: 0;
     }
@@ -1997,6 +2174,373 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
         border-left: 2px dashed #CBD5E1;
     }
 }
+
+
+
+/* ================= PLANS & DEPLOYMENT SECTION ================= */
+.plans-section {
+    padding: 40px 0;
+    background-color: #f8fafc; /* Slight off-white background to make white cards pop */
+}
+
+.plans-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.plans-header .tag {
+    display: inline-block;
+    background: #4A7AFA;
+    color: #f8faff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.plans-header h2 {
+    font-size: 2.3rem;
+    color: #0f172a;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.plans-header p {
+    color: #475569;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* --- Pricing Grid (Fixed Width & Centered) --- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+    max-width: 1150px; 
+    margin: 0 auto 60px auto;
+    align-items: center; 
+}
+
+/* Base Card Styling */
+.pricing-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 40px 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover Animation */
+.pricing-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+    border-color: #bfdbfe;
+}
+
+
+.popular-card {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    border: none;
+    transform: scale(1.05); 
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+    padding: 55px 35px; 
+    z-index: 2;
+    color: #ffffff;
+}
+
+.popular-card:hover {
+    transform: scale(1.05) translateY(-12px);
+    box-shadow: 0 30px 60px rgba(37, 99, 235, 0.35);
+}
+
+/* Animated Badge */
+.popular-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #f59e0b, #f97316); 
+    color: #ffffff;
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    animation: pulse-badge 2s infinite; /* Adds a breathing animation */
+}
+
+@keyframes pulse-badge {
+    0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+/* Fix text colors inside the blue card */
+.popular-card h3, 
+.popular-card .price {
+    color: #ffffff !important;
+}
+
+.popular-card .plan-desc, 
+.popular-card .period, 
+.popular-card .plan-features li {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.popular-card .plan-features svg {
+    color: #93c5fd; 
+}
+
+/* --- Typography & Layout --- */
+.card-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    padding-bottom: 30px;
+}
+
+.card-header h3 {
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.plan-desc {
+    font-size: 0.95rem;
+    color: #475569;
+    min-height: 45px; 
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.price {
+    color: #0f172a;
+    display: flex;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+.price .currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.price .amount {
+    font-size: 2.6rem; 
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.price .custom-price {
+    font-size: 2.3rem;
+}
+
+.price .period {
+    color: #64748b;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    flex-grow: 1;
+}
+
+.plan-features li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+    color: #475569;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.plan-features svg {
+    width: 22px;
+    height: 22px;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+/* --- Buttons --- */
+.btn-plan {
+    display: block;
+    text-align: center;
+    padding: 16px 0;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Side Card Buttons */
+.btn-outline {
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.btn-outline:hover {
+    background: #eff6ff;
+    transform: translateY(-2px);
+}
+
+/* Middle Card Button */
+.popular-card .btn-filled {
+    background: #ffffff;
+    color: #1e40af;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.popular-card .btn-filled:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Deployment Options (Sleek, Centered, & Compact) --- */
+.deployment-box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: transparent; 
+    border: none; 
+    box-shadow: none; 
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+}
+
+.deploy-text h3 {
+    font-size: 1.4rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.deploy-text p {
+    color: #475569;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.deploy-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Keeps them neat if the screen gets small */
+}
+
+/* Modern Hover Pills */
+.deploy-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 12px 28px;
+    border-radius: 50px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #0f172a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.deploy-item svg {
+    width: 20px;
+    height: 20px;
+    color: #64748b; /* Neutral icon color */
+    transition: color 0.3s ease;
+}
+
+/* Attractive Animated Hover Effect */
+.deploy-item:hover {
+    transform: translateY(-4px) scale(1.02); 
+    border-color: #2563eb;
+    color: #2563eb; 
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.12);
+}
+
+.deploy-item:hover svg {
+    color: #2563eb; 
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+    
+    .popular-card {
+        transform: scale(1);
+    }
+    
+    .popular-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .pricing-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .deploy-options {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .deploy-item {
+        justify-content: center;
+    }
+}
+
+/* ================= SCROLL REVEAL ANIMATIONS ================= */
+/* Elements start hidden and pushed down */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* The Javascript adds this class when you scroll to them */
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays so they pop up one by one (1, 2, 3...) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.25s; }
+.delay-3 { transition-delay: 0.4s; }
+.delay-4 { transition-delay: 0.55s; }
 
 /* --- Base Scoping --- */
 .sp-section, .sp-section * {
@@ -2070,10 +2614,10 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 /* --- Testimonials Viewport & Track --- */
 .sp-testimonials-viewport {
     position: relative;
-    height: 400px; /* Fixed height to allow hiding the scrolling overflow */
+    height: 400px; 
     overflow: hidden;
     padding-left: 2.5rem; 
-    /* Creates a beautiful fade-out at the very bottom */
+    
     mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
 }
@@ -2098,7 +2642,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     position: relative;
     margin-bottom: 3.5rem;
     z-index: 2;
-    flex-shrink: 0; /* Prevents text from squishing during scroll */
+    flex-shrink: 0;
 }
 
 .sp-quote-icon {
@@ -2198,7 +2742,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     text-transform: uppercase;
 }
 
-/* Dynamic Animation Classes for Right Side Swap */
+
 .sp-animatable {
     transition: opacity 0.4s ease, transform 0.4s ease;
     opacity: 1;
@@ -2220,7 +2764,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     .sp-container { flex-direction: column; gap: 5rem; }
     .sp-left { max-width: 100%; }
     .sp-right { justify-content: center; width: 100%; }
-    .sp-testimonials-viewport { height: 300px; } /* Slightly shorter on tablet */
+    .sp-testimonials-viewport { height: 300px; } 
 }
 
 @media (max-width: 768px) {
@@ -2231,12 +2775,11 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 
-/* --- Cleanly Scoped CSS (cl- namespace) --- */
 
 .cl-section-wrapper {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #e3ecfa;
-    background-color: #f7fbfde4; /* Very light blue background to match the image */
+    background-color: #f7fbfde4; 
     line-height: 1.5;
     box-sizing: border-box;
     position: relative;
@@ -2258,7 +2801,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 
 .cl-cta-card {
     position: relative;
-    /* Deep blue exactly matching the screenshot */
+    
     background-color: #0F4A9E; 
     border-radius: 36px;
     padding: 70px 40px;
@@ -2299,7 +2842,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 }
 
 .cl-stars {
-    color: #417BDB; /* Blue stars matching the screenshot */
+    color: #417BDB; 
     letter-spacing: 2px;
     font-size: 1rem;
 }
@@ -2363,7 +2906,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .cl-footer {
     position: relative;
     background-color: #F8FAFC;
-    /* Updated background implementation so grid displays properly */
+   
     background-image: url('/assest/images/footergrid.png'); 
     background-size: contain;
     background-position: center top;
@@ -2377,10 +2920,10 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
 .cl-footer::before {
     content: '';
     position: absolute;
-    top: -1px; /* Overlaps the grey border seamlessly */
+    top: -1px; 
     left: 50%;
-    transform: translateX(-50%); /* This perfectly centers it */
-    width: 1250px; /* Width of the blue line */
+    transform: translateX(-50%); 
+    width: 1250px;
     height: 2px;
     background-color: #5d8bf0ec; 
     z-index: 2;
@@ -2414,8 +2957,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     line-height: 1.6;
 }
 
-/* --- Beautiful Social Link Hovers --- */
-/* --- Beautiful Social Link Hovers (FIXED FOR COLORED ICONS) --- */
+
 .cl-social-links {
     display: flex;
     gap: 12px;
@@ -2428,7 +2970,7 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background-color: #DBEAFE; /* Light blue base */
+    background-color: #DBEAFE;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     text-decoration: none;
 }
@@ -2440,24 +2982,17 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     transition: transform 0.3s ease;
 }
 
-/* On hover: Float up, add a soft glow, and change circle to white so colored icons pop */
 .cl-social-icon:hover {
     background-color: #ffffff; 
     transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 10px 15px rgba(26, 86, 219, 0.15); /* Soft blue shadow */
+    box-shadow: 0 10px 15px rgba(26, 86, 219, 0.15); 
 }
 
-/* Optional: Gives the icon itself a tiny bounce on hover */
+
 .cl-social-icon:hover img {
     transform: scale(1.1);
 }
 
-/* Note: I removed the "filter: brightness(0)" rule that was causing the white blobs! */
-
-/* On hover: turn the dark icon image pure white */
-/* .cl-social-icon:hover img {
-    filter: brightness(0) invert(1);
-} */
 
 /* Link Columns */
 .cl-footer-title {

@@ -1260,22 +1260,22 @@ nav a:hover, nav a.active { color: var(--primary-blue); }
     max-width: 100%; 
 }
 
-/* Ensure the image sits perfectly at the bottom center */
+
 .fb-intel-img {
-    bottom: 6%; /* Let it sink slightly off the bottom edge */
+    bottom: 6%;
     left: 3%;
-    transform: translateX(-50%); /* Perfect centering */
+    transform: translateX(-50%); 
     width: 90%;
 }
-/* Restrict the text to the left side */
+
 .fb-card-trends .fb-card-content {
     max-width: 55%; 
 }
 
-/* Restrict the image to the right side */
+
 .fb-trends-img {
     bottom: -2px;
-    right: 0%;
+    right: 0.5%;
     width: 40%; 
     border-radius: 15px;
 }
